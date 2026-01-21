@@ -8,37 +8,37 @@ export const SKILLS_DATA: (SkillCategory & { icon: React.ReactNode, description:
     title: "Mobile Development",
     icon: <Smartphone size={24} />,
     description: "Architecting high-performance cross-platform applications with a single codebase.",
-    skills: ["Flutter", "Dart", "Android SDK", "iOS Deployment", "Native Bridge Integration", "Provider/Riverpod State Management"]
+    skills: ["Flutter", "Dart", "React Native", "Kotlin", "Swift", "Provider/Riverpod State Management"]
   },
   {
     title: "Frontend Engineering",
     icon: <Globe size={24} />,
     description: "Building immersive, lightning-fast user interfaces with pixel-perfect precision.",
-    skills: ["React.js", "TypeScript", "Tailwind CSS", "GSAP Animations", "Next.js", "Responsive Architecture", "Redux/Zustand"]
+    skills: ["React.js", "Next.js 14", "TypeScript", "Tailwind CSS", "SASS", "Redux/Zustand"]
   },
   {
     title: "AI & Machine Learning",
     icon: <Brain size={24} />,
     description: "Integrating intelligent decision-making and computer vision into modern software.",
-    skills: ["Python", "TensorFlow", "OpenCV", "MediaPipe", "Reinforcement Learning (DQN)", "Scikit-learn"]
+    skills: ["Python", "TensorFlow", "PyTorch", "OpenCV", "NLP", "Scikit-learn"]
   },
   {
     title: "Backend & Systems",
     icon: <Shield size={24} />,
     description: "Designing robust, secure server-side logic and scalable microservices.",
-    skills: ["Node.js", "Flask", "Express.js", "RESTful API Design", "JWT Authentication", "System Security Auditing"]
+    skills: ["Node.js", "Express.js", "NestJS", "FastAPI", "GraphQL", "REST APIs"]
   },
   {
-    title: "Real-Time & Sync",
+    title: "Cloud & DevOps",
     icon: <Zap size={24} />,
-    description: "Powering live interactions and synchronized state across global users.",
-    skills: ["Socket.IO", "WebRTC", "Firebase Realtime", "MQTT Protocol", "Bi-directional Data Streams"]
+    description: "Deploying and managing scalable infrastructure in the cloud.",
+    skills: ["AWS", "GCP", "Docker", "Kubernetes", "GitHub Actions", "Nginx"]
   },
   {
     title: "Database & Performance",
     icon: <Database size={24} />,
     description: "Optimizing data storage and retrieval for maximum throughput and reliability.",
-    skills: ["MySQL / PostgreSQL", "Database Design", "Query Optimization", "Redis Caching", "Lazy Loading", "CDN Implementation"]
+    skills: ["PostgreSQL", "MongoDB", "Redis", "Prisma ORM", "Query Optimization", "Database Design"]
   }
 ];
 
@@ -74,6 +74,19 @@ export const SERVICES_DATA: (Service & { icon: React.ReactNode })[] = [
 ];
 
 export const PROJECTS_DATA: Project[] = [
+  {
+    id: 'project-0',
+    slug: 'forgestack-os-cli',
+    title: 'ForgeStack OS CLI',
+    category: 'Developer Tools',
+    imageUrl: 'https://i.postimg.cc/HxyLjf4n/image.png',
+    description: 'ForgeStack OS is a next-generation CLI tool that generates full-stack SaaS applications with a single command. Supports 150+ stack combinations with production-ready code.',
+    problem: 'Setting up a full-stack project with authentication, database, and multi-tenancy is time-consuming and error-prone.',
+    solution: 'Built a powerful CLI using TypeScript and Node.js that generates complete full-stack applications with React/Next.js frontends, Express/NestJS backends, multiple auth providers (Clerk, Supabase, JWT), and database configurations with Docker support.',
+    role: 'Platform Engineer',
+    techStack: ['TypeScript', 'Node.js', 'React', 'Next.js', 'NestJS', 'Prisma', 'Docker'],
+    repoUrl: 'https://forgestackcli.vercel.app/'
+  },
   {
     id: 'project-1',
     slug: 'anonchat-live',

@@ -96,25 +96,25 @@ const Skills: React.FC = () => {
                 The <span className="text-[#00ff66]">Full-Stack</span> Frontier
               </h3>
               <p className="text-gray-400 text-lg leading-relaxed">
-                I don't just build interfaces; I engineer <span className="text-white font-medium">unified digital platforms</span>. My expertise spans the entire development lifecycle, combining advanced <span className="text-white">Flutter mobile apps</span> with high-concurrency <span className="text-white">Node.js/React</span> backends and intelligent <span className="text-white">AI-driven</span> logic.
+                I don't just build interfaces; I engineer <span className="text-white font-medium">unified digital platforms</span>. My expertise spans the entire development lifecycle, combining advanced <span className="text-white">Flutter mobile apps</span> with high-concurrency <span className="text-white">Node.js/React</span> backends, <span className="text-white">Cloud & DevOps</span> infrastructure, and intelligent <span className="text-white">AI-driven</span> logic.
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
                    <h4 className="text-[#00ff66] font-tech text-xs uppercase tracking-widest mb-4">Core Tech Stack</h4>
                    <ul className="text-gray-500 text-sm space-y-2">
-                      <li>• Mobile: Flutter & Dart</li>
-                      <li>• Frontend: React & Next.js</li>
-                      <li>• Backend: Node.js & Flask</li>
-                      <li>• State: Redux & Riverpod</li>
+                      <li>• Mobile: Flutter & React Native</li>
+                      <li>• Frontend: React & Next.js 14</li>
+                      <li>• Backend: Node.js, NestJS, FastAPI</li>
+                      <li>• State: Redux, Riverpod, Zustand</li>
                    </ul>
                 </div>
                 <div>
-                   <h4 className="text-[#00ff66] font-tech text-xs uppercase tracking-widest mb-4">System Logistics</h4>
+                   <h4 className="text-[#00ff66] font-tech text-xs uppercase tracking-widest mb-4">Infrastructure</h4>
                    <ul className="text-gray-500 text-sm space-y-2">
-                      <li>• Database Design (SQL/NoSQL)</li>
-                      <li>• CI/CD Pipeline Engineering</li>
-                      <li>• Cloud Deployment (AWS/Vercel)</li>
-                      <li>• REST & GraphQL Architectures</li>
+                      <li>• Cloud: AWS, GCP, Vercel</li>
+                      <li>• Containers: Docker, Kubernetes</li>
+                      <li>• Database: PostgreSQL, MongoDB</li>
+                      <li>• CI/CD: GitHub Actions, Nginx</li>
                    </ul>
                 </div>
               </div>
