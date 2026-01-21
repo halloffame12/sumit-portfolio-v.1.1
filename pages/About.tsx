@@ -69,7 +69,7 @@ const About: React.FC = () => {
               </h3>
               <div className="space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed">
                 <p>
-                  As a <span className="text-white font-semibold">BS-MS student at IIT Patna</span> in Computer Science and Data Analytics (2024-2028), I bridge the gap between deterministic logic and probabilistic learning. My current focus lies in building <span className="text-[#00ff66]">ForgeStack OS</span> - a next-gen CLI for full-stack SaaS generation, while diving deep into <span className="text-[#00ff66]">ML/DL/NLP</span> research.
+                  As a <span className="text-white font-semibold">BS-MS student at IIT Patna</span> in Computer Science and Data Analytics, I bridge the gap between deterministic logic and probabilistic learning. My current focus lies in building <span className="text-[#00ff66]">ForgeStack OS</span> - a next-gen CLI for full-stack SaaS generation, while diving deep into <span className="text-[#00ff66]">ML/DL/NLP</span> research.
                 </p>
                 <p>
                   I don't just write code; I design <span className="text-white font-medium">scalable architectures</span>. Whether it's a real-time chat infrastructure like <span className="text-[#00ff66]">AnonChat</span>, complex AI models, or developer tools with 150+ stack combinations, my philosophy is rooted in performance, security, and a future-ready tech stack.
@@ -135,7 +135,7 @@ const About: React.FC = () => {
                 <div>
                   <h4 className="text-[#00ff66] font-tech text-xs tracking-widest uppercase mb-1">IIT Patna</h4>
                   <p className="text-white font-bold">BS-MS in Computer Science</p>
-                  <p className="text-gray-500 text-xs mt-1 italic">Computer Science and Data Analytics (2024–2028)</p>
+                  <p className="text-gray-500 text-xs mt-1 italic">Computer Science and Data Analytics</p>
                 </div>
               </div>
             </motion.div>
