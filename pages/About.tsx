@@ -49,7 +49,7 @@ const About: React.FC = () => {
               Behind the Code
             </h2>
             <p className="text-gray-400 text-lg sm:text-xl max-w-2xl leading-relaxed">
-              I am <span className="text-white font-medium">Sumit Chauhan</span>, a Full-Stack Application Developer and AI/ML researcher specializing in building ultra-scalable mobile and web ecosystems.
+              I am <span className="text-white font-medium">Sumit Chauhan</span>, a Full-Stack Application Developer and AI/ML researcher pursuing BS-MS in Computer Science and Data Analytics at IIT Patna. Currently building <span className="text-[#00ff66]">ForgeStack OS</span> and exploring ML/DL/NLP.
             </p>
           </motion.div>
         </div>
@@ -69,13 +69,13 @@ const About: React.FC = () => {
               </h3>
               <div className="space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed">
                 <p>
-                  As an <span className="text-white font-semibold">AI/ML student</span>, I bridge the gap between deterministic logic and probabilistic learning. My core focus lies in <span className="text-[#00ff66]">Full-Stack development</span> and <span className="text-[#00ff66]">Android & iOS engineering using Flutter & Dart</span>, ensuring that cross-platform performance never compromises on native user experience.
+                  As a <span className="text-white font-semibold">BS-MS student at IIT Patna</span> in Computer Science and Data Analytics (2024-2028), I bridge the gap between deterministic logic and probabilistic learning. My current focus lies in building <span className="text-[#00ff66]">ForgeStack OS</span> - a next-gen CLI for full-stack SaaS generation, while diving deep into <span className="text-[#00ff66]">ML/DL/NLP</span> research.
                 </p>
                 <p>
-                  I don't just write code; I design <span className="text-white font-medium">scalable architectures</span>. Whether it's a real-time chat infrastructure like <span className="text-[#00ff66]">AnonChat</span> or complex AI models, my philosophy is rooted in performance, security, and a future-ready tech stack.
+                  I don't just write code; I design <span className="text-white font-medium">scalable architectures</span>. Whether it's a real-time chat infrastructure like <span className="text-[#00ff66]">AnonChat</span>, complex AI models, or developer tools with 150+ stack combinations, my philosophy is rooted in performance, security, and a future-ready tech stack.
                 </p>
                 <p>
-                  Based in India, I've spent thousands of hours perfecting my craft, transitioning from simple scripts to orchestrating complex distributed systems that handle thousands of concurrent interactions.
+                  Based in India, I've spent thousands of hours perfecting my craft—from <span className="text-white font-medium">Flutter & Mobile development</span> to <span className="text-white font-medium">Cloud & DevOps</span>. Fun fact: I debug with console.log() and I'm not ashamed!
                 </p>
               </div>
             </div>
@@ -134,8 +134,8 @@ const About: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <h4 className="text-[#00ff66] font-tech text-xs tracking-widest uppercase mb-1">IIT Patna</h4>
-                  <p className="text-white font-bold">BS-MS in CSDA</p>
-                  <p className="text-gray-500 text-xs mt-1 italic">Computer Science and Data Analytics.</p>
+                  <p className="text-white font-bold">BS-MS in Computer Science</p>
+                  <p className="text-gray-500 text-xs mt-1 italic">Computer Science and Data Analytics (2024–2028)</p>
                 </div>
               </div>
             </motion.div>
@@ -154,11 +154,11 @@ const About: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-gray-500">Live Projects</span>
-                  <span className="text-white font-tech">13+</span>
+                  <span className="text-white font-tech">15+</span>
                 </div>
                 <div className="flex justify-between items-center text-sm">
-                  <span className="text-gray-500">App Versions</span>
-                  <span className="text-[#00ff66] font-tech">V2.6.0</span>
+                  <span className="text-gray-500">Current Focus</span>
+                  <span className="text-[#00ff66] font-tech">ForgeStack OS</span>
                 </div>
                 <div className="pt-6">
                   <Link to="/contact" className="block text-center py-3 bg-[#00ff66]/10 border border-[#00ff66]/30 text-[#00ff66] rounded-xl text-xs font-tech font-bold uppercase tracking-widest hover:bg-[#00ff66] hover:text-black transition-all">

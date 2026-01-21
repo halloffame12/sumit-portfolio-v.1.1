@@ -47,7 +47,7 @@ const Home: React.FC = () => {
             </h1>
 
             <p className="text-gray-400 text-sm sm:text-lg md:text-xl lg:text-2xl font-light max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Engineering <span className="text-white border-b border-[#00ff66]/40">Full-Stack Architectures</span>. Specialized in high-performance Flutter mobile systems, immersive web logic, and AI integration.
+              Building <span className="text-white border-b border-[#00ff66]/40">ForgeStack OS</span> & engineering Full-Stack Architectures. Specialized in high-performance Flutter mobile systems, immersive web logic, Cloud/DevOps, and AI/ML research.
             </p>
           </div>
 
@@ -72,8 +72,8 @@ const Home: React.FC = () => {
             {[
               { label: 'Full-Stack', icon: <Layers size={12} /> },
               { label: 'Flutter/Mobile', icon: <Smartphone size={12} /> },
-              { label: 'AI/ML Systems', icon: <Brain size={12} /> },
-              { label: 'Architecture', icon: <Cpu size={12} /> }
+              { label: 'AI/ML/NLP', icon: <Brain size={12} /> },
+              { label: 'Cloud/DevOps', icon: <Cpu size={12} /> }
             ].map((item, idx) => (
               <motion.span 
                 key={item.label}
