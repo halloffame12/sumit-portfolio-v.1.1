@@ -9,7 +9,7 @@ const Home: React.FC = () => {
     <div className="min-h-screen flex flex-col relative px-4 xs:px-6 pt-32 sm:pt-40 md:pt-44 lg:pt-48 xl:pt-52 overflow-hidden">
       
       {/* Background Ambience */}
-      <div className="absolute top-0 left-1/4 w-[250px] h-[250px] md:w-[600px] md:h-[600px] bg-[#00ff66]/10 blur-[80px] md:blur-[160px] rounded-full -z-10 animate-pulse"></div>
+      <div className="absolute top-0 left-1/4 w-[250px] h-[250px] md:w-[600px] md:h-[600px] bg-[#00ff66]/10 blur-[80px] md:blur-[160px] rounded-full -z-10"></div>
       <div className="absolute bottom-0 right-1/4 w-[250px] h-[250px] md:w-[600px] md:h-[600px] bg-emerald-500/5 blur-[80px] md:blur-[160px] rounded-full -z-10"></div>
       
       {/* Grid Background Overlay */}
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
               transition={{ delay: 0.2 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-900/90 border border-[#00ff66]/20 text-[#00ff66] font-tech text-[10px] sm:text-xs tracking-[0.2em] uppercase backdrop-blur-md shadow-[0_0_20px_rgba(0,255,102,0.05)]"
             >
-              <div className="w-1.5 h-1.5 rounded-full bg-[#00ff66] animate-pulse"></div>
+              <div className="w-1.5 h-1.5 rounded-full bg-[#00ff66]"></div>
               <span>Status: Full-Stack Architect Active</span>
             </motion.div>
             
@@ -46,7 +46,7 @@ const Home: React.FC = () => {
               </span>
             </h1>
 
-            <p className="text-gray-400 text-sm sm:text-lg md:text-xl lg:text-2xl font-light max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-[#E6E6E6] text-sm sm:text-lg md:text-xl lg:text-2xl font-light max-w-xl mx-auto lg:mx-0 leading-relaxed">
               Building <span className="text-white border-b border-[#00ff66]/40">ForgeStack OS</span> & engineering Full-Stack Architectures. Specialized in high-performance Flutter mobile systems, immersive web logic, Cloud/DevOps, and AI/ML research.
             </p>
           </div>
@@ -80,7 +80,7 @@ const Home: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 + idx * 0.1 }}
-                className="px-4 py-2 bg-neutral-900/50 border border-white/5 rounded-xl flex items-center gap-2 text-[8px] sm:text-[10px] font-tech text-gray-400 uppercase tracking-widest hover:border-[#00ff66]/30 transition-all cursor-default"
+                className="px-4 py-2 bg-neutral-900/70 border border-white/10 rounded-xl flex items-center gap-2 text-[8px] sm:text-[10px] font-tech text-[#A1A1A1] uppercase tracking-widest cursor-default"
               >
                 <span className="text-[#00ff66]">{item.icon}</span> {item.label}
               </motion.span>
@@ -106,12 +106,12 @@ const Home: React.FC = () => {
 
             <div className="font-tech text-sm space-y-6 relative z-10">
               <div className="flex items-center gap-3">
-                <span className="text-gray-700 font-bold italic text-xs tracking-tighter">0x01</span>
+                <span className="text-[#A1A1A1] font-bold italic text-xs tracking-tighter">0x01</span>
                 <span className="text-[#00ff66] text-sm">~/sumit.dev --deploy --fullstack</span>
               </div>
               
               <div className="space-y-3 pl-4 border-l border-[#00ff66]/20">
-                <p className="text-gray-500 text-[10px] uppercase tracking-widest">Global Stack Ready</p>
+                <p className="text-[#A1A1A1] text-[10px] uppercase tracking-widest">Global Stack Ready</p>
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between items-center bg-black/60 p-3 rounded-xl border border-white/5">
                     <span className="text-white text-xs">MOBILE_CORE</span>
@@ -125,7 +125,7 @@ const Home: React.FC = () => {
               </div>
 
               <div className="pt-6">
-                <div className="flex justify-between text-[10px] uppercase tracking-widest text-gray-500 mb-2">
+                <div className="flex justify-between text-[10px] uppercase tracking-widest text-[#A1A1A1] mb-2">
                   <span>Full-Stack Integrity</span>
                   <span>100%</span>
                 </div>
@@ -139,33 +139,25 @@ const Home: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-2 pt-4">
-                <Activity size={14} className="text-[#00ff66] animate-pulse" />
-                <span className="text-[10px] text-gray-500 font-tech uppercase tracking-widest">Stack Operations: Seamless</span>
+                <Activity size={14} className="text-[#00ff66]" />
+                <span className="text-[10px] text-[#A1A1A1] font-tech uppercase tracking-widest">Stack Operations: Seamless</span>
               </div>
             </div>
 
-            <motion.div 
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-10 -right-4 p-5 bg-black border border-[#00ff66]/30 rounded-[2rem] text-[#00ff66] shadow-2xl z-20"
-            >
+            <div className="absolute top-10 -right-4 p-5 bg-black border border-[#00ff66]/30 rounded-[2rem] text-[#00ff66] shadow-2xl z-20">
               <Smartphone size={32} />
-            </motion.div>
+            </div>
             
-            <motion.div 
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-10 -left-4 p-5 bg-black border border-white/10 rounded-[2rem] text-white/50 shadow-2xl z-20"
-            >
+            <div className="absolute bottom-10 -left-4 p-5 bg-black border border-white/10 rounded-[2rem] text-white/50 shadow-2xl z-20">
               <Layers size={32} />
-            </motion.div>
+            </div>
           </div>
         </motion.div>
 
       </div>
 
       {/* Responsive Bottom Status Bar */}
-      <div className="mt-auto pb-6 sm:pb-12 lg:absolute lg:bottom-6 left-0 w-full px-6 sm:px-12 flex flex-col sm:flex-row justify-between items-center gap-4 opacity-30 text-[8px] sm:text-[10px] font-tech text-[#00ff66] tracking-[0.3em] uppercase">
+      <div className="mt-auto pb-6 sm:pb-12 lg:absolute lg:bottom-6 left-0 w-full px-6 sm:px-12 flex flex-col sm:flex-row justify-between items-center gap-4 text-[8px] sm:text-[10px] font-tech text-[#A1A1A1] tracking-[0.3em] uppercase">
         <div className="flex items-center gap-4">
           <Terminal size={14} />
           <span>ARCHITECTURE: FULL_STACK_MODULAR</span>

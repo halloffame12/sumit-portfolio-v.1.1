@@ -8,7 +8,7 @@ const Achievements: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-24 relative overflow-hidden px-6">
       {/* Visual Accents */}
-      <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-[#00ff66]/5 blur-[120px] rounded-full -z-10 animate-pulse"></div>
+      <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-[#00ff66]/5 blur-[120px] rounded-full -z-10"></div>
       <div className="absolute bottom-0 left-0 w-full h-full bg-grid opacity-[0.02] pointer-events-none -z-10"></div>
 
       <div className="max-w-4xl mx-auto">
@@ -27,24 +27,24 @@ const Achievements: React.FC = () => {
           {/* Statistics Header */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-10 border-t border-white/5">
              <div className="space-y-1">
-                <p className="text-gray-600 text-[10px] font-tech uppercase tracking-widest">Total XP</p>
+               <p className="text-[#A1A1A1] text-[10px] font-tech uppercase tracking-widest">Total XP</p>
                 <div className="flex items-center gap-3">
                    <span className="text-3xl font-tech font-bold text-white">04+</span>
-                   <span className="text-gray-700 text-xs">Years</span>
+                 <span className="text-[#A1A1A1] text-xs">Years</span>
                 </div>
              </div>
              <div className="space-y-1">
-                <p className="text-gray-600 text-[10px] font-tech uppercase tracking-widest">Success Rate</p>
+               <p className="text-[#A1A1A1] text-[10px] font-tech uppercase tracking-widest">Success Rate</p>
                 <div className="flex items-center gap-3">
                    <span className="text-3xl font-tech font-bold text-[#00ff66]">100%</span>
                    <Activity size={18} className="text-[#00ff66]/40" />
                 </div>
              </div>
              <div className="space-y-1 hidden md:block">
-                <p className="text-gray-600 text-[10px] font-tech uppercase tracking-widest">Industry Rank</p>
+               <p className="text-[#A1A1A1] text-[10px] font-tech uppercase tracking-widest">Industry Rank</p>
                 <div className="flex items-center gap-3">
                    <span className="text-3xl font-tech font-bold text-white">Elite</span>
-                   <TrendingUp size={18} className="text-gray-700" />
+                 <TrendingUp size={18} className="text-[#A1A1A1]" />
                 </div>
              </div>
           </div>
@@ -59,19 +59,19 @@ const Achievements: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="relative group"
+              className="relative"
             >
               {/* Timeline Indicator */}
-              <div className="absolute -left-[41px] sm:-left-[73px] top-0 w-8 h-8 sm:w-10 sm:h-10 bg-black border-2 border-[#00ff66]/40 rounded-full flex items-center justify-center group-hover:bg-[#00ff66] group-hover:border-[#00ff66] transition-all shadow-[0_0_20px_rgba(0,255,102,0.1)] z-10">
-                <ChevronRight size={18} className="text-[#00ff66] group-hover:text-black transition-colors" />
+              <div className="absolute -left-[41px] sm:-left-[73px] top-0 w-8 h-8 sm:w-10 sm:h-10 bg-black border-2 border-[#00ff66]/40 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,255,102,0.1)] z-10">
+                <ChevronRight size={18} className="text-[#00ff66]" />
               </div>
 
               {/* Decorative Connector for Desktop */}
               <div className="absolute -left-[41px] sm:-left-[73px] top-5 w-16 h-[2px] bg-gradient-to-r from-[#00ff66]/40 to-transparent -z-10 hidden sm:block opacity-30"></div>
               
-              <div className="bg-neutral-950 border border-white/5 p-8 rounded-[2.5rem] group-hover:border-[#00ff66]/30 transition-all duration-500 relative overflow-hidden">
+              <div className="bg-neutral-950 border border-white/10 p-8 rounded-[2.5rem] relative overflow-hidden">
                 {/* Visual Flair */}
-                <div className="absolute top-0 right-0 p-8 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity">
+                <div className="absolute top-0 right-0 p-8 opacity-[0.02]">
                    <Award size={120} />
                 </div>
 
@@ -81,17 +81,17 @@ const Achievements: React.FC = () => {
                       <div className="w-1 h-1 bg-[#00ff66] rounded-full" />
                       {achievement.organization}
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-tech font-bold text-white leading-tight uppercase group-hover:text-[#00ff66] transition-colors">
+                    <h3 className="text-2xl sm:text-3xl font-tech font-bold text-white leading-tight uppercase">
                       {achievement.title}
                     </h3>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-500 text-[10px] font-tech bg-black border border-white/5 px-4 py-2 rounded-xl group-hover:border-[#00ff66]/20 transition-all">
+                  <div className="flex items-center gap-3 text-[#A1A1A1] text-[10px] font-tech bg-black border border-white/10 px-4 py-2 rounded-xl">
                     <Calendar size={14} className="text-[#00ff66]" />
                     <span>LOG_DATE: {achievement.date}</span>
                   </div>
                 </div>
                 
-                <p className="text-gray-500 text-base leading-relaxed mb-10 group-hover:text-gray-300 transition-colors">
+                <p className="text-[#E6E6E6] text-base leading-relaxed mb-10">
                   {achievement.description}
                 </p>
                 
@@ -100,13 +100,13 @@ const Achievements: React.FC = () => {
                     <div className="p-1.5 bg-emerald-500/10 rounded-lg text-[#00ff66]">
                       <Zap size={14} />
                     </div>
-                    <span className="text-[9px] text-gray-600 uppercase tracking-widest font-tech">Verified Event</span>
+                    <span className="text-[9px] text-[#A1A1A1] uppercase tracking-widest font-tech">Verified Event</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="p-1.5 bg-neutral-900 rounded-lg text-gray-600">
+                    <div className="p-1.5 bg-neutral-900 rounded-lg text-[#A1A1A1]">
                       <Target size={14} />
                     </div>
-                    <span className="text-[9px] text-gray-600 uppercase tracking-widest font-tech">High Impact</span>
+                    <span className="text-[9px] text-[#A1A1A1] uppercase tracking-widest font-tech">High Impact</span>
                   </div>
                 </div>
               </div>
@@ -121,7 +121,7 @@ const Achievements: React.FC = () => {
           viewport={{ once: true }}
           className="mt-32 text-center py-20 border-t border-white/5"
         >
-           <p className="text-gray-700 font-tech text-[10px] uppercase tracking-[0.5em] mb-4">Continuous Development</p>
+            <p className="text-[#A1A1A1] font-tech text-[10px] uppercase tracking-[0.5em] mb-4">Continuous Development</p>
            <h4 className="text-white font-tech font-bold uppercase text-lg">Next milestone under construction...</h4>
         </motion.div>
       </div>

@@ -13,7 +13,7 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row items-center gap-10 mb-24">
-          <div className="relative group shrink-0">
+          <div className="relative shrink-0">
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -23,14 +23,14 @@ const About: React.FC = () => {
               <img 
                 src="https://i.postimg.cc/rwjfhvrk/sumitc.png" 
                 alt="Sumit Chauhan" 
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 brightness-75 group-hover:brightness-100"
+                className="w-full h-full object-cover grayscale brightness-90"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
               <div className="absolute inset-0 border-[10px] border-black/50 pointer-events-none"></div>
-              <div className="absolute top-0 left-0 w-full h-1 bg-[#00ff66]/40 shadow-[0_0_15px_#00ff66] animate-[scan_4s_infinite] z-20"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#00ff66]/40 shadow-[0_0_15px_#00ff66] z-20"></div>
             </motion.div>
             
-            <div className="absolute -bottom-4 -right-4 p-4 bg-black border border-white/10 rounded-2xl shadow-xl z-20 group-hover:border-[#00ff66]/50 transition-colors">
+            <div className="absolute -bottom-4 -right-4 p-4 bg-black border border-white/10 rounded-2xl shadow-xl z-20">
               <Terminal size={24} className="text-[#00ff66]" />
             </div>
           </div>
@@ -48,7 +48,7 @@ const About: React.FC = () => {
               The <span className="text-[#00ff66] neon-glow">Architect</span> <br />
               Behind the Code
             </h2>
-            <p className="text-gray-400 text-lg sm:text-xl max-w-2xl leading-relaxed">
+            <p className="text-[#E6E6E6] text-lg sm:text-xl max-w-2xl leading-relaxed">
               I am <span className="text-white font-medium">Sumit Chauhan</span>, a Full-Stack Application Developer and AI/ML researcher pursuing BS-MS in Computer Science and Data Analytics at IIT Patna. Currently building <span className="text-[#00ff66]">ForgeStack OS</span> and exploring ML/DL/NLP.
             </p>
           </motion.div>
@@ -62,12 +62,12 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="lg:col-span-2 space-y-8"
           >
-            <div className="bg-neutral-900/40 p-8 sm:p-12 rounded-[3rem] border border-white/5 backdrop-blur-sm relative overflow-hidden group">
+            <div className="bg-neutral-900/80 p-8 sm:p-12 rounded-[3rem] border border-white/10 relative overflow-hidden">
               <h3 className="text-2xl font-tech font-bold text-[#00ff66] uppercase mb-6 flex items-center gap-3">
                 <span className="w-8 h-[1px] bg-[#00ff66]"></span>
                 Who Am I?
               </h3>
-              <div className="space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed">
+              <div className="space-y-6 text-[#E6E6E6] text-base sm:text-lg leading-relaxed">
                 <p>
                   As a <span className="text-white font-semibold">BS-MS student at IIT Patna</span> in Computer Science and Data Analytics, I bridge the gap between deterministic logic and probabilistic learning. My current focus lies in building <span className="text-[#00ff66]">ForgeStack OS</span> - a next-gen CLI for full-stack SaaS generation, while diving deep into <span className="text-[#00ff66]">ML/DL/NLP</span> research.
                 </p>
@@ -88,7 +88,7 @@ const About: React.FC = () => {
                <h3 className="text-2xl font-tech font-bold text-white uppercase mb-6 flex items-center gap-3">
                   The <span className="text-[#00ff66]">Mobile</span> Frontier
                </h3>
-               <p className="text-gray-400 mb-8 leading-relaxed">
+              <p className="text-[#E6E6E6] mb-8 leading-relaxed">
                   Specialized in high-end <span className="text-white font-medium">Flutter & Dart development</span>. I build cross-platform applications for iOS and Android that don't just work—they perform at native speeds with beautiful, fluid motion.
                </p>
                
@@ -97,7 +97,7 @@ const About: React.FC = () => {
                      <h4 className="text-[#00ff66] font-tech text-xs uppercase tracking-widest flex items-center gap-2">
                         <Zap size={14} /> Core Ecosystem
                      </h4>
-                     <ul className="text-gray-500 text-sm space-y-2">
+                    <ul className="text-[#A1A1A1] text-sm space-y-2">
                         <li>• State Management (Provider/Riverpod)</li>
                         <li>• Custom Native Integrations</li>
                         <li>• Dynamic UI Architecture</li>
@@ -108,7 +108,7 @@ const About: React.FC = () => {
                      <h4 className="text-[#00ff66] font-tech text-xs uppercase tracking-widest flex items-center gap-2">
                         <ShieldCheck size={14} /> Quality Control
                      </h4>
-                     <ul className="text-gray-500 text-sm space-y-2">
+                    <ul className="text-[#A1A1A1] text-sm space-y-2">
                         <li>• Performance Profiling</li>
                         <li>• Offline-First Design</li>
                         <li>• Secure Storage Implementation</li>
@@ -135,7 +135,7 @@ const About: React.FC = () => {
                 <div>
                   <h4 className="text-[#00ff66] font-tech text-xs tracking-widest uppercase mb-1">IIT Patna</h4>
                   <p className="text-white font-bold">BS-MS in Computer Science</p>
-                  <p className="text-gray-500 text-xs mt-1 italic">Computer Science and Data Analytics</p>
+                  <p className="text-[#A1A1A1] text-xs mt-1 italic">Computer Science and Data Analytics</p>
                 </div>
               </div>
             </motion.div>
@@ -153,11 +153,11 @@ const About: React.FC = () => {
               </h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center text-sm">
-                  <span className="text-gray-500">Live Projects</span>
+                  <span className="text-[#A1A1A1]">Live Projects</span>
                   <span className="text-white font-tech">15+</span>
                 </div>
                 <div className="flex justify-between items-center text-sm">
-                  <span className="text-gray-500">Current Focus</span>
+                  <span className="text-[#A1A1A1]">Current Focus</span>
                   <span className="text-[#00ff66] font-tech">ForgeStack OS</span>
                 </div>
                 <div className="pt-6">

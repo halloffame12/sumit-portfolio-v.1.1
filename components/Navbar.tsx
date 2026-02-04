@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
                 key={link.name}
                 to={link.path}
                 className={`relative py-2 text-xs font-tech font-medium uppercase tracking-[0.15em] transition-all duration-300 hover:text-[#00ff66] ${
-                  isActive(link.path) ? 'text-[#00ff66]' : 'text-gray-400'
+                  isActive(link.path) ? 'text-[#00ff66]' : 'text-[#A1A1A1]'
                 }`}
               >
                 {link.name}
@@ -108,7 +108,7 @@ const Navbar: React.FC = () => {
                 <Link
                   to={link.path}
                   className={`text-2xl font-tech font-bold uppercase tracking-[0.2em] ${
-                    isActive(link.path) ? 'text-[#00ff66] neon-glow scale-105' : 'text-gray-800'
+                    isActive(link.path) ? 'text-[#00ff66] neon-glow scale-105' : 'text-[#A1A1A1]'
                   }`}
                 >
                   {link.name}

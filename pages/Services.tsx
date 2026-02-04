@@ -32,18 +32,18 @@ const Services: React.FC = () => {
             <h2 className="text-5xl sm:text-7xl font-tech font-bold tracking-tighter uppercase leading-[0.9] mb-8">
               System <span className="text-[#00ff66] neon-glow">Solutions</span>
             </h2>
-            <p className="text-gray-400 text-lg sm:text-xl leading-relaxed">
+            <p className="text-[#E6E6E6] text-lg sm:text-xl leading-relaxed">
               Engineering <span className="text-white font-medium">end-to-end ecosystems</span>. I build the infrastructure that powers your business, from specialized AI models to high-concurrency Full-Stack backends.
             </p>
           </motion.div>
 
-          <motion.div 
+           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-neutral-900/50 border border-white/5 p-8 rounded-[2.5rem] backdrop-blur-md hidden xl:block"
+            className="bg-neutral-900/80 border border-white/10 p-8 rounded-[2.5rem] hidden xl:block"
           >
              <div className="space-y-4">
-                <div className="flex justify-between items-center gap-12 text-[10px] font-tech text-gray-500 uppercase tracking-widest">
+               <div className="flex justify-between items-center gap-12 text-[10px] font-tech text-[#A1A1A1] uppercase tracking-widest">
                    <span>Full-Stack Integrity</span>
                    <span className="text-[#00ff66]">100%</span>
                 </div>
@@ -51,8 +51,8 @@ const Services: React.FC = () => {
                    <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} className="h-full bg-[#00ff66]" />
                 </div>
                 <div className="flex items-center gap-3 pt-2">
-                   <Activity size={14} className="text-[#00ff66] animate-pulse" />
-                   <span className="text-[9px] text-gray-600 font-tech uppercase">Unified Logic Stream</span>
+                   <Activity size={14} className="text-[#00ff66]" />
+                   <span className="text-[9px] text-[#A1A1A1] font-tech uppercase">Unified Logic Stream</span>
                 </div>
              </div>
           </motion.div>
@@ -67,28 +67,28 @@ const Services: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="group p-8 sm:p-12 bg-neutral-950 border border-white/5 rounded-[3rem] hover:border-[#00ff66]/30 transition-all duration-500 relative overflow-hidden"
+              className="p-8 sm:p-12 bg-neutral-950 border border-white/10 rounded-[3rem] relative overflow-hidden"
             >
-              <div className="absolute -right-12 -top-12 w-48 h-48 bg-[#00ff66]/5 blur-[80px] rounded-full group-hover:bg-[#00ff66]/10 transition-all pointer-events-none"></div>
+              <div className="absolute -right-12 -top-12 w-48 h-48 bg-[#00ff66]/5 blur-[80px] rounded-full pointer-events-none"></div>
               
               <div className="flex items-start justify-between mb-10">
-                <div className="p-5 bg-emerald-500/10 rounded-2xl group-hover:bg-[#00ff66] group-hover:text-black transition-all duration-300">
+                <div className="p-5 bg-emerald-500/10 rounded-2xl text-[#00ff66]">
                   {React.cloneElement(service.icon as React.ReactElement, { size: 32 })}
                 </div>
-                <div className="text-[10px] font-tech text-gray-700 uppercase tracking-widest border border-white/5 px-3 py-1 rounded-full">
+                <div className="text-[10px] font-tech text-[#A1A1A1] uppercase tracking-widest border border-white/10 px-3 py-1 rounded-full">
                   VER: 2.5.0
                 </div>
               </div>
 
-              <h3 className="text-3xl font-tech font-bold text-white mb-6 uppercase group-hover:text-[#00ff66] transition-colors">{service.title}</h3>
+              <h3 className="text-3xl font-tech font-bold text-white mb-6 uppercase">{service.title}</h3>
               
-              <p className="text-gray-400 text-base leading-relaxed mb-10">
+              <p className="text-[#E6E6E6] text-base leading-relaxed mb-10">
                 {service.description}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
                 {service.features.map(feature => (
-                  <div key={feature} className="flex items-center gap-3 text-gray-500 text-xs font-tech group-hover:text-gray-300 transition-colors">
+                  <div key={feature} className="flex items-center gap-3 text-[#A1A1A1] text-xs font-tech">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#00ff66]/40" />
                     {feature}
                   </div>
@@ -97,10 +97,10 @@ const Services: React.FC = () => {
 
               <div className="pt-8 border-t border-white/5 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                   <div className="w-2 h-2 rounded-full bg-[#00ff66] animate-pulse" />
-                   <span className="text-[9px] font-tech text-gray-600 uppercase tracking-[0.2em]">Architecture Optimized</span>
+                   <div className="w-2 h-2 rounded-full bg-[#00ff66]" />
+                   <span className="text-[9px] font-tech text-[#A1A1A1] uppercase tracking-[0.2em]">Architecture Optimized</span>
                 </div>
-                <Link to="/contact" className="flex items-center gap-2 text-[#00ff66] text-xs font-tech font-bold uppercase tracking-widest group-hover:translate-x-2 transition-all">
+                <Link to="/contact" className="flex items-center gap-2 text-[#00ff66] text-xs font-tech font-bold uppercase tracking-widest hover:translate-x-1 transition-transform">
                   Get Started <ArrowRight size={16} />
                 </Link>
               </div>
@@ -110,9 +110,9 @@ const Services: React.FC = () => {
 
         {/* Workflow Section */}
         <div className="relative pt-20 border-t border-white/5">
-          <div className="text-center mb-16">
+           <div className="text-center mb-16">
              <h3 className="text-3xl font-tech font-bold uppercase tracking-tighter mb-4">The Architectural <span className="text-[#00ff66]">Cycle</span></h3>
-             <p className="text-gray-500 text-sm font-tech uppercase tracking-widest">End-to-End Production Standards</p>
+             <p className="text-[#A1A1A1] text-sm font-tech uppercase tracking-widest">End-to-End Production Standards</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -123,14 +123,14 @@ const Services: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-neutral-900/40 border border-white/5 p-8 rounded-[2rem] text-center group hover:border-[#00ff66]/20 transition-all"
+                className="bg-neutral-900/70 border border-white/10 p-8 rounded-[2rem] text-center"
               >
-                <div className="w-12 h-12 bg-black border border-white/5 rounded-xl flex items-center justify-center mx-auto mb-6 text-gray-500 group-hover:text-[#00ff66] transition-colors">
+                <div className="w-12 h-12 bg-black border border-white/10 rounded-xl flex items-center justify-center mx-auto mb-6 text-[#A1A1A1]">
                   {item.icon}
                 </div>
                 <span className="text-[#00ff66] font-tech text-xs font-bold mb-2 block">{item.step}</span>
                 <h4 className="text-white font-tech font-bold uppercase text-sm mb-3">{item.title}</h4>
-                <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                <p className="text-[#A1A1A1] text-xs leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
