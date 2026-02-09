@@ -1,9 +1,15 @@
 
 import React from 'react';
 import { Project, Achievement, SkillCategory, Service } from './types';
-import { Code, Smartphone, Database, Brain, Globe, Shield, Zap, Layout, Layers } from 'lucide-react';
+import { Code, Smartphone, Database, Brain, Globe, Shield, Zap, Layout, Layers, Cpu } from 'lucide-react';
 
 export const SKILLS_DATA: (SkillCategory & { icon: React.ReactNode, description: string })[] = [
+  {
+    title: "Systems Programming",
+    icon: <Cpu size={24} />,
+    description: "Building low-level systems, OS kernels, and WebAssembly applications with Rust.",
+    skills: ["Rust", "WebAssembly", "wasm-bindgen", "OS Concepts", "Process Management", "Virtual File Systems"]
+  },
   {
     title: "Mobile Development",
     icon: <Smartphone size={24} />,
@@ -70,10 +76,30 @@ export const SERVICES_DATA: (Service & { icon: React.ReactNode })[] = [
     icon: <Smartphone className="text-[#00ff66]" />,
     description: "Cross-platform mobile apps using Flutter that deliver native-like performance and smooth animations across Android and iOS.",
     features: ["Flutter/Dart Expert", "Native API Access", "Offline Sync"]
+  },
+  {
+    id: "s5",
+    title: "Systems & WebAssembly",
+    icon: <Cpu className="text-[#00ff66]" />,
+    description: "Low-level systems programming with Rust and WebAssembly. Building performant, portable applications that run anywhere.",
+    features: ["Rust Development", "WASM Compilation", "OS Kernel Research"]
   }
 ];
 
 export const PROJECTS_DATA: Project[] = [
+  {
+    id: 'project-browser-os',
+    slug: 'browser-os',
+    title: 'BrowserOS – Virtual OS in WebAssembly',
+    category: 'Systems Programming',
+    imageUrl: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=2000&auto=format&fit=crop',
+    description: 'A research-level operating system kernel written in Rust and compiled to WebAssembly (WASM), running entirely inside a web browser. Demonstrates core OS concepts: process management, virtual file systems, syscall abstraction, and cooperative multitasking.',
+    problem: 'Understanding OS internals requires complex setup with emulators or bare-metal hardware. Students and researchers need an accessible way to experiment with kernel concepts.',
+    solution: 'Built a complete OS kernel in Rust targeting WebAssembly. Implemented process management, inode-based virtual filesystem, syscall dispatcher, and I/O abstraction. The browser acts as hardware — JS drivers handle display, keyboard, storage, and timer.',
+    role: 'Systems Engineer & Researcher',
+    techStack: ['Rust', 'WebAssembly', 'JavaScript', 'wasm-bindgen', 'HTML/CSS'],
+    repoUrl: 'https://browser-os-black.vercel.app'
+  },
   {
     id: 'project-0',
     slug: 'forgestack-os-cli',
@@ -175,5 +201,12 @@ export const ACHIEVEMENTS_DATA: Achievement[] = [
     organization: "NIT Delhi",
     date: "2025",
     description: "Solved complex algorithmic challenges and optimized system designs under time pressure."
+  },
+  {
+    id: "a4",
+    title: "Published Research Paper - BrowserOS",
+    organization: "OSF Preprints",
+    date: "2026",
+    description: "Published research on building a virtual operating system in WebAssembly using Rust, demonstrating OS concepts like process management, virtual file systems, and syscall abstraction in the browser."
   }
 ];

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { MotionConfig } from 'framer-motion';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -9,6 +9,7 @@ import About from './pages/About';
 import Skills from './pages/Skills';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
+import Research from './pages/Research';
 import Achievements from './pages/Achievements';
 import Contact from './pages/Contact';
 
@@ -35,6 +36,7 @@ const App: React.FC = () => {
               <Route path="/skills" element={<Skills />} />
               <Route path="/services" element={<Services />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/research" element={<Research />} />
               <Route path="/achievements" element={<Achievements />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
