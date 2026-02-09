@@ -40,7 +40,7 @@ const Projects: React.FC = () => {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
             Featured Projects
           </h1>
-          <p className="text-lg text-white/50 max-w-2xl">
+          <p className="text-lg text-white/60 max-w-2xl">
             A curated collection of systems, applications, and experiments showcasing my technical expertise.
           </p>
         </motion.div>

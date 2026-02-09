@@ -206,7 +206,7 @@ const Home: React.FC = () => {
               transition={{ duration: 0.8, delay: 1.5 }}
               className="mb-14"
             >
-              <p className="text-xl md:text-2xl lg:text-3xl text-white/50 max-w-4xl mx-auto leading-relaxed font-light">
+              <p className="text-xl md:text-2xl lg:text-3xl text-white/60 max-w-4xl mx-auto leading-relaxed font-light">
                 Engineering <span className="text-white font-medium">next-generation systems</span> with 
                 <span className="text-[#00ff66] font-semibold"> Rust</span> & 
                 <span className="text-purple-400 font-semibold"> WebAssembly</span>
@@ -493,9 +493,9 @@ const Home: React.FC = () => {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Ready to build
               <br />
-              <span className="text-[#00ff66]">something amazing?</span>
+              <span className="text-[#00ff66]"> something amazing?</span>
             </h2>
-            <p className="text-lg text-white/40 max-w-xl mx-auto mb-10">
+            <p className="text-lg text-white/60 max-w-xl mx-auto mb-10">
               I'm always excited to work on challenging projects. Let's discuss how we can bring your ideas to life.
             </p>
             

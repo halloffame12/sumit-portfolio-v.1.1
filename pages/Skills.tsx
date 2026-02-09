@@ -64,7 +64,7 @@ const Skills: React.FC = () => {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
             Skills & Stack
           </h1>
-          <p className="text-lg text-white/50 max-w-2xl mx-auto">
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">
             A comprehensive toolkit spanning systems programming, web development, mobile apps, and artificial intelligence.
           </p>
         </motion.div>

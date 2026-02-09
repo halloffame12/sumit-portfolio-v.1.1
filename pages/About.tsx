@@ -122,7 +122,7 @@ const About: React.FC = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
               Building the future,
               <br />
-              <span className="text-white/40">one system at a time.</span>
+              <span className="text-white/60">one system at a time.</span>
             </h1>
 
             {/* Description */}

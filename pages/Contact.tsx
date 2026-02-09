@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
             <CheckCircle size={40} className="text-black" />
           </motion.div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Message Sent!</h2>
-          <p className="text-white/50 text-base sm:text-lg mb-8 sm:mb-10">
+          <p className="text-white/60 text-base sm:text-lg mb-8 sm:mb-10">
             Thank you for reaching out. I'll get back to you within 24 hours.
           </p>
           <a 
@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 tracking-tight">
             Start a Project
           </h1>
-          <p className="text-sm sm:text-base lg:text-lg text-white/50 max-w-md sm:max-w-xl mx-auto px-2">
+          <p className="text-sm sm:text-base lg:text-lg text-white/60 max-w-md sm:max-w-xl mx-auto px-2">
             Have an idea? Let's turn it into something amazing together.
           </p>
         </motion.div>

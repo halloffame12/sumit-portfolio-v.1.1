@@ -33,7 +33,7 @@ const Achievements: React.FC = () => {
             Achievements &<br />
             <span className="text-white/40">milestones.</span>
           </h1>
-          <p className="text-lg text-white/50 max-w-2xl">
+          <p className="text-lg text-white/60 max-w-2xl">
             A journey of continuous learning, competition, and academic contributions.
           </p>
         </motion.div>

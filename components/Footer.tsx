@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
                 Sumit<span className="text-[#00ff66]">.</span>
               </span>
             </Link>
-            <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+            <p className="text-white/60 text-sm leading-relaxed max-w-xs">
               Full-Stack Architect & Systems Programmer building high-performance applications with modern technologies.
             </p>
             <div className="flex gap-3">
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
                 <li key={link.name}>
                   <Link 
                     to={link.path}
-                    className="text-white/40 text-sm hover:text-[#00ff66] transition-colors"
+                    className="text-white/60 text-sm hover:text-[#00ff66] transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
                 <li key={link.name}>
                   <Link 
                     to={link.path}
-                    className="text-white/40 text-sm hover:text-[#00ff66] transition-colors"
+                    className="text-white/60 text-sm hover:text-[#00ff66] transition-colors"
                   >
                     {link.name}
                   </Link>
