@@ -1,223 +1,280 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sumit Chauhan | Portfolio</title>
     <!-- Favicon - Custom S Logo -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%2300ff66'/%3E%3Cpath d='M30 16H21C18.79 16 17 17.79 17 20C17 22.21 18.79 24 21 24H27C29.21 24 31 25.79 31 28C31 30.21 29.21 32 27 32H18' stroke='black' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='33' cy='15' r='3' fill='black'/%3E%3C/svg%3E">
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%2300ff66'/%3E%3Cpath d='M30 16H21C18.79 16 17 17.79 17 20C17 22.21 18.79 24 21 24H27C29.21 24 31 25.79 31 28C31 30.21 29.21 32 27 32H18' stroke='black' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='33' cy='15' r='3' fill='black'/%3E%3C/svg%3E"
+    />
     <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%2300ff66'/%3E%3Cpath d='M30 16H21C18.79 16 17 17.79 17 20C17 22.21 18.79 24 21 24H27C29.21 24 31 25.79 31 28C31 30.21 29.21 32 27 32H18' stroke='black' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='33' cy='15' r='3' fill='black'/%3E%3C/svg%3E">
+    <link
+      rel="apple-touch-icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%2300ff66'/%3E%3Cpath d='M30 16H21C18.79 16 17 17.79 17 20C17 22.21 18.79 24 21 24H27C29.21 24 31 25.79 31 28C31 30.21 29.21 32 27 32H18' stroke='black' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='33' cy='15' r='3' fill='black'/%3E%3C/svg%3E"
+    />
     <!-- Theme Color for Mobile -->
-    <meta name="theme-color" content="#00ff66">
-    
+    <meta name="theme-color" content="#00ff66" />
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --neon-green: #00ff66;
-            --cyber-black: #000000;
-            --text-primary: #FFFFFF;
-            --text-secondary: #E6E6E6;
-            --text-muted: #A0A0A0;
-            --text-subtle: #707070;
+      :root {
+        --neon-green: #00ff66;
+        --cyber-black: #000000;
+        --text-primary: #ffffff;
+        --text-secondary: #e6e6e6;
+        --text-muted: #a0a0a0;
+        --text-subtle: #707070;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--cyber-black);
+        color: var(--text-secondary);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        line-height: 1.6;
+      }
+      .font-tech {
+        font-family: "Space Grotesk", sans-serif;
+        letter-spacing: -0.02em;
+      }
+      /* Enhanced paragraph readability */
+      p {
+        line-height: 1.8;
+        letter-spacing: 0.01em;
+      }
+      /* Better heading hierarchy */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 700;
+      }
+      .bg-grid {
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(0, 255, 102, 0.015) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(0, 255, 102, 0.015) 1px,
+            transparent 1px
+          );
+        background-size: 60px 60px;
+      }
+      .neon-glow {
+        text-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+      }
+      .text-body {
+        color: var(--text-secondary);
+      }
+      .text-muted {
+        color: var(--text-muted);
+      }
+      .text-subtle {
+        color: var(--text-subtle);
+      }
+      .neon-border {
+        border: 1px solid rgba(0, 255, 102, 0.2);
+        box-shadow: 0 0 30px rgba(0, 255, 102, 0.05);
+      }
+      .neon-btn {
+        background: #00ff66;
+        color: #000;
+        box-shadow: 0 0 25px rgba(0, 255, 102, 0.35);
+      }
+      .neon-btn:hover {
+        box-shadow: 0 0 45px rgba(0, 255, 102, 0.55);
+      }
+      /* Smooth focus states for accessibility */
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--neon-green);
+        outline-offset: 4px;
+      }
+      /* Enhanced selection */
+      ::selection {
+        background: rgba(0, 255, 102, 0.25);
+        color: #fff;
+      }
+      /* Noise texture for depth */
+      .noise-texture {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0.018;
+        z-index: 10000;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      }
+      /* Enhanced scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+        border-radius: 10px;
+        border: 2px solid #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, var(--neon-green) 0%, #00cc55 100%);
+      }
+      /* Smooth page transitions */
+      #root {
+        min-height: 100vh;
+      }
+      /* Better link defaults */
+      a {
+        text-decoration: none;
+        transition:
+          color 0.2s ease,
+          transform 0.2s ease;
+      }
+      /* Improved button defaults */
+      button {
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      /* Card hover enhancement */
+      .hover-lift {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-4px);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      }
+      /* Mobile readability improvements */
+      @media (max-width: 640px) {
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--cyber-black);
-            color: var(--text-secondary);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-            line-height: 1.6;
+          font-size: 16px;
         }
-        .font-tech {
-            font-family: 'Space Grotesk', sans-serif;
-            letter-spacing: -0.02em;
-        }
-        /* Enhanced paragraph readability */
         p {
-            line-height: 1.8;
-            letter-spacing: 0.01em;
+          line-height: 1.75;
         }
-        /* Better heading hierarchy */
-        h1, h2, h3, h4, h5, h6 {
-            line-height: 1.1;
-            font-weight: 700;
+      }
+      /* Scan line animation */
+      @keyframes scan {
+        0%,
+        100% {
+          transform: translateY(-100%);
+          opacity: 0;
         }
-        .bg-grid {
-            background-image: 
-                linear-gradient(to right, rgba(0, 255, 102, 0.015) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 255, 102, 0.015) 1px, transparent 1px);
-            background-size: 60px 60px;
+        10% {
+          opacity: 1;
         }
-        .neon-glow {
-            text-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+        90% {
+          opacity: 1;
         }
-        .text-body {
-            color: var(--text-secondary);
+        100% {
+          transform: translateY(100vh);
+          opacity: 0;
         }
-        .text-muted {
-            color: var(--text-muted);
+      }
+      .animate-scan {
+        animation: scan 4s linear infinite;
+      }
+      /* Typing cursor blink */
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
         }
-        .text-subtle {
-            color: var(--text-subtle);
+        50% {
+          opacity: 0;
         }
-        .neon-border {
-            border: 1px solid rgba(0, 255, 102, 0.2);
-            box-shadow: 0 0 30px rgba(0, 255, 102, 0.05);
+      }
+      .animate-blink {
+        animation: blink 1s step-end infinite;
+      }
+      /* Float animation for decorative elements */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
-        .neon-btn {
-            background: #00ff66;
-            color: #000;
-            box-shadow: 0 0 25px rgba(0, 255, 102, 0.35);
+        50% {
+          transform: translateY(-10px);
         }
-        .neon-btn:hover {
-            box-shadow: 0 0 45px rgba(0, 255, 102, 0.55);
+      }
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      /* Animation delay utilities */
+      .animation-delay-200 {
+        animation-delay: 0.2s;
+      }
+      .animation-delay-400 {
+        animation-delay: 0.4s;
+      }
+      /* Marquee animation */
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
         }
-        /* Smooth focus states for accessibility */
-        a:focus-visible, button:focus-visible {
-            outline: 2px solid var(--neon-green);
-            outline-offset: 4px;
+        100% {
+          transform: translateX(-50%);
         }
-        /* Enhanced selection */
-        ::selection {
-            background: rgba(0, 255, 102, 0.25);
-            color: #fff;
-        }
-        /* Noise texture for depth */
-        .noise-texture {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            opacity: 0.018;
-            z-index: 10000;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-        /* Enhanced scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
-            border-radius: 10px;
-            border: 2px solid #0a0a0a;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, var(--neon-green) 0%, #00cc55 100%);
-        }
-        /* Smooth page transitions */
-        #root {
-            min-height: 100vh;
-        }
-        /* Better link defaults */
-        a {
-            text-decoration: none;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-        /* Improved button defaults */
-        button {
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        /* Card hover enhancement */
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-4px);
-        }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
-        /* Mobile readability improvements */
-        @media (max-width: 640px) {
-            body {
-                font-size: 16px;
-            }
-            p {
-                line-height: 1.75;
-            }
-        }
-        /* Scan line animation */
-        @keyframes scan {
-            0%, 100% { transform: translateY(-100%); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
-        }
-        .animate-scan {
-            animation: scan 4s linear infinite;
-        }
-        /* Typing cursor blink */
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        .animate-blink {
-            animation: blink 1s step-end infinite;
-        }
-        /* Float animation for decorative elements */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-        /* Animation delay utilities */
-        .animation-delay-200 {
-            animation-delay: 0.2s;
-        }
-        .animation-delay-400 {
-            animation-delay: 0.4s;
-        }
-        /* Marquee animation */
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            animation: marquee 30s linear infinite;
-        }
-        /* Radial gradient utility */
-        .bg-gradient-radial {
-            background: radial-gradient(circle, var(--tw-gradient-stops));
-        }
+      }
+      .animate-marquee {
+        animation: marquee 30s linear infinite;
+      }
+      /* Radial gradient utility */
+      .bg-gradient-radial {
+        background: radial-gradient(circle, var(--tw-gradient-stops));
+      }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
-    "lucide-react": "https://esm.sh/lucide-react@^0.474.0",
-    "framer-motion": "https://esm.sh/framer-motion@^11.11.17",
-    "gsap": "https://esm.sh/gsap@^3.12.5"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
-<body class="bg-grid">
+    <script type="importmap">
+      {
+        "imports": {
+          "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+          "react/": "https://esm.sh/react@^19.2.3/",
+          "react": "https://esm.sh/react@^19.2.3",
+          "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+          "lucide-react": "https://esm.sh/lucide-react@^0.474.0",
+          "framer-motion": "https://esm.sh/framer-motion@^11.11.17",
+          "gsap": "https://esm.sh/gsap@^3.12.5"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body class="bg-grid">
     <div class="noise-texture"></div>
     <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
