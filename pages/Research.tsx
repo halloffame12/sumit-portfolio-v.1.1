@@ -1,256 +1,190 @@
-
 import React from 'react';
-import { BookOpen, ExternalLink, FileText, Calendar, Layers, Cpu, Globe, Award, Sparkles, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-
-interface ResearchPaper {
-  id: string;
-  title: string;
-  abstract: string;
-  publishedDate: string;
-  platform: string;
-  paperUrl: string;
-  relatedProject?: {
-    name: string;
-    slug: string;
-  };
-  tags: string[];
-  highlights?: string[];
-}
-
-const RESEARCH_DATA: ResearchPaper[] = [
-  {
-    id: 'research-1',
-    title: 'BrowserOS: A Virtual Operating System in WebAssembly',
-    abstract: 'This research paper explores the design and implementation of a research-level operating system kernel written in Rust and compiled to WebAssembly (WASM), running entirely inside a web browser. The paper demonstrates core OS concepts including process management, virtual file systems, syscall abstraction, and cooperative multitasking within the browser sandbox environment.',
-    publishedDate: '2026',
-    platform: 'OSF Preprints',
-    paperUrl: 'https://osf.io/m3gv8/files/vu5eq',
-    relatedProject: {
-      name: 'BrowserOS',
-      slug: 'browser-os'
-    },
-    tags: ['Operating Systems', 'WebAssembly', 'Rust', 'Systems Programming', 'Virtual Machines'],
-    highlights: [
-      'Process management & scheduling',
-      'Inode-based virtual file system',
-      'Syscall dispatcher architecture',
-      'Browser as hardware abstraction'
-    ]
-  }
-];
+import { FileText, ExternalLink, Calendar, Users, BookOpen, Cpu, Layers, ArrowUpRight } from 'lucide-react';
 
 const Research: React.FC = () => {
-  return (
-    <div className="min-h-screen pt-32 pb-24 relative overflow-hidden px-6">
-      {/* Enhanced Visual Accents */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#00ff66]/5 blur-[150px] rounded-full -z-10 animate-pulse"></div>
-      <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-emerald-500/3 blur-[100px] rounded-full -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-full h-full bg-grid opacity-[0.02] pointer-events-none -z-10"></div>
+  const paper = {
+    title: 'BrowserOS: A Virtual Operating System in WebAssembly',
+    authors: ['Sumit Chauhan'],
+    institution: 'Indian Institute of Technology, Patna',
+    abstract: `This paper presents BrowserOS, an educational operating system kernel implemented entirely in Rust and compiled to WebAssembly (WASM), running within modern web browsers. By leveraging browser APIs as hardware abstractions, BrowserOS demonstrates fundamental OS concepts including process management with cooperative multitasking, an inode-based virtual file system, system call dispatching, and I/O handling—all without requiring native hardware or emulators. The architecture treats the browser environment as a minimal hardware layer, with JavaScript "drivers" managing display output, keyboard input, persistent storage, and timer scheduling.`,
+    keywords: ['Operating Systems', 'WebAssembly', 'Rust', 'Browser', 'Virtual Machine', 'Process Management', 'File Systems'],
+    date: '2024',
+    doi: 'osf.io/m3gv8',
+    pdfUrl: 'https://osf.io/m3gv8/files/vu5eq'
+  };
 
-      <div className="max-w-5xl mx-auto">
+  const contributions = [
+    {
+      icon: <Cpu size={20} />,
+      title: 'Browser as Hardware',
+      desc: 'Novel approach treating web browsers as a hardware abstraction layer for OS research.'
+    },
+    {
+      icon: <Layers size={20} />,
+      title: 'Full OS Subsystems',
+      desc: 'Complete implementation of process management, virtual filesystem, and syscall dispatcher.'
+    },
+    {
+      icon: <BookOpen size={20} />,
+      title: 'Educational Platform',
+      desc: 'Accessible environment for learning OS internals without complex setup requirements.'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen pt-28 pb-24 relative overflow-hidden">
+      
+      {/* Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-gradient-radial from-[#00ff66]/8 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-radial from-indigo-500/5 to-transparent rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 md:px-12">
+        
+        {/* Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-20"
+          className="mb-16"
         >
-          {/* Enhanced Header Badge */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500/10 to-transparent border border-emerald-500/20 text-[#00ff66] font-tech text-[10px] tracking-widest uppercase mb-8 backdrop-blur-sm"
-          >
-            <Sparkles size={12} className="animate-pulse" />
-            Research & Publications
-          </motion.div>
-          
-          <h2 className="text-5xl sm:text-7xl lg:text-8xl font-tech font-bold tracking-tighter uppercase mb-8 leading-[0.9]">
-            Research <br className="sm:hidden" />
-            <span className="text-[#00ff66] relative">
-              Papers
-              <svg className="absolute -bottom-2 left-0 w-full h-2 opacity-30" viewBox="0 0 200 8">
-                <path d="M0 4 Q50 0, 100 4 T200 4" stroke="#00ff66" strokeWidth="2" fill="none"/>
-              </svg>
-            </span>
-          </h2>
-          
-          <p className="text-[#B0B0B0] text-lg sm:text-xl max-w-2xl leading-relaxed">
-            Exploring the <span className="text-white font-medium">frontiers of systems programming</span>, WebAssembly, and operating system design through academic research and practical implementations.
+          <p className="text-[#00ff66] text-sm font-medium tracking-wider uppercase mb-4">Research</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            Academic<br />
+            <span className="text-white/40">publications.</span>
+          </h1>
+          <p className="text-lg text-white/50 max-w-2xl">
+            Exploring the intersection of systems programming, WebAssembly, and operating system design.
           </p>
-
-          {/* Enhanced Statistics Header */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 mt-12 border-t border-white/5">
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="space-y-2"
-            >
-              <p className="text-[#606060] text-[10px] font-tech uppercase tracking-widest">Publications</p>
-              <div className="flex items-center gap-3">
-                <span className="text-4xl font-tech font-bold text-white">01</span>
-                <FileText size={20} className="text-[#00ff66]/40" />
-              </div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="space-y-2"
-            >
-              <p className="text-[#606060] text-[10px] font-tech uppercase tracking-widest">Focus Area</p>
-              <div className="flex items-center gap-3">
-                <span className="text-xl font-tech font-bold text-[#00ff66]">Systems</span>
-                <Cpu size={18} className="text-[#00ff66]/40" />
-              </div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="space-y-2"
-            >
-              <p className="text-[#606060] text-[10px] font-tech uppercase tracking-widest">Platform</p>
-              <div className="flex items-center gap-3">
-                <span className="text-xl font-tech font-bold text-white">OSF</span>
-                <Globe size={18} className="text-[#A1A1A1]/40" />
-              </div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="space-y-2"
-            >
-              <p className="text-[#606060] text-[10px] font-tech uppercase tracking-widest">Status</p>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-[#00ff66] animate-pulse shadow-[0_0_10px_#00ff66]"></div>
-                <span className="text-sm font-tech font-bold text-[#00ff66]">Published</span>
-              </div>
-            </motion.div>
-          </div>
         </motion.div>
 
-        {/* Research Papers - Enhanced */}
-        <div className="space-y-16">
-          {RESEARCH_DATA.map((paper, idx) => (
-            <motion.article 
-              key={paper.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-neutral-950 to-neutral-900/50 border border-white/10 p-8 sm:p-12 rounded-[3rem] relative overflow-hidden group hover:border-[#00ff66]/40 transition-all duration-500 hover:shadow-[0_0_60px_rgba(0,255,102,0.08)]"
-            >
-              {/* Visual Flair - Enhanced */}
-              <div className="absolute top-0 right-0 p-8 opacity-[0.02] group-hover:opacity-[0.06] transition-opacity duration-700">
-                <Layers size={200} />
+        {/* Featured Paper */}
+        <motion.article
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-16"
+        >
+          {/* Paper Card */}
+          <div className="p-8 md:p-10 bg-white/[0.02] rounded-3xl border border-white/5">
+            
+            {/* Badge */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-2 px-3 py-1 bg-[#00ff66]/10 rounded-full">
+                <FileText size={14} className="text-[#00ff66]" />
+                <span className="text-xs text-[#00ff66] font-medium">Research Paper</span>
               </div>
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#00ff66]/5 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
-              {/* Header */}
-              <div className="flex flex-col lg:flex-row justify-between items-start gap-6 mb-10">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 text-[#00ff66] text-[10px] font-tech uppercase tracking-[0.25em]">
-                    <div className="w-2 h-2 bg-[#00ff66] rounded-full animate-pulse shadow-[0_0_8px_#00ff66]" />
-                    <span className="bg-[#00ff66]/10 px-3 py-1 rounded-full">{paper.platform}</span>
-                  </div>
-                  <h3 className="text-3xl sm:text-4xl font-tech font-bold text-white leading-tight tracking-tight">
-                    {paper.title}
-                  </h3>
-                </div>
-                <div className="flex items-center gap-3 text-[#808080] text-xs font-tech bg-black/50 border border-white/10 px-5 py-3 rounded-2xl shrink-0 backdrop-blur-sm">
-                  <Calendar size={16} className="text-[#00ff66]" />
-                  <span>Published: <span className="text-white font-medium">{paper.publishedDate}</span></span>
-                </div>
+              <span className="text-xs text-white/30">{paper.date}</span>
+            </div>
+            
+            {/* Title */}
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+              {paper.title}
+            </h2>
+            
+            {/* Authors & Institution */}
+            <div className="flex flex-wrap items-center gap-4 mb-8 text-sm text-white/50">
+              <div className="flex items-center gap-2">
+                <Users size={14} />
+                <span>{paper.authors.join(', ')}</span>
               </div>
-              
-              {/* Abstract - Enhanced Typography */}
-              <div className="mb-10">
-                <p className="text-[#C0C0C0] text-base sm:text-lg leading-[1.8] font-light">
-                  {paper.abstract}
-                </p>
-              </div>
-
-              {/* Key Highlights */}
-              {paper.highlights && (
-                <div className="mb-10 p-6 bg-black/30 border border-white/5 rounded-2xl">
-                  <h4 className="text-[#00ff66] text-xs font-tech uppercase tracking-widest mb-4 flex items-center gap-2">
-                    <Award size={14} />
-                    Key Contributions
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {paper.highlights.map((highlight, i) => (
-                      <div key={i} className="flex items-center gap-3 text-[#A0A0A0] text-sm">
-                        <div className="w-1.5 h-1.5 bg-[#00ff66]/60 rounded-full shrink-0"></div>
-                        <span>{highlight}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Tags - Enhanced */}
-              <div className="flex flex-wrap gap-2 mb-10">
-                {paper.tags.map((tag, i) => (
+              <span className="text-white/20">•</span>
+              <span>{paper.institution}</span>
+            </div>
+            
+            {/* Abstract */}
+            <div className="mb-8">
+              <h3 className="text-sm font-semibold text-white/70 uppercase tracking-wider mb-3">Abstract</h3>
+              <p className="text-white/50 leading-relaxed">
+                {paper.abstract}
+              </p>
+            </div>
+            
+            {/* Keywords */}
+            <div className="mb-8">
+              <h3 className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3">Keywords</h3>
+              <div className="flex flex-wrap gap-2">
+                {paper.keywords.map((keyword, i) => (
                   <span 
                     key={i}
-                    className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[#909090] text-xs font-tech hover:border-[#00ff66]/30 hover:text-[#00ff66] transition-all duration-300 cursor-default"
+                    className="px-3 py-1 text-xs bg-white/5 text-white/60 rounded-full border border-white/5"
                   >
-                    {tag}
+                    {keyword}
                   </span>
                 ))}
               </div>
-              
-              {/* Actions - Enhanced */}
-              <div className="flex flex-wrap items-center gap-4 pt-10 border-t border-white/5">
-                <a 
-                  href={paper.paperUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/btn inline-flex items-center gap-3 px-8 py-4 bg-[#00ff66] text-black font-tech text-sm font-bold uppercase tracking-wider rounded-2xl hover:shadow-[0_0_40px_rgba(0,255,102,0.5)] transition-all duration-300 hover:scale-[1.02]"
-                >
-                  <FileText size={18} />
-                  Read Full Paper
-                  <ArrowUpRight size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                </a>
-                
-                {paper.relatedProject && (
-                  <Link 
-                    to="/projects"
-                    className="inline-flex items-center gap-3 px-8 py-4 border border-[#00ff66]/30 text-[#00ff66] font-tech text-sm font-bold uppercase tracking-wider rounded-2xl hover:bg-[#00ff66]/10 hover:border-[#00ff66]/50 transition-all duration-300"
-                  >
-                    <Cpu size={18} />
-                    View Project: {paper.relatedProject.name}
-                  </Link>
-                )}
-              </div>
-            </motion.article>
-          ))}
-        </div>
+            </div>
+            
+            {/* Actions */}
+            <div className="flex flex-wrap gap-4 pt-4 border-t border-white/5">
+              <a
+                href={paper.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#00ff66] text-black font-semibold rounded-xl hover:bg-[#00ff66]/90 transition-colors"
+              >
+                <FileText size={16} />
+                Download PDF
+                <ArrowUpRight size={16} />
+              </a>
+              <a
+                href="https://browser-os-black.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 text-white font-medium rounded-xl border border-white/10 hover:bg-white/10 transition-colors"
+              >
+                <ExternalLink size={16} />
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </motion.article>
 
-        {/* Coming Soon Section - Enhanced */}
+        {/* Key Contributions */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-24 pt-20 border-t border-white/5"
+          className="mb-16"
         >
-          <div className="text-center max-w-xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#808080] font-tech text-[10px] tracking-widest uppercase mb-6">
-              <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse"></div>
-              In Progress
-            </div>
-            <h3 className="text-3xl sm:text-4xl font-tech font-bold text-white mb-6 tracking-tight">
-              More Research <span className="text-[#00ff66]">Coming Soon</span>
-            </h3>
-            <p className="text-[#808080] text-base leading-relaxed">
-              Currently working on research exploring <span className="text-[#A0A0A0]">AI systems</span>, <span className="text-[#A0A0A0]">distributed computing</span>, and <span className="text-[#A0A0A0]">advanced web technologies</span>.
-            </p>
+          <h3 className="text-xl font-semibold text-white mb-8">Key Contributions</h3>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {contributions.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 * i }}
+                className="p-6 bg-white/[0.02] rounded-2xl border border-white/5"
+              >
+                <div className="w-10 h-10 flex items-center justify-center bg-[#00ff66]/10 rounded-xl text-[#00ff66] mb-4">
+                  {item.icon}
+                </div>
+                <h4 className="text-white font-semibold mb-2">{item.title}</h4>
+                <p className="text-sm text-white/40">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Citation */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="p-6 bg-white/[0.02] rounded-2xl border border-white/5"
+        >
+          <h3 className="text-sm font-semibold text-white/70 uppercase tracking-wider mb-4">Citation</h3>
+          <div className="p-4 bg-black/30 rounded-xl font-mono text-sm text-white/50 overflow-x-auto">
+            <code>
+              Chauhan, S. ({paper.date}). {paper.title}. DOI: {paper.doi}
+            </code>
           </div>
         </motion.div>
       </div>
