@@ -1,0 +1,11 @@
+# Robots.txt for sumitchauhan.me
+# Allow all search engines to crawl all pages
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://sumitchauhan.me/sitemap.xml
+
+# Crawl-delay for politeness (optional)
+Crawl-delay: 1
