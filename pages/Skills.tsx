@@ -1,162 +1,226 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SKILLS_DATA } from '../constants';
-import { Zap, TrendingUp } from 'lucide-react';
+import { Code2, Layers, Cpu, Smartphone, Brain, Cloud, Database, Workflow } from 'lucide-react';
 
 const Skills: React.FC = () => {
-  const techLogos = [
-    { name: 'Rust', color: '#DEA584' },
-    { name: 'TypeScript', color: '#3178C6' },
-    { name: 'Python', color: '#3776AB' },
-    { name: 'React', color: '#61DAFB' },
-    { name: 'Flutter', color: '#02569B' },
-    { name: 'Node.js', color: '#339933' },
-    { name: 'PostgreSQL', color: '#4169E1' },
-    { name: 'Docker', color: '#2496ED' }
+  const techStack = [
+    { name: 'Rust', category: 'Systems' },
+    { name: 'TypeScript', category: 'Frontend' },
+    { name: 'Python', category: 'AI/ML' },
+    { name: 'React', category: 'Frontend' },
+    { name: 'Next.js', category: 'Full-Stack' },
+    { name: 'Flutter', category: 'Mobile' },
+    { name: 'Node.js', category: 'Backend' },
+    { name: 'PostgreSQL', category: 'Database' },
+    { name: 'Docker', category: 'DevOps' },
+    { name: 'WebAssembly', category: 'Systems' },
+    { name: 'AWS', category: 'Cloud' },
+    { name: 'PyTorch', category: 'AI/ML' },
+  ];
+
+  const proficiencies = [
+    { skill: 'Systems Programming', level: 90, icon: <Cpu size={18} />, color: 'from-orange-500 to-red-500' },
+    { skill: 'Frontend Development', level: 95, icon: <Code2 size={18} />, color: 'from-cyan-500 to-blue-500' },
+    { skill: 'Backend Development', level: 90, icon: <Database size={18} />, color: 'from-green-500 to-emerald-500' },
+    { skill: 'Mobile Development', level: 85, icon: <Smartphone size={18} />, color: 'from-purple-500 to-violet-500' },
+    { skill: 'AI & Machine Learning', level: 75, icon: <Brain size={18} />, color: 'from-pink-500 to-rose-500' },
+    { skill: 'Cloud & DevOps', level: 80, icon: <Cloud size={18} />, color: 'from-amber-500 to-yellow-500' },
   ];
 
   return (
-    <div className="min-h-screen pt-28 pb-24 relative overflow-hidden">
+    <div className="min-h-screen pt-32 pb-32 relative overflow-hidden bg-black">
       
-      {/* Background */}
+      {/* Background Effects */}
       <div className="fixed inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-radial from-[#00ff66]/8 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-gradient-radial from-cyan-500/5 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-gradient-radial from-[#00ff66]/10 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-cyan-500/8 to-transparent rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6">
         
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="text-center mb-20"
         >
-          <p className="text-[#00ff66] text-sm font-medium tracking-wider uppercase mb-4">Skills & Technologies</p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            Technical<br />
-            <span className="text-white/40">expertise.</span>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#00ff66]/10 rounded-full border border-[#00ff66]/20 mb-6"
+          >
+            <svg viewBox="0 0 48 48" fill="none" className="w-4 h-4">
+              <circle cx="24" cy="24" r="22" fill="#00ff66" />
+              <path d="M30 16H21C18.79 16 17 17.79 17 20C17 22.21 18.79 24 21 24H27C29.21 24 31 25.79 31 28C31 30.21 29.21 32 27 32H18" stroke="black" strokeWidth="3" strokeLinecap="round" fill="none" />
+              <circle cx="33" cy="15" r="3" fill="black" />
+            </svg>
+            <span className="text-sm text-[#00ff66] font-medium">Technical Expertise</span>
+          </motion.div>
+          
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
+            Skills & Stack
           </h1>
-          <p className="text-lg text-white/50 max-w-2xl">
-            From systems programming to cloud infrastructure, I bring a comprehensive toolkit to every project.
+          <p className="text-lg text-white/50 max-w-2xl mx-auto">
+            A comprehensive toolkit spanning systems programming, web development, mobile apps, and artificial intelligence.
           </p>
         </motion.div>
 
-        {/* Tech Marquee */}
+        {/* Tech Stack Pills */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-3 mb-24"
+        >
+          {techStack.map((tech, i) => (
+            <motion.div
+              key={tech.name}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 + i * 0.03 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              className="group relative px-4 py-2.5 bg-white/[0.03] rounded-xl border border-white/[0.06] hover:border-[#00ff66]/30 hover:bg-[#00ff66]/5 transition-all duration-300 cursor-default"
+            >
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00ff66]" />
+                <span className="text-sm font-medium text-white/80 group-hover:text-white transition-colors">
+                  {tech.name}
+                </span>
+              </div>
+              <span className="absolute -top-2 -right-2 px-2 py-0.5 text-[10px] bg-white/10 text-white/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                {tech.category}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Skills Categories Grid */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="mb-20 overflow-hidden py-6"
+          transition={{ delay: 0.4 }}
+          className="mb-24"
         >
-          <div className="flex gap-8 animate-marquee">
-            {[...techLogos, ...techLogos].map((tech, i) => (
-              <div 
-                key={i}
-                className="flex items-center gap-3 px-6 py-3 bg-white/5 rounded-full border border-white/10 whitespace-nowrap"
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-2.5 bg-white/5 rounded-xl">
+              <Layers size={20} className="text-[#00ff66]" />
+            </div>
+            <h2 className="text-2xl font-bold text-white">Skill Categories</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {SKILLS_DATA.map((category, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 + idx * 0.08 }}
+                whileHover={{ y: -4 }}
+                className="group relative p-6 rounded-2xl bg-gradient-to-br from-white/[0.04] to-transparent border border-white/[0.06] hover:border-[#00ff66]/20 transition-all duration-500"
               >
-                <div className="w-2 h-2 rounded-full bg-[#00ff66]"></div>
-                <span className="text-white/70 font-medium">{tech.name}</span>
-              </div>
+                {/* Hover glow */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#00ff66]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative">
+                  {/* Header */}
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="p-2.5 bg-[#00ff66]/10 rounded-xl text-[#00ff66] group-hover:bg-[#00ff66]/20 transition-colors">
+                      {category.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">{category.title}</h3>
+                      <p className="text-xs text-white/40">{category.description}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Skills Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill, skillIdx) => (
+                      <span 
+                        key={skillIdx}
+                        className="px-2.5 py-1 text-xs bg-white/[0.04] text-white/60 rounded-lg border border-white/[0.04] hover:text-[#00ff66] hover:border-[#00ff66]/20 transition-all cursor-default"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SKILLS_DATA.map((category, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * idx }}
-              className="group p-6 bg-white/[0.02] rounded-2xl border border-white/5 hover:border-[#00ff66]/20 transition-all duration-500"
-            >
-              {/* Icon & Title */}
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 bg-[#00ff66]/10 rounded-xl text-[#00ff66] group-hover:bg-[#00ff66]/20 transition-colors">
-                  {category.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-1">{category.title}</h3>
-                  <p className="text-xs text-white/40">{category.description}</p>
-                </div>
-              </div>
-              
-              {/* Skills List */}
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIdx) => (
-                  <span 
-                    key={skillIdx}
-                    className="px-3 py-1.5 text-xs bg-white/5 text-white/60 rounded-lg border border-white/5 hover:border-[#00ff66]/30 hover:text-[#00ff66] transition-all cursor-default"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Proficiency Section */}
-        <motion.div 
+        {/* Proficiency Bars */}
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-24 p-8 md:p-12 bg-gradient-to-br from-white/[0.03] to-transparent rounded-3xl border border-white/5"
+          className="mb-24"
         >
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 bg-[#00ff66]/10 rounded-lg">
-              <TrendingUp size={20} className="text-[#00ff66]" />
+            <div className="p-2.5 bg-white/5 rounded-xl">
+              <Workflow size={20} className="text-[#00ff66]" />
             </div>
-            <h3 className="text-xl font-semibold text-white">Proficiency Levels</h3>
+            <h2 className="text-2xl font-bold text-white">Proficiency</h2>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-6">
-            {[
-              { skill: 'Systems Programming (Rust/WASM)', level: 90 },
-              { skill: 'Frontend Development (React/Next.js)', level: 95 },
-              { skill: 'Mobile Development (Flutter)', level: 85 },
-              { skill: 'Backend Development (Node.js)', level: 90 },
-              { skill: 'AI/Machine Learning', level: 75 },
-              { skill: 'Cloud & DevOps', level: 80 }
-            ].map((item, i) => (
-              <div key={i} className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-white/70">{item.skill}</span>
-                  <span className="text-[#00ff66]">{item.level}%</span>
+            {proficiencies.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + i * 0.08 }}
+                className="group p-5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-all"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-white/5 text-white/60 group-hover:text-[#00ff66] transition-colors">
+                      {item.icon}
+                    </div>
+                    <span className="font-medium text-white">{item.skill}</span>
+                  </div>
+                  <span className="text-lg font-bold text-[#00ff66]">{item.level}%</span>
                 </div>
+                
                 <div className="h-2 bg-white/5 rounded-full overflow-hidden">
                   <motion.div 
                     initial={{ width: 0 }}
                     whileInView={{ width: `${item.level}%` }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.2 + i * 0.1, ease: "easeOut" }}
-                    className="h-full bg-gradient-to-r from-[#00ff66] to-emerald-400 rounded-full"
+                    transition={{ duration: 1.2, delay: 0.3 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    className={`h-full rounded-full bg-gradient-to-r ${item.color}`}
                   />
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Philosophy */}
+        {/* Philosophy Quote */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-16 text-center"
+          className="relative p-10 md:p-14 rounded-3xl bg-gradient-to-br from-[#00ff66]/10 via-[#00ff66]/5 to-transparent border border-[#00ff66]/10 overflow-hidden text-center"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00ff66]/10 rounded-full mb-6">
-            <Zap size={14} className="text-[#00ff66]" />
-            <span className="text-xs text-[#00ff66] font-medium">Philosophy</span>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#00ff66]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          
+          <div className="relative">
+            <div className="text-6xl text-[#00ff66]/20 font-serif mb-4">"</div>
+            <blockquote className="text-xl md:text-2xl lg:text-3xl text-white/70 leading-relaxed max-w-3xl mx-auto font-light">
+              Code is poetry written for machines to perform and humans to appreciate. 
+              <span className="text-white font-normal"> Every line should serve a purpose.</span>
+            </blockquote>
+            <div className="mt-8 text-sm text-white/40">— My Development Philosophy</div>
           </div>
-          <blockquote className="text-2xl md:text-3xl font-light text-white/60 max-w-3xl mx-auto leading-relaxed">
-            "Code is not just about solving problems—it's about <span className="text-white">crafting elegant solutions</span> that stand the test of time."
-          </blockquote>
         </motion.div>
       </div>
     </div>
