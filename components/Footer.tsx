@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
           {/* CTA */}
           <div className="md:col-span-4">
             <h4 className="text-white font-medium mb-4">Start a Project</h4>
-            <p className="text-white/40 text-sm mb-4">
+            <p className="text-white/60 text-sm mb-4">
               Interested in working together? Let's discuss your ideas.
             </p>
             <Link 
@@ -119,10 +119,10 @@ const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/30 text-sm">
+          <p className="text-white/50 text-sm">
             © {currentYear} Sumit Chauhan. All rights reserved.
           </p>
-          <p className="text-white/30 text-sm">
+          <p className="text-white/50 text-sm">
             Built with React & Tailwind CSS
           </p>
         </div>

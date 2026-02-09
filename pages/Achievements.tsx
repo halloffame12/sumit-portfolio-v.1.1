@@ -31,7 +31,7 @@ const Achievements: React.FC = () => {
           <p className="text-[#00ff66] text-sm font-medium tracking-wider uppercase mb-4">Recognition</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
             Achievements &<br />
-            <span className="text-white/40">milestones.</span>
+            <span className="text-white/60">milestones.</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl">
             A journey of continuous learning, competition, and academic contributions.
@@ -47,15 +47,15 @@ const Achievements: React.FC = () => {
         >
           <div className="text-center p-6 bg-white/[0.02] rounded-2xl border border-white/5">
             <p className="text-3xl font-bold text-[#00ff66] mb-1">{ACHIEVEMENTS_DATA.length}</p>
-            <p className="text-xs text-white/40">Achievements</p>
+            <p className="text-xs text-white/60">Achievements</p>
           </div>
           <div className="text-center p-6 bg-white/[0.02] rounded-2xl border border-white/5">
             <p className="text-3xl font-bold text-amber-400 mb-1">1</p>
-            <p className="text-xs text-white/40">Research Paper</p>
+            <p className="text-xs text-white/60">Research Paper</p>
           </div>
           <div className="text-center p-6 bg-white/[0.02] rounded-2xl border border-white/5">
             <p className="text-3xl font-bold text-purple-400 mb-1">3+</p>
-            <p className="text-xs text-white/40">Competitions</p>
+            <p className="text-xs text-white/60">Competitions</p>
           </div>
         </motion.div>
 
@@ -84,7 +84,7 @@ const Achievements: React.FC = () => {
                     <h3 className="text-lg font-semibold text-white">
                       {achievement.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-xs text-white/40">
+                    <div className="flex items-center gap-2 text-xs text-white/60">
                       <Calendar size={12} />
                       <span>{achievement.date}</span>
                     </div>
@@ -97,7 +97,7 @@ const Achievements: React.FC = () => {
                   </div>
                   
                   {/* Description */}
-                  <p className="text-white/50 text-sm leading-relaxed">
+                  <p className="text-white/60 text-sm leading-relaxed">
                     {achievement.description}
                   </p>
                 </div>

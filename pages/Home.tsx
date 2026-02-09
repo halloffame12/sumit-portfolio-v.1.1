@@ -262,7 +262,7 @@ const Home: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2.3 + i * 0.1 }}
-                  className="px-4 py-2 text-sm text-white/40 bg-white/[0.02] rounded-full border border-white/[0.05] hover:border-[#00ff66]/30 hover:text-[#00ff66] transition-all cursor-default"
+                  className="px-4 py-2 text-sm text-white/60 bg-white/[0.02] rounded-full border border-white/[0.05] hover:border-[#00ff66]/30 hover:text-[#00ff66] transition-all cursor-default"
                 >
                   {tech}
                 </motion.span>
@@ -330,7 +330,7 @@ const Home: React.FC = () => {
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                     A Full Operating System in Your Browser
                   </h3>
-                  <p className="text-white/50 leading-relaxed mb-8">
+                  <p className="text-white/60 leading-relaxed mb-8">
                     ForgeStack OS is a revolutionary web-based operating system that brings the power of a full desktop environment to your browser. Built with Rust and WebAssembly for native-like performance.
                   </p>
                   <div className="flex flex-wrap gap-4">
@@ -421,7 +421,7 @@ const Home: React.FC = () => {
                     {skill.icon}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{skill.title}</h3>
-                  <p className="text-sm text-white/40 leading-relaxed">{skill.desc}</p>
+                  <p className="text-sm text-white/60 leading-relaxed">{skill.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -457,7 +457,7 @@ const Home: React.FC = () => {
                   <p className="text-5xl md:text-6xl font-black text-[#00ff66] mb-2">
                     {stat.value}
                   </p>
-                  <p className="text-sm text-white/40">{stat.label}</p>
+                  <p className="text-sm text-white/60">{stat.label}</p>
                 </motion.div>
               ))}
             </div>

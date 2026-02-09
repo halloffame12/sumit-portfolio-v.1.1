@@ -105,7 +105,7 @@ const Contact: React.FC = () => {
               <div className="text-[#00ff66]">{item.icon}</div>
               <div>
                 <p className="text-white text-xs sm:text-sm font-medium">{item.title}</p>
-                <p className="text-white/40 text-[10px] sm:text-xs">{item.desc}</p>
+                <p className="text-white/60 text-[10px] sm:text-xs">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -127,7 +127,7 @@ const Contact: React.FC = () => {
               
               <div className="relative">
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Send a Message</h3>
-                <p className="text-white/40 text-xs sm:text-sm mb-5 sm:mb-8">Fill out the form and I'll get back to you soon.</p>
+                <p className="text-white/60 text-xs sm:text-sm mb-5 sm:mb-8">Fill out the form and I'll get back to you soon.</p>
                 
                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                   {/* Name & Email - Stack on mobile */}
@@ -250,7 +250,7 @@ const Contact: React.FC = () => {
                     <Mail size={16} />
                   </div>
                   <div className="flex-grow min-w-0">
-                    <p className="text-[10px] sm:text-xs text-white/40 mb-0.5">Email</p>
+                    <p className="text-[10px] sm:text-xs text-white/60 mb-0.5">Email</p>
                     <p className="text-white font-medium text-xs sm:text-sm truncate">sumitchauhan10062004@gmail.com</p>
                   </div>
                   <ArrowUpRight size={14} className="text-white/20 group-hover:text-[#00ff66] transition-colors flex-shrink-0 hidden sm:block" />
@@ -264,7 +264,7 @@ const Contact: React.FC = () => {
                     <Phone size={16} />
                   </div>
                   <div className="flex-grow">
-                    <p className="text-[10px] sm:text-xs text-white/40 mb-0.5">Phone</p>
+                    <p className="text-[10px] sm:text-xs text-white/60 mb-0.5">Phone</p>
                     <p className="text-white font-medium text-xs sm:text-sm">+91 767 833 1501</p>
                   </div>
                   <ArrowUpRight size={14} className="text-white/20 group-hover:text-[#00ff66] transition-colors flex-shrink-0 hidden sm:block" />
@@ -275,7 +275,7 @@ const Contact: React.FC = () => {
                     <MapPin size={16} />
                   </div>
                   <div>
-                    <p className="text-[10px] sm:text-xs text-white/40 mb-0.5">Location</p>
+                    <p className="text-[10px] sm:text-xs text-white/60 mb-0.5">Location</p>
                     <p className="text-white font-medium text-xs sm:text-sm">IIT Patna, India</p>
                   </div>
                 </div>
@@ -284,7 +284,7 @@ const Contact: React.FC = () => {
 
             {/* Social Links */}
             <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/[0.02] border border-white/[0.05]">
-              <p className="text-xs sm:text-sm text-white/40 mb-3 sm:mb-4">Find me online</p>
+              <p className="text-xs sm:text-sm text-white/60 mb-3 sm:mb-4">Find me online</p>
               <div className="flex gap-2 sm:gap-3">
                 <a 
                   href="https://github.com/halloffame12"
@@ -319,7 +319,7 @@ const Contact: React.FC = () => {
                 </svg>
                 <span className="text-[#00ff66] font-semibold text-sm sm:text-base">Available Now</span>
               </div>
-              <p className="text-white/50 text-xs sm:text-sm">
+              <p className="text-white/60 text-xs sm:text-sm">
                 Currently accepting new projects.
               </p>
             </div>

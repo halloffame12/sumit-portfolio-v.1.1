@@ -70,7 +70,7 @@ const Research: React.FC = () => {
           </h2>
 
           {/* Meta Info */}
-          <div className="flex flex-wrap gap-4 mb-6 text-white/50 text-sm">
+          <div className="flex flex-wrap gap-4 mb-6 text-white/60 text-sm">
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4" />
               <span>{RESEARCH_PAPER.authors.join(', ')}</span>
@@ -151,7 +151,7 @@ const Research: React.FC = () => {
                   {index + 1}
                 </div>
                 <h4 className="text-white font-medium mb-2">{contribution.title}</h4>
-                <p className="text-white/50 text-sm">{contribution.description}</p>
+                <p className="text-white/60 text-sm">{contribution.description}</p>
               </motion.div>
             ))}
           </div>
@@ -165,7 +165,7 @@ const Research: React.FC = () => {
           className="mt-12 bg-white/[0.02] border border-white/5 rounded-xl p-6"
         >
           <h3 className="text-white/80 font-medium mb-3">Citation</h3>
-          <code className="block text-white/50 text-sm font-mono bg-black/50 p-4 rounded-lg overflow-x-auto">
+          <code className="block text-white/60 text-sm font-mono bg-black/50 p-4 rounded-lg overflow-x-auto">
             Kumar, S. ({RESEARCH_PAPER.date}). {RESEARCH_PAPER.title}. {RESEARCH_PAPER.journal}.
           </code>
         </motion.div>

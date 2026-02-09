@@ -133,7 +133,7 @@ const Skills: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-white">{category.title}</h3>
-                      <p className="text-xs text-white/40">{category.description}</p>
+                      <p className="text-xs text-white/60">{category.description}</p>
                     </div>
                   </div>
                   
@@ -219,7 +219,7 @@ const Skills: React.FC = () => {
               Code is poetry written for machines to perform and humans to appreciate. 
               <span className="text-white font-normal"> Every line should serve a purpose.</span>
             </blockquote>
-            <div className="mt-8 text-sm text-white/40">— My Development Philosophy</div>
+            <div className="mt-8 text-sm text-white/50">— My Development Philosophy</div>
           </div>
         </motion.div>
       </div>

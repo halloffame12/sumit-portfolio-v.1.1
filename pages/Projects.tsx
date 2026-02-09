@@ -56,21 +56,21 @@ const Projects: React.FC = () => {
             <Folder size={20} className="text-[#00ff66]" />
             <div>
               <p className="text-2xl font-bold text-white">{PROJECTS_DATA.length}+</p>
-              <p className="text-xs text-white/40">Projects</p>
+              <p className="text-xs text-white/60">Projects</p>
             </div>
           </div>
           <div className="flex items-center gap-3 px-5 py-3 bg-white/[0.03] rounded-xl border border-white/[0.05]">
             <Star size={20} className="text-amber-400" />
             <div>
               <p className="text-2xl font-bold text-white">50+</p>
-              <p className="text-xs text-white/40">Stars</p>
+              <p className="text-xs text-white/60">Stars</p>
             </div>
           </div>
           <div className="flex items-center gap-3 px-5 py-3 bg-white/[0.03] rounded-xl border border-white/[0.05]">
             <GitFork size={20} className="text-purple-400" />
             <div>
               <p className="text-2xl font-bold text-white">500+</p>
-              <p className="text-xs text-white/40">Commits</p>
+              <p className="text-xs text-white/60">Commits</p>
             </div>
           </div>
         </motion.div>
@@ -97,7 +97,8 @@ const Projects: React.FC = () => {
                   <div className="relative aspect-video lg:aspect-auto overflow-hidden">
                     <img 
                       src={project.imageUrl}
-                      alt={project.title}
+                      alt={`${project.title} - ${project.category} project screenshot`}
+                      loading="lazy"
                       className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent lg:bg-gradient-to-t" />
@@ -127,7 +128,7 @@ const Projects: React.FC = () => {
                       />
                     </div>
                     
-                    <p className="text-white/50 leading-relaxed mb-6 line-clamp-3">
+                    <p className="text-white/60 leading-relaxed mb-6 line-clamp-3">
                       {project.description}
                     </p>
                     
@@ -142,16 +143,16 @@ const Projects: React.FC = () => {
                         </span>
                       ))}
                       {project.techStack.length > 5 && (
-                        <span className="px-3 py-1.5 text-xs bg-white/[0.03] text-white/40 rounded-lg">
+                        <span className="px-3 py-1.5 text-xs bg-white/[0.03] text-white/60 rounded-lg">
                           +{project.techStack.length - 5}
                         </span>
                       )}
                     </div>
                     
                     {/* Role */}
-                    <div className="flex items-center gap-2 text-xs text-white/30">
+                    <div className="flex items-center gap-2 text-xs text-white/50">
                       <span className="w-1 h-1 rounded-full bg-[#00ff66]" />
-                      <span>Role: <span className="text-white/50">{project.role}</span></span>
+                      <span>Role: <span className="text-white/70">{project.role}</span></span>
                     </div>
                   </div>
                 </div>
@@ -168,7 +169,7 @@ const Projects: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="mt-24 text-center"
         >
-          <p className="text-white/40 mb-8">Explore more on GitHub</p>
+          <p className="text-white/60 mb-8">Explore more on GitHub</p>
           <a 
             href="https://github.com/halloffame12"
             target="_blank"

@@ -70,7 +70,8 @@ const About: React.FC = () => {
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-900 border border-white/10">
                 <img 
                   src="https://i.postimg.cc/hGCbJj5s/sumit-chauhan.png"
-                  alt="Sumit Chauhan"
+                  alt="Sumit Chauhan - Full-Stack Developer and Systems Programmer"
+                  loading="lazy"
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -151,7 +152,7 @@ const About: React.FC = () => {
                   <div className="flex items-center gap-3">
                     <div className="text-[#00ff66]/60">{fact.icon}</div>
                     <div>
-                      <p className="text-[10px] uppercase tracking-wider text-white/30">{fact.label}</p>
+                      <p className="text-[10px] uppercase tracking-wider text-white/50">{fact.label}</p>
                       <p className="text-sm font-medium text-white">{fact.value}</p>
                     </div>
                   </div>
@@ -184,7 +185,7 @@ const About: React.FC = () => {
                   {item.icon}
                 </div>
                 <h4 className="text-lg font-semibold text-white mb-1">{item.title}</h4>
-                <p className="text-sm text-white/50">{item.desc}</p>
+                <p className="text-sm text-white/60">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -215,10 +216,10 @@ const About: React.FC = () => {
                 <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] group-hover:border-[#00ff66]/20 transition-colors">
                   <div className="flex flex-wrap items-center gap-3 mb-2">
                     <span className="text-xs font-medium text-[#00ff66] bg-[#00ff66]/10 px-2.5 py-1 rounded-full">{exp.period}</span>
-                    <span className="text-xs text-white/40">{exp.company}</span>
+                    <span className="text-xs text-white/60">{exp.company}</span>
                   </div>
                   <h4 className="text-lg font-semibold text-white mb-2">{exp.title}</h4>
-                  <p className="text-sm text-white/50 mb-4">{exp.description}</p>
+                  <p className="text-sm text-white/60 mb-4">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.tech.map((t, j) => (
                       <span key={j} className="px-2.5 py-1 text-xs bg-white/5 text-white/60 rounded-md border border-white/5">{t}</span>

@@ -68,7 +68,7 @@ const Services: React.FC = () => {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
             What I Build
           </h1>
-          <p className="text-lg text-white/50 max-w-2xl mx-auto">
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">
             From concept to deployment, I offer end-to-end development services tailored to your specific needs.
           </p>
         </motion.div>
@@ -99,14 +99,14 @@ const Services: React.FC = () => {
                 </h3>
                 
                 {/* Description */}
-                <p className="text-white/50 text-sm leading-relaxed mb-6">
+                <p className="text-white/60 text-sm leading-relaxed mb-6">
                   {service.description}
                 </p>
                 
                 {/* Features */}
                 <ul className="space-y-2.5">
                   {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2.5 text-sm text-white/40 group-hover:text-white/50 transition-colors">
+                    <li key={i} className="flex items-center gap-2.5 text-sm text-white/60 group-hover:text-white/70 transition-colors">
                       <CheckCircle size={14} className="text-[#00ff66] flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
@@ -162,7 +162,7 @@ const Services: React.FC = () => {
                   </div>
                   
                   <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-white/40 leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -187,7 +187,7 @@ const Services: React.FC = () => {
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Ready to start your project?
               </h3>
-              <p className="text-white/50 max-w-lg">
+              <p className="text-white/60 max-w-lg">
                 Let's discuss your ideas and build something extraordinary together. I'm always excited to work on challenging projects.
               </p>
             </div>
