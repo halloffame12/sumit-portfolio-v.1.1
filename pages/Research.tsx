@@ -29,8 +29,8 @@ const RESEARCH_PAPER = {
 
 const Research: React.FC = () => {
   return (
-    <section className="min-h-screen pt-32 pb-24 px-6 bg-black">
-      <div className="max-w-4xl mx-auto">
+    <section className="page-shell">
+      <div className="page-container max-w-4xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ const Research: React.FC = () => {
           <p className="text-[#00ff66] text-sm font-medium tracking-widest uppercase mb-4">
             Research & Publications
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h1 className="fluid-title font-bold text-white mb-6">
             Academic Work
           </h1>
           <p className="text-white/60 text-lg max-w-2xl">

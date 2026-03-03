@@ -22,11 +22,11 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="border-t border-white/5 bg-black">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 py-16">
-        <div className="grid md:grid-cols-12 gap-12">
+      <div className="max-w-[80rem] mx-auto px-4 sm:px-6 py-14 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 sm:gap-8 md:gap-12">
           
           {/* Brand */}
-          <div className="md:col-span-4 space-y-6">
+          <div className="md:col-span-4 space-y-5 sm:space-y-6 sm:col-span-2">
             <Link to="/" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-[#00ff66] flex items-center justify-center">
                 <span className="text-black font-bold text-sm">S</span>
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* CTA */}
-          <div className="md:col-span-4">
+          <div className="md:col-span-4 sm:col-span-2">
             <h4 className="text-white font-medium mb-4">Start a Project</h4>
             <p className="text-white/60 text-sm mb-4">
               Interested in working together? Let's discuss your ideas.
@@ -118,11 +118,11 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/50 text-sm">
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-center md:text-left">
+          <p className="text-white/50 text-xs sm:text-sm">
             © {currentYear} Sumit Chauhan. All rights reserved.
           </p>
-          <p className="text-white/50 text-sm">
+          <p className="text-white/50 text-xs sm:text-sm">
             Built with React & Tailwind CSS
           </p>
         </div>

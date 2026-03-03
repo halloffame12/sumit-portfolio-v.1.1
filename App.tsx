@@ -47,8 +47,9 @@ const App: React.FC = () => {
       <Router>
         <ScrollToTop />
         <div className="flex flex-col min-h-screen bg-black text-white selection:bg-[#00ff66]/30 selection:text-[#00ff66]">
+          <div className="aurora-bg" />
           <Navbar />
-          <main id="main-content" className="flex-grow" role="main">
+          <main id="main-content" className="flex-grow relative" role="main">
             <PageTransition>
               <Routes>
                 <Route path="/" element={<Home />} />

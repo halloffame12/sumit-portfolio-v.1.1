@@ -33,7 +33,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-32 relative overflow-hidden bg-black">
+    <div className="page-shell">
       
       {/* Background */}
       <div className="fixed inset-0 -z-10">
@@ -42,7 +42,7 @@ const Services: React.FC = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="page-container">
         
         {/* Header */}
         <motion.div 
@@ -65,7 +65,7 @@ const Services: React.FC = () => {
             <span className="text-sm text-[#00ff66] font-medium">Services</span>
           </motion.div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="fluid-title font-bold text-white mb-6 tracking-tight">
             What I Build
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">

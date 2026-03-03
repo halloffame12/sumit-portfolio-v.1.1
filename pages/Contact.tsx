@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-24 sm:pt-28 pb-16 sm:pb-24 relative overflow-hidden bg-black">
+    <div className="page-shell">
       
       {/* Background */}
       <div className="fixed inset-0 -z-10">
@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
         <div className="absolute bottom-0 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-gradient-radial from-purple-500/10 to-transparent blur-3xl" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="page-container">
         
         {/* Header */}
         <motion.div 

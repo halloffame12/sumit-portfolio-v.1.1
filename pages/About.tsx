@@ -43,7 +43,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-32 relative overflow-hidden bg-black">
+    <div className="page-shell">
       
       {/* Background */}
       <div className="fixed inset-0 -z-10">
@@ -52,10 +52,10 @@ const About: React.FC = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="page-container">
         
         {/* Hero Section */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start mb-24">
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 items-start mb-16 sm:mb-20 lg:mb-24">
           
           {/* Left - Photo */}
           <motion.div 
@@ -110,17 +110,17 @@ const About: React.FC = () => {
             className="space-y-8"
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00ff66]/10 rounded-full border border-[#00ff66]/20">
+            <div className="section-kicker">
               <svg viewBox="0 0 48 48" fill="none" className="w-4 h-4">
                 <circle cx="24" cy="24" r="22" fill="#00ff66" />
                 <path d="M30 16H21C18.79 16 17 17.79 17 20C17 22.21 18.79 24 21 24H27C29.21 24 31 25.79 31 28C31 30.21 29.21 32 27 32H18" stroke="black" strokeWidth="3" strokeLinecap="round" fill="none" />
                 <circle cx="33" cy="15" r="3" fill="black" />
               </svg>
-              <span className="text-sm text-[#00ff66] font-medium">About Me</span>
+              <span>About Me</span>
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            <h1 className="fluid-title font-bold text-white">
               Building the future,
               <br />
               <span className="text-white/60">one system at a time.</span>

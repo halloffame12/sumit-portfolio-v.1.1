@@ -43,6 +43,18 @@ const Navbar: React.FC = () => {
     document.body.style.overflow = 'unset';
   }, [location]);
 
+  useEffect(() => {
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+        document.body.style.overflow = 'unset';
+      }
+    };
+
+    window.addEventListener('keydown', onEscape);
+    return () => window.removeEventListener('keydown', onEscape);
+  }, []);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
     document.body.style.overflow = !isOpen ? 'hidden' : 'unset';
@@ -55,6 +67,8 @@ const Navbar: React.FC = () => {
     { name: 'Projects', path: '/projects' },
     { name: 'Services', path: '/services' },
     { name: 'Research', path: '/research' },
+    { name: 'Achievements', path: '/achievements' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -68,11 +82,11 @@ const Navbar: React.FC = () => {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="fixed top-0 left-0 right-0 z-[100]"
       >
-        <div className={`transition-all duration-500 ${scrolled ? 'py-2' : 'py-4'}`}>
-          <nav className={`max-w-[1100px] mx-auto px-4 transition-all duration-500 ${
+        <div className={`transition-all duration-500 ${scrolled ? 'py-2' : 'py-3 sm:py-4'}`}>
+          <nav className={`max-w-[80rem] mx-auto px-4 sm:px-6 transition-all duration-500 ${
             scrolled ? 'mx-4 md:mx-auto' : ''
           }`}>
-            <div className={`relative flex items-center justify-between h-14 px-4 md:px-6 transition-all duration-500 ${
+            <div className={`relative flex items-center justify-between h-14 sm:h-[58px] px-3 sm:px-6 transition-all duration-500 ${
               scrolled 
                 ? 'bg-black/60 backdrop-blur-2xl border border-white/[0.08] rounded-2xl shadow-xl shadow-black/20' 
                 : ''
@@ -90,7 +104,7 @@ const Navbar: React.FC = () => {
               </Link>
 
               {/* Desktop Navigation */}
-              <div className="hidden lg:flex items-center gap-0.5">
+              <div className="hidden xl:flex items-center gap-0.5">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
@@ -125,7 +139,7 @@ const Navbar: React.FC = () => {
               {/* CTA Button */}
               <Link 
                 to="/contact"
-                className="hidden lg:flex items-center gap-1.5 px-4 py-2 bg-[#00ff66] rounded-xl text-black text-[13px] font-semibold hover:shadow-[0_0_24px_rgba(0,255,102,0.4)] transition-all duration-300 group"
+                className="hidden xl:flex items-center gap-1.5 px-4 py-2 bg-[#00ff66] rounded-xl text-black text-[13px] font-semibold hover:shadow-[0_0_24px_rgba(0,255,102,0.4)] transition-all duration-300 group"
               >
                 <span>Let's Talk</span>
                 <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -134,8 +148,10 @@ const Navbar: React.FC = () => {
               {/* Mobile Menu Button */}
               <button 
                 onClick={toggleMenu}
-                className="lg:hidden relative w-10 h-10 flex items-center justify-center"
+                className="xl:hidden relative w-10 h-10 flex items-center justify-center"
                 aria-label="Toggle menu"
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
               >
                 <div className="relative w-5 h-3.5 flex flex-col justify-between">
                   <motion.span 
@@ -165,7 +181,7 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[99] lg:hidden"
+            className="fixed inset-0 z-[99] xl:hidden"
           >
             {/* Backdrop */}
             <div className="absolute inset-0 bg-black/95 backdrop-blur-xl" onClick={toggleMenu} />
@@ -176,7 +192,8 @@ const Navbar: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="relative h-full flex flex-col items-center justify-center gap-6 p-8"
+              id="mobile-menu"
+              className="relative h-full overflow-y-auto flex flex-col items-center justify-center gap-5 p-8 pt-24"
             >
               {navLinks.map((link, i) => (
                 <motion.div
@@ -187,7 +204,7 @@ const Navbar: React.FC = () => {
                 >
                   <Link
                     to={link.path}
-                    className={`text-3xl font-semibold transition-colors ${
+                    className={`text-2xl sm:text-3xl font-semibold transition-colors ${
                       isActive(link.path) ? 'text-[#00ff66]' : 'text-white/60 hover:text-white'
                     }`}
                   >

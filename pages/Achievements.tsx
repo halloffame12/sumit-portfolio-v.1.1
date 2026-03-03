@@ -11,7 +11,7 @@ const Achievements: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-28 pb-24 relative overflow-hidden">
+    <div className="page-shell">
       
       {/* Background */}
       <div className="fixed inset-0 -z-10">
@@ -19,7 +19,7 @@ const Achievements: React.FC = () => {
         <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-gradient-radial from-amber-500/5 to-transparent rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 md:px-12">
+      <div className="page-container max-w-4xl">
         
         {/* Header */}
         <motion.div 
@@ -29,7 +29,7 @@ const Achievements: React.FC = () => {
           className="mb-16"
         >
           <p className="text-[#00ff66] text-sm font-medium tracking-wider uppercase mb-4">Recognition</p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+          <h1 className="fluid-title font-bold text-white leading-tight mb-6">
             Achievements &<br />
             <span className="text-white/60">milestones.</span>
           </h1>
@@ -43,7 +43,7 @@ const Achievements: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="grid grid-cols-3 gap-6 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-16"
         >
           <div className="text-center p-6 bg-white/[0.02] rounded-2xl border border-white/5">
             <p className="text-3xl font-bold text-[#00ff66] mb-1">{ACHIEVEMENTS_DATA.length}</p>

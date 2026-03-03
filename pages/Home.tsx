@@ -1,513 +1,344 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, Code2, Layers, Cpu, Zap, Play, Terminal, Braces, Database, Globe, Github } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Code2, Layers, Cpu, Zap, Play, Terminal, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Home: React.FC = () => {
-  
   const floatingAnimation = {
     y: [0, -10, 0],
-    transition: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+    transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' }
   };
 
-  // Staggered text animation
   const letterAnimation = {
-    hidden: { opacity: 0, y: 80, rotateX: -90 },
-    visible: (i: number) => ({
+    hidden: { opacity: 0, y: 72, rotateX: -90 },
+    visible: (index: number) => ({
       opacity: 1,
       y: 0,
       rotateX: 0,
-      transition: { duration: 0.8, delay: 0.3 + i * 0.05, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.75, delay: 0.22 + index * 0.045, ease: [0.22, 1, 0.36, 1] }
     })
   };
 
-  const name = "SUMIT";
-  const lastname = "CHAUHAN";
+  const name = 'SUMIT';
+  const lastname = 'CHAUHAN';
+
+  const metrics = [
+    { value: '10+', label: 'Production Projects' },
+    { value: '<100ms', label: 'Realtime Delivery Goal' },
+    { value: '4+', label: 'Years in Development' },
+    { value: '24h', label: 'Communication SLA' }
+  ];
+
+  const capabilities = [
+    {
+      icon: <Cpu size={22} />,
+      title: 'Systems Engineering',
+      description: 'Rust + WebAssembly architecture designed for speed, reliability, and scalability.'
+    },
+    {
+      icon: <Layers size={22} />,
+      title: 'Full-Stack Products',
+      description: 'Clean frontend systems backed by robust APIs, data modeling, and deployment pipelines.'
+    },
+    {
+      icon: <Code2 size={22} />,
+      title: 'Mobile Experiences',
+      description: 'High-quality Flutter apps with polished UX and fast, responsive interactions.'
+    },
+    {
+      icon: <Zap size={22} />,
+      title: 'Realtime Platforms',
+      description: 'Socket-based infrastructure for chat, events, and collaborative live experiences.'
+    }
+  ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-black">
-      
-      {/* Supreme Animated Background */}
-      <div className="fixed inset-0 -z-10">
-        {/* Central massive glow */}
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.3, 1], 
-            opacity: [0.2, 0.35, 0.2],
-            rotate: [0, 180, 360]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-conic from-[#00ff66]/30 via-transparent via-50% to-[#00ff66]/30 rounded-full blur-3xl"
-        />
-        {/* Orbiting elements */}
+    <div className="page-shell">
+      <div className="fixed inset-0 -z-10 pointer-events-none">
         <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
-        >
-          <div className="absolute top-0 left-1/2 w-3 h-3 bg-[#00ff66] rounded-full blur-sm" />
-          <div className="absolute bottom-0 left-1/2 w-2 h-2 bg-purple-500 rounded-full blur-sm" />
-          <div className="absolute left-0 top-1/2 w-2 h-2 bg-blue-500 rounded-full blur-sm" />
-        </motion.div>
-        {/* Floating particles */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -100, 0],
-              x: [0, Math.sin(i) * 50, 0],
-              opacity: [0.3, 0.8, 0.3]
-            }}
-            transition={{ duration: 5 + i, repeat: Infinity, delay: i * 0.5 }}
-            className="absolute w-1 h-1 bg-[#00ff66] rounded-full"
-            style={{ left: `${15 + i * 15}%`, top: `${30 + i * 10}%` }}
-          />
-        ))}
-        {/* Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,102,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,102,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
-        {/* Radial fade */}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.14, 0.3, 0.14], rotate: [0, 180, 360] }}
+          transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[1100px] bg-gradient-conic from-[#00ff66]/25 via-transparent to-[#00ff66]/25 rounded-full blur-3xl"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:68px_68px]" />
         <div className="absolute inset-0 bg-gradient-radial from-transparent via-black/30 to-black" />
       </div>
 
-      {/* Hero Section */}
-      <motion.section 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="min-h-screen flex items-center justify-center px-6 pt-28 pb-24 relative"
-      >
-        <div className="max-w-7xl mx-auto w-full">
-
-          {/* Main Hero Content */}
-          <div className="text-center">
-            
-            {/* Floating tech icons - positioned to avoid navbar and content overlap */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none hidden lg:block">
-              <motion.div
-                animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-                transition={{ duration: 6, repeat: Infinity }}
-                className="absolute top-[35%] left-[5%] p-4 bg-white/[0.03] rounded-2xl border border-white/[0.06] backdrop-blur-sm"
-              >
-                <Terminal size={24} className="text-[#00ff66]" />
-              </motion.div>
-              <motion.div
-                animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
-                className="absolute top-[35%] right-[5%] p-4 bg-white/[0.03] rounded-2xl border border-white/[0.06] backdrop-blur-sm"
-              >
-                <Braces size={24} className="text-purple-400" />
-              </motion.div>
-              <motion.div
-                animate={{ y: [0, -15, 0], rotate: [0, 15, 0] }}
-                transition={{ duration: 7, repeat: Infinity, delay: 1 }}
-                className="absolute bottom-[40%] left-[5%] p-4 bg-white/[0.03] rounded-2xl border border-white/[0.06] backdrop-blur-sm"
-              >
-                <Database size={24} className="text-blue-400" />
-              </motion.div>
-              <motion.div
-                animate={{ y: [0, 20, 0], rotate: [0, -15, 0] }}
-                transition={{ duration: 6, repeat: Infinity, delay: 1.5 }}
-                className="absolute bottom-[40%] right-[5%] p-4 bg-white/[0.03] rounded-2xl border border-white/[0.06] backdrop-blur-sm"
-              >
-                <Globe size={24} className="text-emerald-400" />
-              </motion.div>
-            </div>
-
-            {/* Pre-title with animated border */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-10 relative inline-block"
-            >
-              <div className="relative px-6 py-3 rounded-full bg-black border border-[#00ff66]/30 overflow-hidden group">
-                {/* Animated border glow */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 bg-gradient-conic from-[#00ff66] via-transparent to-[#00ff66] opacity-20"
-                />
-                <div className="absolute inset-[1px] bg-black rounded-full" />
-                <div className="relative flex items-center gap-3">
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                  >
-                    <svg viewBox="0 0 48 48" fill="none" className="w-5 h-5">
-                      <circle cx="24" cy="24" r="22" fill="#00ff66" />
-                      <path d="M30 16H21C18.79 16 17 17.79 17 20C17 22.21 18.79 24 21 24H27C29.21 24 31 25.79 31 28C31 30.21 29.21 32 27 32H18" stroke="black" strokeWidth="3" strokeLinecap="round" fill="none" />
-                      <circle cx="33" cy="15" r="3" fill="black" />
-                    </svg>
-                  </motion.div>
-                  <span className="text-sm font-medium bg-gradient-to-r from-[#00ff66] via-white to-[#00ff66] bg-clip-text text-transparent">
-                    Full-Stack Developer & Systems Architect
-                  </span>
-                </div>
+      <section className="page-container">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.9 }}
+          className="rounded-3xl border border-white/[0.08] bg-black/45 backdrop-blur-2xl shadow-xl shadow-black/25 p-5 sm:p-8 lg:p-10"
+        >
+          <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-8 lg:gap-12 items-center">
+            <div>
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-[11px] sm:text-xs text-white/70">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00ff66] animate-pulse" />
+                  Designer + Engineer
+                </span>
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00ff66]/20 bg-[#00ff66]/10 text-[11px] sm:text-xs text-[#00ff66]">
+                  Building Modern Digital Products
+                </span>
               </div>
-            </motion.div>
 
-            {/* Main Title - 3D Letter Animation */}
-            <div className="relative mb-8 perspective-1000">
-              <h1 className="text-[clamp(4rem,18vw,14rem)] font-black leading-[0.8] tracking-[-0.05em]">
-                {/* First Name */}
+              <h1 className="text-[clamp(2.6rem,12vw,7rem)] font-black leading-[0.85] tracking-[-0.04em] mb-5 perspective-1000">
                 <span className="block overflow-hidden">
                   <span className="inline-flex">
-                    {name.split('').map((letter, i) => (
+                    {name.split('').map((letter, index) => (
                       <motion.span
-                        key={i}
-                        custom={i}
+                        key={index}
+                        custom={index}
                         initial="hidden"
                         animate="visible"
                         variants={letterAnimation}
-                        className="inline-block text-white hover:text-[#00ff66] transition-colors cursor-default"
+                        className="inline-block text-white"
                       >
                         {letter}
                       </motion.span>
                     ))}
                   </span>
                 </span>
-                {/* Last Name with gradient */}
-                <span className="block overflow-hidden relative">
+                <span className="block overflow-hidden">
                   <span className="inline-flex">
-                    {lastname.split('').map((letter, i) => (
+                    {lastname.split('').map((letter, index) => (
                       <motion.span
-                        key={i}
-                        custom={i + name.length}
+                        key={index}
+                        custom={index + name.length}
                         initial="hidden"
                         animate="visible"
                         variants={letterAnimation}
-                        className="inline-block bg-gradient-to-br from-[#00ff66] via-emerald-300 to-[#00ff66] bg-clip-text text-transparent hover:from-white hover:to-white transition-all cursor-default"
+                        className="inline-block bg-gradient-to-r from-[#00ff66] via-emerald-300 to-[#00ff66] bg-clip-text text-transparent"
                       >
                         {letter}
                       </motion.span>
                     ))}
                   </span>
-                  {/* Glowing underline */}
-                  <motion.div 
-                    initial={{ scaleX: 0, opacity: 0 }}
-                    animate={{ scaleX: 1, opacity: 1 }}
-                    transition={{ duration: 1.2, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute -bottom-4 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-[#00ff66] to-transparent origin-left"
-                  />
-                  <motion.div 
-                    initial={{ scaleX: 0, opacity: 0 }}
-                    animate={{ scaleX: 1, opacity: 0.5 }}
-                    transition={{ duration: 1.2, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute -bottom-4 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-[#00ff66] to-transparent origin-left blur-md"
-                  />
                 </span>
               </h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.05 }}
+                className="fluid-subtitle text-white/65 max-w-2xl"
+              >
+                I craft advanced, modern, and high-performance digital experiences — blending strong UI/UX decisions with
+                production-grade engineering for web, mobile, and realtime platforms.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2 }}
+                className="mt-8 flex flex-wrap items-center gap-3"
+              >
+                <Link
+                  to="/projects"
+                  className="group relative inline-flex items-center gap-2 px-7 sm:px-9 py-3.5 sm:py-4 rounded-2xl overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#00ff66] via-emerald-400 to-[#00ff66] bg-[length:200%_100%] animate-gradient" />
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+                  <span className="relative text-black font-bold text-sm sm:text-base">Explore Portfolio</span>
+                  <ArrowRight size={17} className="relative text-black group-hover:translate-x-1.5 transition-transform" />
+                </Link>
+
+                <Link
+                  to="/contact"
+                  className="group relative inline-flex items-center gap-2 px-7 sm:px-9 py-3.5 sm:py-4 rounded-2xl overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-white/[0.03] border border-white/[0.12] rounded-2xl backdrop-blur-xl group-hover:border-[#00ff66]/30 transition-colors" />
+                  <span className="relative text-white/85 font-medium text-sm sm:text-base group-hover:text-white">Start a Project</span>
+                  <ArrowUpRight size={17} className="relative text-white/50 group-hover:text-[#00ff66] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+                </Link>
+              </motion.div>
             </div>
 
-            {/* Description with typing effect */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.5 }}
-              className="mb-14"
-            >
-              <p className="text-xl md:text-2xl lg:text-3xl text-white/60 max-w-4xl mx-auto leading-relaxed font-light">
-                Engineering <span className="text-white font-medium">next-generation systems</span> with 
-                <span className="text-[#00ff66] font-semibold"> Rust</span> & 
-                <span className="text-purple-400 font-semibold"> WebAssembly</span>
-                <br className="hidden md:block" />
-                <span className="text-white/30">—</span> Building the future of the web.
-              </p>
-            </motion.div>
-
-            {/* CTA Buttons - Glassy */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.8 }}
-              className="flex flex-wrap items-center justify-center gap-5"
-            >
-              <Link 
-                to="/projects"
-                className="group relative inline-flex items-center gap-3 px-10 py-5 overflow-hidden rounded-2xl transition-all duration-500"
-              >
-                {/* Animated gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00ff66] via-emerald-400 to-[#00ff66] bg-[length:200%_100%] animate-gradient" />
-                {/* Shine effect */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-                {/* Glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#00ff66] blur-2xl -z-10" />
-                <span className="relative text-black font-bold text-lg">Explore Work</span>
-                <ArrowRight size={20} className="relative text-black group-hover:translate-x-2 transition-transform duration-300" />
-              </Link>
-              
-              <Link 
-                to="/contact"
-                className="group relative inline-flex items-center gap-3 px-10 py-5 rounded-2xl overflow-hidden"
-              >
-                {/* Glass background */}
-                <div className="absolute inset-0 bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl group-hover:border-[#00ff66]/30 transition-colors" />
-                {/* Hover fill */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00ff66]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-                <span className="relative text-white font-medium text-lg group-hover:text-[#00ff66] transition-colors">Let's Connect</span>
-                <ArrowUpRight size={18} className="relative text-white/50 group-hover:text-[#00ff66] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-              </Link>
-            </motion.div>
-
-            {/* Tech stack pills */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.2 }}
-              className="mt-16 flex flex-wrap justify-center gap-3"
+              initial={{ opacity: 0, scale: 0.96, y: 14 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
+              className="relative"
             >
-              {['Rust', 'TypeScript', 'React', 'WebAssembly', 'Node.js', 'PostgreSQL'].map((tech, i) => (
-                <motion.span
-                  key={tech}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 2.3 + i * 0.1 }}
-                  className="px-4 py-2 text-sm text-white/60 bg-white/[0.02] rounded-full border border-white/[0.05] hover:border-[#00ff66]/30 hover:text-[#00ff66] transition-all cursor-default"
-                >
-                  {tech}
-                </motion.span>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
+              <div className="absolute inset-0 pointer-events-none">
+                <motion.div
+                  animate={{ x: [0, 12, -6, 0], y: [0, -12, 8, 0], scale: [1, 1.1, 0.95, 1] }}
+                  transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute top-6 left-6 w-40 h-40 bg-[#00ff66]/20 blur-2xl rounded-full"
+                />
+                <motion.div
+                  animate={{ x: [0, -14, 9, 0], y: [0, 12, -10, 0], scale: [1, 0.9, 1.1, 1] }}
+                  transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
+                  className="absolute bottom-6 right-4 w-44 h-44 bg-purple-500/20 blur-3xl rounded-full"
+                />
+              </div>
 
-      {/* Add gradient animation keyframes */}
-      <style>{`
-        @keyframes gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .animate-gradient {
-          animation: gradient 3s ease infinite;
-        }
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-        .bg-gradient-conic {
-          background: conic-gradient(var(--tw-gradient-stops));
-        }
-      `}</style>
+              <div className="neo-card rounded-3xl p-5 sm:p-6 overflow-hidden">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#00ff66]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400/90" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-blue-400/90" />
+                  </div>
+                  <span className="text-[11px] text-white/55 tracking-wider uppercase">Live Product Board</span>
+                </div>
 
-      {/* Featured Project Section */}
-      <div className="py-8" />
-      <section className="py-32 px-6 relative">
-        <div className="max-w-6xl mx-auto">
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
-          >
-            <p className="text-[#00ff66] text-sm font-medium tracking-wider uppercase mb-4">Featured Project</p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              ForgeStack OS
-            </h2>
-          </motion.div>
+                <div className="rounded-2xl border border-white/[0.08] bg-black/50 p-4 sm:p-5">
+                  <div className="flex items-center gap-2 text-xs text-white/60 mb-4">
+                    <Terminal size={14} className="text-[#00ff66]" />
+                    <span>deployment.stream</span>
+                  </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative group"
-          >
-            <div className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/[0.08] overflow-hidden">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-radial from-[#00ff66]/10 to-transparent blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-60 h-60 bg-gradient-radial from-purple-500/10 to-transparent blur-3xl" />
-              
-              <div className="relative grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                <div>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {['Rust', 'WebAssembly', 'React', 'TypeScript'].map((tech) => (
-                      <span key={tech} className="px-3 py-1 bg-[#00ff66]/10 text-[#00ff66] text-xs font-medium rounded-full">
-                        {tech}
-                      </span>
+                  <div className="space-y-3">
+                    {capabilities.slice(0, 3).map((item, index) => (
+                      <motion.div
+                        key={item.title}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.85 + index * 0.1 }}
+                        className="rounded-xl p-3 border border-white/[0.08] bg-white/[0.02]"
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <p className="text-xs sm:text-sm text-white/90 font-medium">{item.title}</p>
+                          <span className="text-[10px] text-[#00ff66]">ACTIVE</span>
+                        </div>
+                        <p className="text-[11px] sm:text-xs text-white/55 mt-1.5">{item.description}</p>
+                      </motion.div>
                     ))}
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                    A Full Operating System in Your Browser
-                  </h3>
-                  <p className="text-white/60 leading-relaxed mb-8">
-                    ForgeStack OS is a revolutionary web-based operating system that brings the power of a full desktop environment to your browser. Built with Rust and WebAssembly for native-like performance.
-                  </p>
-                  <div className="flex flex-wrap gap-4">
-                    <Link 
-                      to="/projects"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#00ff66] text-black font-semibold rounded-xl hover:shadow-[0_0_30px_rgba(0,255,102,0.4)] transition-all"
-                    >
-                      <Play size={16} />
-                      <span>See Details</span>
-                    </Link>
-                    <a 
-                      href="https://github.com/halloffame12"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 text-white font-medium rounded-xl border border-white/10 hover:bg-white/10 transition-all"
-                    >
-                      <Github size={16} />
-                      <span>Source Code</span>
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="relative">
-                  <div className="aspect-video rounded-xl bg-gradient-to-br from-[#00ff66]/20 to-purple-500/20 p-1">
-                    <div className="w-full h-full rounded-lg bg-black/80 flex items-center justify-center">
-                      <div className="text-center">
-                        <Cpu size={48} className="text-[#00ff66] mx-auto mb-3" />
-                        <p className="text-white/60 text-sm">Live Preview Coming Soon</p>
-                      </div>
-                    </div>
-                  </div>
+
                   <motion.div
-                    animate={floatingAnimation}
-                    className="absolute -bottom-4 -right-4 px-4 py-2 bg-[#00ff66] text-black text-sm font-bold rounded-lg shadow-lg shadow-[#00ff66]/30"
+                    animate={{ opacity: [0.45, 1, 0.45] }}
+                    transition={{ duration: 2.2, repeat: Infinity }}
+                    className="mt-4 flex items-center gap-2 text-[11px] text-white/50"
                   >
-                    In Development
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00ff66]" />
+                    System ready for cross-device delivery
                   </motion.div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Expertise Section */}
-      <section className="py-32 px-6 relative border-t border-white/[0.03]">
-        <div className="max-w-6xl mx-auto">
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-20"
-          >
-            <p className="text-[#00ff66] text-sm font-medium tracking-wider uppercase mb-4">What I Do</p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              Core Expertise
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { icon: <Cpu size={28} />, title: 'Systems Dev', desc: 'Rust, WebAssembly, OS Development', highlight: true },
-              { icon: <Layers size={28} />, title: 'Full-Stack', desc: 'React, Next.js, Node.js, PostgreSQL', highlight: false },
-              { icon: <Code2 size={28} />, title: 'Mobile Apps', desc: 'Flutter, Dart, React Native', highlight: false },
-              { icon: <Zap size={28} />, title: 'AI & ML', desc: 'PyTorch, TensorFlow, LLMs', highlight: false },
-            ].map((skill, i) => (
-              <motion.div
-                key={skill.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group relative"
-              >
-                <div className={`relative p-7 rounded-2xl border transition-all duration-500 h-full ${
-                  skill.highlight 
-                    ? 'bg-gradient-to-br from-[#00ff66]/15 to-[#00ff66]/5 border-[#00ff66]/30 hover:border-[#00ff66]/50' 
-                    : 'bg-white/[0.02] border-white/[0.05] hover:border-white/[0.15] hover:bg-white/[0.04]'
-                }`}>
-                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-colors ${
-                    skill.highlight 
-                      ? 'bg-[#00ff66]/20 text-[#00ff66]' 
-                      : 'bg-white/[0.05] text-white/50 group-hover:text-[#00ff66]'
-                  }`}>
-                    {skill.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{skill.title}</h3>
-                  <p className="text-sm text-white/60 leading-relaxed">{skill.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-28 px-6">
-        <div className="max-w-5xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="p-10 md:p-14 rounded-3xl bg-gradient-to-br from-white/[0.04] to-transparent border border-white/[0.06]"
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-              {[
-                { value: '10+', label: 'Projects Shipped' },
-                { value: '5+', label: 'Tech Mastered' },
-                { value: '1', label: 'Research Published' },
-                { value: '4+', label: 'Years Experience' }
-              ].map((stat, i) => (
-                <motion.div 
-                  key={i} 
-                  className="text-center"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <p className="text-5xl md:text-6xl font-black text-[#00ff66] mb-2">
-                    {stat.value}
-                  </p>
-                  <p className="text-sm text-white/60">{stat.label}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-32 px-6 relative">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#00ff66]/5 to-transparent" />
-        
-        <div className="max-w-4xl mx-auto text-center relative">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.div
-              initial={{ scale: 0.5, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-[#00ff66]/20 to-[#00ff66]/5 flex items-center justify-center border border-[#00ff66]/20"
-            >
-              <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-                <circle cx="24" cy="24" r="22" fill="#00ff66" />
-                <path d="M30 16H21C18.79 16 17 17.79 17 20C17 22.21 18.79 24 21 24H27C29.21 24 31 25.79 31 28C31 30.21 29.21 32 27 32H18" stroke="black" strokeWidth="3" strokeLinecap="round" fill="none" />
-                <circle cx="33" cy="15" r="3" fill="black" />
-              </svg>
             </motion.div>
-            
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Ready to build
-              <br />
-              <span className="text-[#00ff66]"> something amazing?</span>
-            </h2>
-            <p className="text-lg text-white/60 max-w-xl mx-auto mb-10">
-              I'm always excited to work on challenging projects. Let's discuss how we can bring your ideas to life.
-            </p>
-            
-            <Link 
-              to="/contact"
-              className="group inline-flex items-center gap-4 px-12 py-6 bg-white text-black font-bold text-lg rounded-full hover:bg-white/95 transition-all duration-300 hover:shadow-[0_0_60px_rgba(255,255,255,0.2)]"
-            >
-              Start a Conversation
-              <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-            </Link>
-          </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="page-container mt-8 sm:mt-10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {metrics.map((item) => (
+            <div key={item.label} className="neo-card p-3.5 rounded-xl text-center">
+              <p className="text-base sm:text-lg font-bold text-[#00ff66]">{item.value}</p>
+              <p className="text-[10px] sm:text-[11px] tracking-wider uppercase text-white/60">{item.label}</p>
+            </div>
+          ))}
         </div>
+      </section>
+
+      <section className="page-container py-16 sm:py-20 lg:py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+          className="neo-card rounded-3xl p-6 sm:p-8 lg:p-10"
+        >
+          <div className="flex items-center justify-between flex-wrap gap-4 mb-7">
+            <div>
+              <p className="section-kicker">Featured Product</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-4">ForgeStack OS</h2>
+            </div>
+            <motion.span animate={floatingAnimation} className="px-3.5 py-2 rounded-lg text-xs font-semibold bg-[#00ff66] text-black">
+              In Development
+            </motion.span>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-7 lg:gap-10 items-center">
+            <div>
+              <p className="neo-text-muted mb-6 leading-relaxed">
+                A browser-native operating system built with Rust + WebAssembly to explore modern system design,
+                process architecture, and interactive desktop experiences in the web runtime.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {['Rust', 'WebAssembly', 'React', 'TypeScript'].map((tag) => (
+                  <span key={tag} className="px-3 py-1.5 rounded-full text-xs border border-[#00ff66]/20 bg-[#00ff66]/10 text-[#00ff66]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Link to="/projects" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#00ff66] text-black font-semibold">
+                  <Play size={16} />
+                  View Details
+                </Link>
+                <a
+                  href="https://github.com/halloffame12"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/[0.03] text-white"
+                >
+                  <Github size={16} />
+                  Source Code
+                </a>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/[0.08] bg-black/50 p-5 sm:p-6">
+              <div className="aspect-video rounded-xl border border-white/[0.08] bg-gradient-to-br from-[#00ff66]/12 to-purple-500/12 flex items-center justify-center">
+                <div className="text-center">
+                  <Cpu size={44} className="text-[#00ff66] mx-auto mb-3" />
+                  <p className="text-sm text-white/65">Interactive Preview Pipeline</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="page-container pb-16 sm:pb-20 lg:pb-24">
+        <div className="text-center mb-10 sm:mb-12">
+          <p className="section-kicker">Capabilities</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4">What I Build</h2>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {capabilities.map((item, index) => (
+            <motion.article
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="neo-card rounded-2xl p-5 sm:p-6"
+            >
+              <div className="w-11 h-11 rounded-xl bg-[#00ff66]/12 border border-[#00ff66]/20 flex items-center justify-center text-[#00ff66] mb-4">
+                {item.icon}
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+              <p className="text-sm text-white/60 leading-relaxed">{item.description}</p>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section className="page-container pb-6 sm:pb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="rounded-3xl border border-[#00ff66]/20 bg-gradient-to-br from-[#00ff66]/14 via-[#00ff66]/6 to-transparent p-8 sm:p-10 text-center"
+        >
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Let’s Build Something Remarkable</h3>
+          <p className="text-white/65 max-w-2xl mx-auto mb-8">
+            Ready to launch a modern product with strong design, scalable engineering, and responsive UX on every device.
+          </p>
+          <Link
+            to="/contact"
+            className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-bold"
+          >
+            Start a Conversation
+            <ArrowRight size={18} className="group-hover:translate-x-1.5 transition-transform" />
+          </Link>
+        </motion.div>
       </section>
     </div>
   );

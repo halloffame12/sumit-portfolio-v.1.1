@@ -5,7 +5,7 @@ import { ExternalLink, ArrowUpRight, Folder, Star, GitFork } from 'lucide-react'
 
 const Projects: React.FC = () => {
   return (
-    <div className="min-h-screen pt-32 pb-32 relative overflow-hidden bg-black">
+    <div className="page-shell">
       
       {/* Background */}
       <div className="fixed inset-0 -z-10">
@@ -14,7 +14,7 @@ const Projects: React.FC = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="page-container">
         
         {/* Header */}
         <motion.div 
@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
             <span className="text-sm text-[#00ff66] font-medium">Portfolio</span>
           </motion.div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="fluid-title font-bold text-white mb-6 tracking-tight">
             Featured Projects
           </h1>
           <p className="text-lg text-white/60 max-w-2xl">
@@ -74,6 +74,86 @@ const Projects: React.FC = () => {
             </div>
           </div>
         </motion.div>
+
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="mb-16 rounded-3xl bg-gradient-to-br from-white/[0.04] to-transparent border border-white/[0.06] p-6 lg:p-8"
+        >
+          <div className="mb-8">
+            <p className="text-xs uppercase tracking-[0.2em] text-[#00ff66]/80 mb-3">Project Headline</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white tracking-tight mb-4">
+              Blur: A Sanctuary for Anonymous Real-Time Connection
+            </h2>
+            <p className="text-white/70 leading-relaxed">
+              Building the future of private communication with Flutter &amp; Node.js.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-[#00ff66]/80 mb-3">Project Overview (The Why)</p>
+              <p className="text-white/70 leading-relaxed">
+                In an era of relentless data tracking and social media fatigue, I built Blur to reclaim the core of human
+                connection: its purity. Blur is a fully anonymous real-time chat platform where identity is secondary to
+                the conversation.
+              </p>
+              <p className="text-white/70 leading-relaxed mt-4">
+                I designed it with a Modern Soft Minimalism aesthetic to provide a calm, premium environment that fosters
+                authentic interaction without the pressure of digital footprints.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-[#00ff66]/80 mb-3">Technical Deep Dive (The How)</p>
+              <ul className="space-y-3 text-white/70 leading-relaxed">
+                <li><span className="text-white font-medium">Frontend Architecture:</span> Built using Flutter for cross-platform excellence, with Riverpod for robust state management and Flutter Animate for a fluid, high-end UI.</li>
+                <li><span className="text-white font-medium">Backend &amp; Real-Time Engine:</span> Developed a custom Node.js server with Socket.IO, optimizing event architecture for sub-100ms message latency.</li>
+                <li><span className="text-white font-medium">Security &amp; Integrity:</span> Implemented JWT-based stateless sessions, custom XSS sanitization, automated moderation systems, and an Online Reset mechanism for user-count integrity.</li>
+                <li><span className="text-white font-medium">Database Architecture:</span> Leveraged PostgreSQL for reliable data persistence and history management.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mb-8">
+            <p className="text-xs uppercase tracking-[0.2em] text-[#00ff66]/80 mb-3">Key Features</p>
+            <div className="grid md:grid-cols-2 gap-3">
+              <div className="px-4 py-3 rounded-xl border border-white/[0.08] bg-white/[0.02] text-white/75">✅ Zero-Identity Entry: No sign-ups, no tracking, total freedom.</div>
+              <div className="px-4 py-3 rounded-xl border border-white/[0.08] bg-white/[0.02] text-white/75">✅ Global Community Lobby: A low-latency real-time stream for instant interaction.</div>
+              <div className="px-4 py-3 rounded-xl border border-white/[0.08] bg-white/[0.02] text-white/75">✅ Intelligent Matchmaking: Custom logic for instantly connecting 1-on-1 with compatible users.</div>
+              <div className="px-4 py-3 rounded-xl border border-white/[0.08] bg-white/[0.02] text-white/75">✅ Soft Minimalist UI: High-fidelity design focused on usability and mental clarity.</div>
+            </div>
+          </div>
+
+          <div className="mb-8">
+            <p className="text-xs uppercase tracking-[0.2em] text-[#00ff66]/80 mb-3">Experience the App</p>
+            <p className="text-white font-medium mb-2">Announcement:</p>
+            <p className="text-white/70 leading-relaxed mb-5">
+              I&apos;m excited to share the initial release of Blur. It represents a significant milestone in my journey as
+              a developer, balancing complex real-time infrastructure with refined, user-centric design.
+            </p>
+            <a
+              href="https://drive.google.com/file/d/1T5QOgWl3h3hcPPq9t_Pn4aIOX-fTjehP/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-[#00ff66] text-black font-semibold rounded-xl hover:brightness-95 transition-all"
+            >
+              <ExternalLink size={18} />
+              <span>DOWNLOAD ANDROID APK</span>
+            </a>
+          </div>
+
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-[#00ff66]/80 mb-3">Visual Gallery</p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 text-white/70">Logo: The abstract circular Blur logo.</div>
+              <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 text-white/70">The Entry Screen: Showcasing the sleek, minimalist form.</div>
+              <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 text-white/70">The Chat Flow: Displaying the clean message bubbles and typing indicators.</div>
+              <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 text-white/70">The Dashboard: Highlighting the global online status and navigation.</div>
+            </div>
+          </div>
+        </motion.section>
 
         {/* Projects Grid */}
         <div className="grid gap-8 lg:gap-10">
