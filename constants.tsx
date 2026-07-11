@@ -52,35 +52,35 @@ export const SERVICES_DATA: (Service & { icon: React.ReactNode })[] = [
   {
     id: "s1",
     title: "Web App Development",
-    icon: <Layout className="text-[#00ff66]" />,
+    icon: <Layout className="text-[var(--accent)]" />,
     description: "Custom, high-performance web applications built with modern frameworks like React and specialized in ultra-responsive UI/UX.",
     features: ["SPA Architecture", "Modern State Management", "SEO Optimization"]
   },
   {
     id: "s2",
     title: "AI Integration",
-    icon: <Brain className="text-[#00ff66]" />,
+    icon: <Brain className="text-[var(--accent)]" />,
     description: "Empowering businesses with intelligent features including computer vision (OpenCV), predictive modeling, and automation agents.",
     features: ["Custom ML Models", "Computer Vision", "Process Automation"]
   },
   {
     id: "s3",
     title: "Real-time Systems",
-    icon: <Zap className="text-[#00ff66]" />,
+    icon: <Zap className="text-[var(--accent)]" />,
     description: "Implementing low-latency communication platforms using Socket.IO and WebRTC for seamless chat and video experiences.",
     features: ["Instant Messaging", "Video Conferencing", "Live Dashboards"]
   },
   {
     id: "s4",
     title: "Mobile Solutions",
-    icon: <Smartphone className="text-[#00ff66]" />,
+    icon: <Smartphone className="text-[var(--accent)]" />,
     description: "Cross-platform mobile apps using Flutter that deliver native-like performance and smooth animations across Android and iOS.",
     features: ["Flutter/Dart Expert", "Native API Access", "Offline Sync"]
   },
   {
     id: "s5",
     title: "Systems & WebAssembly",
-    icon: <Cpu className="text-[#00ff66]" />,
+    icon: <Cpu className="text-[var(--accent)]" />,
     description: "Low-level systems programming with Rust and WebAssembly. Building performant, portable applications that run anywhere.",
     features: ["Rust Development", "WASM Compilation", "OS Kernel Research"]
   }
@@ -127,32 +127,6 @@ export const PROJECTS_DATA: Project[] = [
     repoUrl: 'https://anonchatweb.netlify.app/'
   },
   {
-    id: 'project-2',
-    slug: 'real-time-chat-app',
-    title: 'Real-Time Chat Application',
-    category: 'Web Development',
-    imageUrl: 'https://i.postimg.cc/W1F05qLm/nexus-cha.png',
-    description: 'A feature-rich real-time chat application with global and private messaging, emoji support, and an admin panel.',
-    problem: 'Most chat apps lacked customizable admin controls and lightweight real-time communication features for web users.',
-    solution: 'Built using Flask, Socket.IO, and MySQL with a responsive UI (Bootstrap + Tailwind). Added global/private chat, typing indicators, dark mode, and an admin panel.',
-    role: 'Full-Stack Developer',
-    techStack: ['Flask', 'Socket.IO', 'MySQL', 'Bootstrap', 'Tailwind CSS', 'React', 'JavaScript'],
-    repoUrl: 'https://nexuschatweb.netlify.app/',
-  },
-  {
-    id: 'project-3',
-    slug: 'Techsavvy-Personal-Blog',
-    title: 'AI-Powered-Blog',
-    category: 'Full-Stack',
-    imageUrl: 'https://i.postimg.cc/fWStnngZ/techsavvy.png',
-    description: 'A modern personal blog platform enhanced with AI features, designed to share tech content and provide real-time assistance to readers.',
-    problem: 'Traditional blogs are static — readers can learn passively but can’t easily ask questions or get clarification in real time.',
-    solution: 'Developed an AI chatbot using Python and integrated it with Google Colab/web for fast query responses.',
-    role: 'AI Engineer',
-    techStack: ['Python', 'Flask', 'FastAPI', 'LLM API', 'React'],
-    repoUrl: 'https://techsavvy-insights-personal-blog.netlify.app/#/',
-  },
-  {
     id: 'project-4',
     slug: 'CodeCraftGames',
     title: 'Ai Powered Game Dev',
@@ -182,25 +156,11 @@ export const PROJECTS_DATA: Project[] = [
 
 export const ACHIEVEMENTS_DATA: Achievement[] = [
   {
-    id: "a1",
-    title: "NASA Space Apps Challenge Participant",
-    organization: "NASA",
-    date: "2025",
-    description: "Successfully developed a platform for exoplanet data analysis using advanced machine learning techniques."
-  },
-  {
     id: "a2",
     title: "4th Place - DTC Competition",
     organization: "Delhi Technical University",
     date: "2024",
     description: "Ranked among top developers in a high-stakes competitive coding and app development challenge."
-  },
-  {
-    id: "a3",
-    title: "Code Slayer 2k25 Participant",
-    organization: "NIT Delhi",
-    date: "2025",
-    description: "Solved complex algorithmic challenges and optimized system designs under time pressure."
   },
   {
     id: "a4",

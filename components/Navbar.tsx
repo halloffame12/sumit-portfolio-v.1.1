@@ -1,31 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Download, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Custom Logo Component - Premium geometric S mark
-const Logo = ({ className = "" }: { className?: string }) => (
-  <svg viewBox="0 0 48 48" fill="none" className={className}>
-    {/* Background circle with gradient */}
-    <circle cx="24" cy="24" r="22" fill="url(#logoBg)" />
-    {/* S shape */}
-    <path 
-      d="M30 16H21C18.7909 16 17 17.7909 17 20C17 22.2091 18.7909 24 21 24H27C29.2091 24 31 25.7909 31 28C31 30.2091 29.2091 32 27 32H18" 
-      stroke="black" 
-      strokeWidth="3"
-      strokeLinecap="round"
-      fill="none"
-    />
-    {/* Accent dot */}
-    <circle cx="33" cy="15" r="3" fill="black" />
-    <defs>
-      <linearGradient id="logoBg" x1="2" y1="2" x2="46" y2="46" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#00ff66" />
-        <stop offset="1" stopColor="#00dd55" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
+const Magnetic: React.FC<{ children: React.ReactNode; strength?: number }> = ({ children, strength = 0.3 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  const onMove = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    setPos({
+      x: (e.clientX - rect.left - rect.width / 2) * strength,
+      y: (e.clientY - rect.top - rect.height / 2) * strength,
+    });
+  };
+
+  const onLeave = () => setPos({ x: 0, y: 0 });
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      animate={{ x: pos.x, y: pos.y }}
+      transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
+      style={{ display: 'inline-flex' }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,41 +38,32 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
     setIsOpen(false);
-    document.body.style.overflow = 'unset';
+    document.body.style.overflow = '';
   }, [location]);
 
   useEffect(() => {
-    const onEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsOpen(false);
-        document.body.style.overflow = 'unset';
-      }
+    const onEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { setIsOpen(false); document.body.style.overflow = ''; }
     };
-
-    window.addEventListener('keydown', onEscape);
-    return () => window.removeEventListener('keydown', onEscape);
+    window.addEventListener('keydown', onEsc);
+    return () => window.removeEventListener('keydown', onEsc);
   }, []);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    document.body.style.overflow = !isOpen ? 'hidden' : 'unset';
+  const toggle = () => {
+    setIsOpen(p => !p);
+    document.body.style.overflow = !isOpen ? 'hidden' : '';
   };
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
+  const links = [
+    { name: 'Work', path: '/projects' },
     { name: 'About', path: '/about' },
-    { name: 'Skills', path: '/skills' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Services', path: '/services' },
-    { name: 'Research', path: '/research' },
-    { name: 'Achievements', path: '/achievements' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -75,101 +71,120 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Main Navbar */}
-      <motion.header 
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      <motion.header
+        initial={{ y: -80 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         className="fixed top-0 left-0 right-0 z-[100]"
+        style={{
+          background: scrolled ? 'var(--bg-main)' : 'transparent',
+          borderBottom: scrolled ? 'var(--border-w) solid var(--border)' : 'none',
+          transition: 'background 0.3s, border 0.3s',
+        }}
       >
-        <div className={`transition-all duration-500 ${scrolled ? 'py-2' : 'py-3 sm:py-4'}`}>
-          <nav className={`max-w-[80rem] mx-auto px-4 sm:px-6 transition-all duration-500 ${
-            scrolled ? 'mx-4 md:mx-auto' : ''
-          }`}>
-            <div className={`relative flex items-center justify-between h-14 sm:h-[58px] px-3 sm:px-6 transition-all duration-500 ${
-              scrolled 
-                ? 'bg-black/60 backdrop-blur-2xl border border-white/[0.08] rounded-2xl shadow-xl shadow-black/20' 
-                : ''
-            }`}>
-              
-              {/* Logo */}
-              <Link to="/" className="relative flex items-center gap-2.5 group z-10">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-[#00ff66]/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                  <Logo className="w-9 h-9 transition-transform duration-300 group-hover:scale-105" />
-                </div>
-                <span className="hidden sm:block font-bold text-white text-[15px] tracking-tight">
-                  Sumit<span className="text-[#00ff66]">.</span>
-                </span>
-              </Link>
+        <div className="page-container">
+          <div className="flex items-center justify-between" style={{ height: '64px' }}>
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-2 group" style={{ textDecoration: 'none' }}>
+              <div
+                className="flex items-center justify-center"
+                style={{
+                  width: '36px', height: '36px',
+                  background: 'var(--accent-orange)',
+                  border: 'var(--border-w) solid var(--border)',
+                  boxShadow: '3px 3px 0px var(--border)',
+                  fontFamily: 'var(--font-heading)',
+                  fontWeight: 900, fontSize: '1.1rem',
+                  color: 'var(--border)',
+                  transition: 'transform 0.15s',
+                }}
+              >
+                S
+              </div>
+              <span
+                className="hidden sm:block"
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontWeight: 800, fontSize: '1rem',
+                  letterSpacing: '-0.03em',
+                  color: 'var(--text-primary)',
+                }}
+              >
+                SUMIT<span style={{ color: 'var(--accent-orange)' }}>.</span>
+              </span>
+            </Link>
 
-              {/* Desktop Navigation */}
-              <div className="hidden xl:flex items-center gap-0.5">
-                {navLinks.map((link) => (
+            {/* Desktop Nav */}
+            <nav className="hidden lg:flex items-center gap-1">
+              {links.map(link => (
                   <Link
                     key={link.name}
                     to={link.path}
-                    className="relative px-3.5 py-2 group"
-                  >
-                    <span className={`relative z-10 text-[13px] font-medium transition-all duration-300 ${
-                      isActive(link.path) 
-                        ? 'text-[#00ff66]' 
-                        : 'text-white/50 group-hover:text-white'
-                    }`}>
-                      {link.name}
-                    </span>
-                    
-                    {/* Active underline */}
-                    {isActive(link.path) && (
-                      <motion.div 
-                        layoutId="navbar-underline"
-                        className="absolute bottom-0.5 left-3.5 right-3.5 h-0.5 bg-[#00ff66] rounded-full"
-                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                      />
-                    )}
-                    
-                    {/* Hover dot */}
-                    {!isActive(link.path) && (
-                      <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                    )}
-                  </Link>
-                ))}
-              </div>
+                    className={`relative ${isActive(link.path) ? 'text-[var(--accent-orange)]' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
+                    style={{
+                      padding: '0.4rem 1rem',
+                      fontFamily: 'var(--font-heading)',
+                      fontWeight: 700,
+                      fontSize: '0.8125rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                      transition: 'color 0.2s',
+                    }}
+                >
+                  {link.name}
+                  {isActive(link.path) && (
+                    <motion.div
+                      layoutId="nav-indicator"
+                      style={{
+                        position: 'absolute', bottom: '-2px', left: '1rem', right: '1rem',
+                        height: '3px', background: 'var(--accent-orange)',
+                      }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              ))}
+            </nav>
 
-              {/* CTA Button */}
-              <Link 
-                to="/contact"
-                className="hidden xl:flex items-center gap-1.5 px-4 py-2 bg-[#00ff66] rounded-xl text-black text-[13px] font-semibold hover:shadow-[0_0_24px_rgba(0,255,102,0.4)] transition-all duration-300 group"
-              >
-                <span>Let's Talk</span>
-                <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
-
-              {/* Mobile Menu Button */}
-              <button 
-                onClick={toggleMenu}
-                className="xl:hidden relative w-10 h-10 flex items-center justify-center"
-                aria-label="Toggle menu"
-                aria-expanded={isOpen}
-                aria-controls="mobile-menu"
-              >
-                <div className="relative w-5 h-3.5 flex flex-col justify-between">
-                  <motion.span 
-                    animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 6 : 0 }}
-                    className="block h-0.5 w-5 bg-white rounded-full origin-center"
-                  />
-                  <motion.span 
-                    animate={{ opacity: isOpen ? 0 : 1, scaleX: isOpen ? 0 : 1 }}
-                    className="block h-0.5 w-3 bg-white/60 rounded-full ml-auto"
-                  />
-                  <motion.span 
-                    animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -6 : 0 }}
-                    className="block h-0.5 w-4 bg-white rounded-full origin-center"
-                  />
-                </div>
-              </button>
+            {/* Desktop Actions */}
+            <div className="hidden lg:flex items-center gap-3">
+              <Magnetic strength={0.2}>
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="brutal-btn-outline brutal-btn-sm"
+                >
+                  <Download size={14} />
+                  Resume
+                </a>
+              </Magnetic>
+              <Magnetic strength={0.2}>
+                <Link to="/contact" className="brutal-btn brutal-btn-sm">
+                  Hire Me
+                  <ArrowUpRight size={14} />
+                </Link>
+              </Magnetic>
             </div>
-          </nav>
+
+            {/* Mobile Toggle */}
+            <button
+              onClick={toggle}
+              className="lg:hidden flex items-center justify-center"
+              style={{
+                width: '44px', height: '44px',
+                border: 'var(--border-w-sm) solid var(--border)',
+                background: isOpen ? 'var(--accent-orange)' : 'var(--bg-card)',
+                boxShadow: '3px 3px 0px var(--border)',
+                color: 'var(--border)',
+                cursor: 'pointer',
+                transition: 'all 0.15s',
+              }}
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </motion.header>
 
@@ -180,54 +195,57 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[99] xl:hidden"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[99] lg:hidden"
           >
-            {/* Backdrop */}
-            <div className="absolute inset-0 bg-black/95 backdrop-blur-xl" onClick={toggleMenu} />
-            
-            {/* Menu Content */}
-            <motion.div
+            <div
+              className="absolute inset-0"
+              style={{ background: 'var(--bg-main)', opacity: 0.98 }}
+              onClick={toggle}
+            />
+            <motion.nav
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              id="mobile-menu"
-              className="relative h-full overflow-y-auto flex flex-col items-center justify-center gap-5 p-8 pt-24"
+              transition={{ duration: 0.25, delay: 0.05 }}
+              className="relative h-full flex flex-col items-center justify-center gap-8 p-8"
             >
-              {navLinks.map((link, i) => (
+              {[{ name: 'Home', path: '/' }, ...links].map((link, i) => (
                 <motion.div
                   key={link.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 + i * 0.05 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.06 + i * 0.05, type: 'spring', stiffness: 200, damping: 20 }}
                 >
                   <Link
                     to={link.path}
-                    className={`text-2xl sm:text-3xl font-semibold transition-colors ${
-                      isActive(link.path) ? 'text-[#00ff66]' : 'text-white/60 hover:text-white'
-                    }`}
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontWeight: 900,
+                      fontSize: '2.5rem',
+                      letterSpacing: '-0.04em',
+                      color: isActive(link.path) ? 'var(--accent-orange)' : 'var(--text-primary)',
+                      textTransform: 'uppercase',
+                    }}
                   >
                     {link.name}
                   </Link>
                 </motion.div>
               ))}
-              
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="mt-8"
+                transition={{ delay: 0.35 }}
+                className="flex gap-3 mt-4"
               >
-                <Link 
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#00ff66] text-black font-semibold rounded-xl"
-                >
-                  Let's Talk
-                  <ArrowUpRight size={18} />
+                <a href="/resume.pdf" download className="brutal-btn-outline">
+                  <Download size={16} /> Resume
+                </a>
+                <Link to="/contact" className="brutal-btn">
+                  Hire Me <ArrowUpRight size={16} />
                 </Link>
               </motion.div>
-            </motion.div>
+            </motion.nav>
           </motion.div>
         )}
       </AnimatePresence>

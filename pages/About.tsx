@@ -1,259 +1,213 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, MapPin, Calendar, Cpu, Globe, Smartphone, Brain, ArrowUpRight, Briefcase } from 'lucide-react';
+import { ArrowUpRight, FileText, Trophy, Calendar, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ACHIEVEMENTS_DATA } from '../constants';
+import SeoHelmet from '../components/SeoHelmet';
+
+const RESEARCH = {
+  title: 'BrowserOS: A Web-Based Operating System Simulation',
+  abstract: 'This paper presents BrowserOS, an innovative web-based operating system simulation running entirely in the browser using Rust and WebAssembly.',
+  journal: 'OSF Preprints', date: '2026',
+  link: 'https://osf.io/m3gv8/files/vu5eq',
+};
+
+const fadeUpSpring = {
+  hidden: { y: 30, opacity: 0 },
+  show: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 200, damping: 22 } },
+};
+
+const staggerContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+};
+
+const clipReveal = {
+  hidden: { clipPath: 'inset(0 100% 0 0)' },
+  show: { clipPath: 'inset(0 0% 0 0)', transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+};
 
 const About: React.FC = () => {
   const experiences = [
-    {
-      period: '2024 - Present',
-      title: 'Systems & OS Research',
-      company: 'Personal Projects',
-      description: 'Building ForgeStack OS and BrowserOS using Rust & WebAssembly. Published research on virtual operating systems.',
-      tech: ['Rust', 'WebAssembly', 'OS Concepts']
-    },
-    {
-      period: '2023 - Present',
-      title: 'Full-Stack Development',
-      company: 'Freelance',
-      description: 'Architecting scalable web applications with modern frameworks and cloud infrastructure.',
-      tech: ['React', 'Node.js', 'AWS', 'PostgreSQL']
-    },
-    {
-      period: '2022 - Present',
-      title: 'Mobile App Development',
-      company: 'Freelance',
-      description: 'Creating cross-platform mobile experiences with Flutter and native technologies.',
-      tech: ['Flutter', 'Dart', 'Firebase']
-    }
-  ];
-
-  const expertise = [
-    { icon: <Cpu size={22} />, title: 'Systems', desc: 'Rust, WASM, OS Dev', color: 'from-orange-500/20 to-orange-500/5' },
-    { icon: <Globe size={22} />, title: 'Web', desc: 'React, Next.js, Node', color: 'from-cyan-500/20 to-cyan-500/5' },
-    { icon: <Smartphone size={22} />, title: 'Mobile', desc: 'Flutter, React Native', color: 'from-purple-500/20 to-purple-500/5' },
-    { icon: <Brain size={22} />, title: 'AI/ML', desc: 'PyTorch, TensorFlow', color: 'from-pink-500/20 to-pink-500/5' }
-  ];
-
-  const quickFacts = [
-    { icon: <GraduationCap size={18} />, label: 'Education', value: 'BS-MS @ IIT Patna' },
-    { icon: <MapPin size={18} />, label: 'Location', value: 'India' },
-    { icon: <Calendar size={18} />, label: 'Experience', value: '4+ Years' },
-    { icon: <Briefcase size={18} />, label: 'Focus', value: 'Systems & Full-Stack' },
+    { period: '2024 — Now', title: 'Systems & OS Research', org: 'Independent', desc: 'Building BrowserOS — a Rust kernel compiled to WASM with process management, vFS, syscall dispatch, and cooperative multitasking in the browser.', tech: ['Rust', 'WebAssembly', 'wasm-bindgen'] },
+    { period: '2023 — Now', title: 'Full-Stack Infrastructure', org: 'Freelance & OSS', desc: 'Architecting production apps with React, Node.js, and cloud infra. Built ForgeStack OS CLI — generates 150+ full-stack app configs from one command.', tech: ['React', 'Node.js', 'TypeScript', 'AWS'] },
+    { period: '2022 — Now', title: 'Cross-Platform Development', org: 'Freelance', desc: 'Shipping high-performance Flutter apps with gesture-based UX, local-first architecture, and deep native API integration.', tech: ['Flutter', 'Dart', 'SQLite'] },
   ];
 
   return (
-    <div className="page-shell">
-      
-      {/* Background */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-gradient-radial from-[#00ff66]/10 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-radial from-emerald-500/8 to-transparent rounded-full blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px]" />
-      </div>
+    <article className="page-shell">
+      <SeoHelmet
+        path="/about"
+        title="About — Sumit Chauhan | Systems Engineer & Full-Stack Architect"
+        description="Sumit Chauhan builds WebAssembly kernels, production React infrastructure, and CLI tools. BrowserOS research published on OSF Preprints."
+      />
 
       <div className="page-container">
-        
-        {/* Hero Section */}
-        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 items-start mb-16 sm:mb-20 lg:mb-24">
-          
-          {/* Left - Photo */}
-          <motion.div 
-            initial={{ opacity: 0, x: -40 }}
+        {/* ═══ HERO ═══ */}
+        <section className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-start" style={{ marginBottom: 'var(--section-gap)' }}>
+          {/* Photo */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            className="relative"
+            transition={{ type: 'spring', stiffness: 180, damping: 22 }}
           >
-            {/* Photo Card */}
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-br from-[#00ff66]/20 to-emerald-500/10 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-900 border border-white/10">
-                <img 
-                  src="https://i.postimg.cc/hGCbJj5s/sumit-chauhan.png"
-                  alt="Sumit Chauhan - Full-Stack Developer and Systems Programmer"
-                  loading="lazy"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                
-                {/* Name Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h2 className="text-2xl font-bold text-white mb-1">Sumit Chauhan</h2>
-                  <p className="text-[#00ff66] text-sm font-medium">Full-Stack Developer & Systems Programmer</p>
+            {/* Photo with offset backdrop — scoped to photo only */}
+            <div className="relative" style={{ marginBottom: '1rem' }}>
+              <div className="absolute w-full h-full" style={{ top: '10px', left: '10px', background: 'var(--accent-orange)', border: 'var(--border-w) solid var(--border)' }} />
+              <div className="relative overflow-hidden" style={{ border: 'var(--border-w) solid var(--border)', boxShadow: 'var(--shadow-brutal)', background: 'var(--bg-card)' }}>
+                <img src="/sumit.jpg" alt="Sumit Chauhan" className="w-full object-cover object-top" style={{ aspectRatio: '4/5' }} />
+                <div className="absolute bottom-0 left-0 right-0" style={{ padding: '1.25rem', background: 'linear-gradient(to top, rgba(26,26,26,0.85), transparent)' }}>
+                  <p style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '1.25rem', color: 'var(--text-on-dark)' }}>Sumit Chauhan</p>
+                  <p style={{ color: 'var(--accent-orange)', fontSize: '0.8125rem', fontWeight: 700 }}>Systems Engineer & Full-Stack Architect</p>
                 </div>
               </div>
             </div>
-
-            {/* Floating Badge */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="absolute -bottom-4 -right-4 px-4 py-3 bg-black border border-white/10 rounded-xl shadow-xl"
+            {/* Badges — outside the offset backdrop scope */}
+            <motion.div className="relative flex flex-wrap gap-2" style={{ zIndex: 1 }}
+              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 0.3 }}
             >
-              <div className="flex items-center gap-2">
-                <svg viewBox="0 0 48 48" fill="none" className="w-4 h-4">
-                  <circle cx="24" cy="24" r="22" fill="#00ff66" />
-                  <path d="M30 16H21C18.79 16 17 17.79 17 20C17 22.21 18.79 24 21 24H27C29.21 24 31 25.79 31 28C31 30.21 29.21 32 27 32H18" stroke="black" strokeWidth="3" strokeLinecap="round" fill="none" />
-                  <circle cx="33" cy="15" r="3" fill="black" />
-                </svg>
-                <span className="text-sm text-white/70">Passionate about code</span>
+              <div className="brutal-badge" style={{ gap: '0.3rem' }}>
+                <MapPin size={12} /> India
+              </div>
+              <div className="brutal-badge" style={{ gap: '0.3rem' }}>
+                <Calendar size={12} /> Coding since 2020
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Right - Content */}
-          <motion.div 
-            initial={{ opacity: 0, x: 40 }}
+          {/* Bio */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="space-y-8"
+            transition={{ type: 'spring', stiffness: 180, damping: 22, delay: 0.1 }}
           >
-            {/* Badge */}
-            <div className="section-kicker">
-              <svg viewBox="0 0 48 48" fill="none" className="w-4 h-4">
-                <circle cx="24" cy="24" r="22" fill="#00ff66" />
-                <path d="M30 16H21C18.79 16 17 17.79 17 20C17 22.21 18.79 24 21 24H27C29.21 24 31 25.79 31 28C31 30.21 29.21 32 27 32H18" stroke="black" strokeWidth="3" strokeLinecap="round" fill="none" />
-                <circle cx="33" cy="15" r="3" fill="black" />
-              </svg>
-              <span>About Me</span>
-            </div>
-
-            {/* Title */}
-            <h1 className="fluid-title font-bold text-white">
-              Building the future,
-              <br />
-              <span className="text-white/60">one system at a time.</span>
+            <motion.span className="brutal-kicker" style={{ marginBottom: '1rem', display: 'inline-flex' }} variants={clipReveal} initial="hidden" animate="show">About</motion.span>
+            <h1 style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: 1.0, letterSpacing: '-0.04em', color: 'var(--text-primary)', marginTop: '0.75rem', marginBottom: '1.5rem' }}>
+              <motion.span className="block" variants={clipReveal} initial="hidden" animate="show">I write Rust kernels.</motion.span>
+              <motion.span className="block" variants={clipReveal} initial="hidden" animate="show" custom={1}><span style={{ color: 'var(--text-muted)' }}>I ship production apps.</span></motion.span>
             </h1>
-
-            {/* Description */}
-            <div className="space-y-4 text-white/60 leading-relaxed">
-              <p>
-                I'm a <span className="text-white">Full-Stack Developer</span>, <span className="text-white">Systems Programmer</span>, 
-                and <span className="text-white">AI/ML enthusiast</span> currently pursuing my BS-MS in Computer Science at IIT Patna.
-              </p>
-              <p>
-                My passion lies in building systems that push boundaries. Currently developing 
-                <span className="text-[#00ff66]"> ForgeStack OS</span>, a custom operating system, while researching 
-                OS concepts through <span className="text-[#00ff66]"> BrowserOS</span>.
-              </p>
-            </div>
-
-            {/* Quick Facts Grid */}
-            <div className="grid grid-cols-2 gap-3 pt-4">
-              {quickFacts.map((fact, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + i * 0.1 }}
-                  className="p-4 bg-white/[0.03] rounded-xl border border-white/[0.05]"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="text-[#00ff66]/60">{fact.icon}</div>
-                    <div>
-                      <p className="text-[10px] uppercase tracking-wider text-white/50">{fact.label}</p>
-                      <p className="text-sm font-medium text-white">{fact.value}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <motion.div style={{ maxWidth: '42rem', display: 'flex', flexDirection: 'column', gap: '1rem', fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', color: 'var(--text-secondary)', lineHeight: 1.75 }}
+              variants={staggerContainer} initial="hidden" animate="show"
+            >
+              <motion.p variants={fadeUpSpring}>
+                My workflow sits at the gap between systems programming and product engineering —
+                the space where Rust syscall dispatchers meet React component trees.
+                I built BrowserOS, a research-level kernel running entirely in WebAssembly.
+                I built ForgeStack OS, a CLI that generates 150+ production-ready full-stack configs.
+              </motion.p>
+              <motion.p variants={fadeUpSpring}>
+                I take contracts seriously: 15-20 hour deep-work sprints, zero hand-waving,
+                zero scope creep. If it runs on silicon, I can architect it, build it, and ship it.
+              </motion.p>
+            </motion.div>
           </motion.div>
-        </div>
+        </section>
 
-        {/* Expertise Grid */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-24"
-        >
-          <h3 className="text-2xl font-bold text-white mb-8">Core Expertise</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {expertise.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -4 }}
-                className={`group relative p-6 rounded-2xl bg-gradient-to-br ${item.color} border border-white/[0.05] cursor-default`}
-              >
-                <div className="text-[#00ff66] mb-4 group-hover:scale-110 transition-transform">
-                  {item.icon}
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-1">{item.title}</h4>
-                <p className="text-sm text-white/60">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Experience Timeline */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-24"
-        >
-          <h3 className="text-2xl font-bold text-white mb-8">Experience</h3>
-          <div className="space-y-6">
+        {/* ═══ EXPERIENCE TIMELINE ═══ */}
+        <section style={{ marginBottom: 'var(--section-gap)' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ type: 'spring', stiffness: 180, damping: 22 }}
+          >
+          <h2 className="brutal-section-title" style={{ marginBottom: '2rem' }}>Experience</h2>
+          <div className="brutal-timeline">
             {experiences.map((exp, i) => (
-              <motion.div
-                key={i}
+              <motion.div key={i} className="brutal-timeline-item group"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative pl-8 pb-8 border-l-2 border-white/10 last:pb-0"
+                transition={{ type: 'spring', stiffness: 200, damping: 22, delay: i * 0.12 }}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-0 top-0 w-4 h-4 -translate-x-[9px] rounded-full bg-black border-2 border-[#00ff66] group-hover:bg-[#00ff66] transition-colors" />
-                
-                {/* Content */}
-                <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] group-hover:border-[#00ff66]/20 transition-colors">
-                  <div className="flex flex-wrap items-center gap-3 mb-2">
-                    <span className="text-xs font-medium text-[#00ff66] bg-[#00ff66]/10 px-2.5 py-1 rounded-full">{exp.period}</span>
-                    <span className="text-xs text-white/60">{exp.company}</span>
+                <div className="brutal-timeline-dot" />
+                <div className="brutal-card" style={{ padding: '1.25rem' }}>
+                  <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: '0.5rem' }}>
+                    <span className="brutal-badge-accent brutal-badge">{exp.period}</span>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{exp.org}</span>
                   </div>
-                  <h4 className="text-lg font-semibold text-white mb-2">{exp.title}</h4>
-                  <p className="text-sm text-white/60 mb-4">{exp.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.tech.map((t, j) => (
-                      <span key={j} className="px-2.5 py-1 text-xs bg-white/5 text-white/60 rounded-md border border-white/5">{t}</span>
-                    ))}
+                  <h3 style={{ fontWeight: 800, fontSize: '1rem', color: 'var(--text-primary)', marginBottom: '0.4rem' }}>{exp.title}</h3>
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: '0.75rem', maxWidth: '55ch' }}>{exp.desc}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {exp.tech.map((t, j) => <span key={j} className="brutal-tag" style={{ fontSize: '0.625rem' }}>{t}</span>)}
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
+        </section>
 
-        {/* CTA Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap items-center justify-center gap-4"
-        >
-          <Link 
-            to="/projects"
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-[#00ff66] text-black font-semibold rounded-xl hover:shadow-[0_0_32px_rgba(0,255,102,0.4)] transition-all"
+        {/* ═══ RESEARCH & ACHIEVEMENTS ═══ */}
+        <section style={{ marginBottom: 'var(--section-gap)' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ type: 'spring', stiffness: 180, damping: 22 }}
           >
-            View My Work
-            <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </Link>
-          <Link 
-            to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white/5 text-white font-medium rounded-xl border border-white/10 hover:bg-white/10 transition-colors"
+          <h2 className="brutal-section-title" style={{ marginBottom: '2rem' }}>Research & Recognition</h2>
+
+          {/* Research Card */}
+          <article className="brutal-card" style={{ padding: 'clamp(1.25rem, 3vw, 2rem)', marginBottom: '1.5rem' }}>
+            <div className="flex items-center gap-3" style={{ marginBottom: '1rem' }}>
+              <div className="brutal-icon-box"><FileText size={18} /></div>
+              <span style={{ fontWeight: 800, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--accent-orange)' }}>Published Research</span>
+            </div>
+            <h3 style={{ fontWeight: 900, fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>{RESEARCH.title}</h3>
+            <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1rem', maxWidth: '60ch' }}>{RESEARCH.abstract}</p>
+            <a href={RESEARCH.link} target="_blank" rel="noopener noreferrer" className="brutal-btn brutal-btn-sm">
+              Read Paper <ArrowUpRight size={14} />
+            </a>
+          </article>
+
+          {/* Achievements */}
+          <motion.div className="brutal-grid grid sm:grid-cols-2 gap-4"
+            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
           >
-            Get in Touch
-          </Link>
+            {ACHIEVEMENTS_DATA.map((a) => (
+              <motion.div key={a.id} className="brutal-card-static" style={{ padding: '1.25rem' }} variants={fadeUpSpring}>
+                <div className="flex items-start gap-3">
+                  <div style={{ width: '36px', height: '36px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--accent-yellow)', border: '2px solid var(--border)', color: 'var(--border)' }}>
+                    <Trophy size={16} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: '2px' }}>
+                      <h4 style={{ fontWeight: 800, fontSize: '0.8125rem', color: 'var(--text-primary)' }}>{a.title}</h4>
+                      <span style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>{a.date}</span>
+                    </div>
+                    <p style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--accent-orange)', marginBottom: '0.25rem' }}>{a.organization}</p>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{a.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
+        </section>
+
+        {/* ═══ CTA ═══ */}
+        <section>
+          <motion.div className="brutal-grid"
+            initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ type: 'spring', stiffness: 180, damping: 22 }}
+          >
+          <div className="brutal-card-dark text-center" style={{ padding: 'clamp(2rem, 4vw, 3rem)' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: 'clamp(1.25rem, 3vw, 2rem)', color: 'var(--text-on-dark)', marginBottom: '0.75rem' }}>
+              Interested in working together?
+            </h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', maxWidth: '28rem', margin: '0 auto 1.5rem' }}>
+              Open to freelance contracts, systems-level work, and high-impact infrastructure projects.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <Link to="/projects" className="brutal-btn">View Projects <ArrowUpRight size={16} /></Link>
+              <Link to="/contact" className="brutal-btn-outline">Get in Touch <ArrowUpRight size={16} /></Link>
+            </div>
+          </div>
+        </motion.div>
+        </section>
       </div>
-    </div>
+    </article>
   );
 };
 

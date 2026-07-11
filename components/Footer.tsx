@@ -3,127 +3,77 @@ import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
-  const links = {
-    navigation: [
-      { name: 'Home', path: '/' },
-      { name: 'About', path: '/about' },
-      { name: 'Projects', path: '/projects' },
-      { name: 'Contact', path: '/contact' },
-    ],
-    resources: [
-      { name: 'Skills', path: '/skills' },
-      { name: 'Services', path: '/services' },
-      { name: 'Research', path: '/research' },
-      { name: 'Achievements', path: '/achievements' },
-    ]
-  };
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/5 bg-black">
-      <div className="max-w-[80rem] mx-auto px-4 sm:px-6 py-14 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 sm:gap-8 md:gap-12">
-          
+    <footer style={{ background: 'var(--bg-dark)', borderTop: 'var(--border-w) solid var(--border)' }}>
+      <div className="page-container" style={{ paddingTop: '4rem', paddingBottom: '3rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Brand */}
-          <div className="md:col-span-4 space-y-5 sm:space-y-6 sm:col-span-2">
+          <div className="md:col-span-5 flex flex-col gap-4">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-[#00ff66] flex items-center justify-center">
-                <span className="text-black font-bold text-sm">S</span>
-              </div>
-              <span className="font-semibold text-white">
-                Sumit<span className="text-[#00ff66]">.</span>
+              <div style={{
+                width: '32px', height: '32px',
+                background: 'var(--accent-orange)', border: '2px solid var(--border)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '0.9rem',
+                color: 'var(--border)',
+              }}>S</div>
+              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.9rem', color: 'var(--text-on-dark)' }}>
+                SUMIT<span style={{ color: 'var(--accent-orange)' }}>.</span>
               </span>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed max-w-xs">
-              Full-Stack Architect & Systems Programmer building high-performance applications with modern technologies.
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: 1.7, maxWidth: '22rem' }}>
+              Systems engineer shipping Rust kernels, production React apps, and real-time platforms.
             </p>
-            <div className="flex gap-3">
-              <a 
-                href="https://github.com/halloffame12"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="p-2.5 bg-white/5 rounded-lg text-white/50 hover:text-[#00ff66] hover:bg-white/10 transition-all"
-              >
-                <Github size={18} />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/sumit-chauhan-a4ba98325/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="p-2.5 bg-white/5 rounded-lg text-white/50 hover:text-[#00ff66] hover:bg-white/10 transition-all"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a 
-                href="mailto:sumitchauhan10062004@gmail.com"
-                aria-label="Email"
-                className="p-2.5 bg-white/5 rounded-lg text-white/50 hover:text-[#00ff66] hover:bg-white/10 transition-all"
-              >
-                <Mail size={18} />
-              </a>
+            <div className="flex gap-2">
+              {[
+                { icon: <Github size={16} />, href: 'https://github.com/halloffame12', label: 'GitHub' },
+                { icon: <Linkedin size={16} />, href: 'https://www.linkedin.com/in/sumit-chauhan-a4ba98325/', label: 'LinkedIn' },
+                { icon: <Mail size={16} />, href: 'mailto:sumitchauhan10062004@gmail.com', label: 'Email' },
+              ].map(s => (
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
+                  className="brutal-icon-link"
+                >{s.icon}</a>
+              ))}
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="md:col-span-2">
-            <h4 className="text-white font-medium mb-4">Navigation</h4>
-            <ul className="space-y-3">
-              {links.navigation.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.path}
-                    className="text-white/60 text-sm hover:text-[#00ff66] transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources Links */}
-          <div className="md:col-span-2">
-            <h4 className="text-white font-medium mb-4">Resources</h4>
-            <ul className="space-y-3">
-              {links.resources.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.path}
-                    className="text-white/60 text-sm hover:text-[#00ff66] transition-colors"
-                  >
-                    {link.name}
-                  </Link>
+          {/* Nav */}
+          <div className="md:col-span-3">
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: '1rem' }}>
+              Navigation
+            </h4>
+            <ul className="flex flex-col gap-3">
+              {[{ n: 'Home', p: '/' }, { n: 'Work', p: '/projects' }, { n: 'About', p: '/about' }, { n: 'Contact', p: '/contact' }].map(l => (
+                <li key={l.n}>
+                  <Link to={l.p} className="brutal-nav-link">{l.n}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* CTA */}
-          <div className="md:col-span-4 sm:col-span-2">
-            <h4 className="text-white font-medium mb-4">Start a Project</h4>
-            <p className="text-white/60 text-sm mb-4">
-              Interested in working together? Let's discuss your ideas.
+          <div className="md:col-span-4">
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: '1rem' }}>
+              Let's Work Together
+            </h4>
+            <p style={{ color: 'var(--text-on-dark)', fontSize: '0.875rem', marginBottom: '1.25rem', lineHeight: 1.7, maxWidth: '18rem' }}>
+              Open to freelance gigs, systems-level contracts, and high-impact infrastructure projects.
             </p>
-            <Link 
-              to="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00ff66] text-black text-sm font-semibold rounded-lg hover:bg-[#00ff66]/90 transition-colors"
-            >
-              Get in Touch
-              <ArrowUpRight size={16} />
+            <Link to="/contact" className="brutal-btn brutal-btn-sm">
+              Start a Project <ArrowUpRight size={14} />
             </Link>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-center md:text-left">
-          <p className="text-white/50 text-xs sm:text-sm">
-            © {currentYear} Sumit Chauhan. All rights reserved.
-          </p>
-          <p className="text-white/50 text-xs sm:text-sm">
-            Built with React & Tailwind CSS
+        {/* Bottom */}
+        <div
+          className="flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left"
+          style={{ marginTop: '3rem', paddingTop: '1.5rem', borderTop: 'var(--border-w-sm) solid var(--border)' }}
+        >
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>
+            &copy; {year} Sumit Chauhan. Handcrafted with raw intention.
           </p>
         </div>
       </div>
