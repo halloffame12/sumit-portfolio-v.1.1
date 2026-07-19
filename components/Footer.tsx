@@ -1,80 +1,89 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUpRight, ArrowUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer style={{ background: 'var(--bg-dark)', borderTop: 'var(--border-w) solid var(--border)' }}>
-      <div className="page-container" style={{ paddingTop: '4rem', paddingBottom: '3rem' }}>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-          {/* Brand */}
-          <div className="md:col-span-5 flex flex-col gap-4">
+    <footer style={{ background: 'var(--black)', borderTop: 'var(--bw) solid var(--border)', position: 'relative', overflow: 'hidden' }}>
+      <div className="brutal-watermark" style={{ position: 'absolute', bottom: '-2rem', left: '-1rem', opacity: 0.03 }} aria-hidden="true">SUMIT.</div>
+
+      <div className="page-container" style={{ paddingTop: '3.5rem', paddingBottom: '2.5rem', position: 'relative', zIndex: 2 }}>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-5 flex flex-col gap-3">
             <Link to="/" className="flex items-center gap-2">
               <div style={{
-                width: '32px', height: '32px',
-                background: 'var(--accent-orange)', border: '2px solid var(--border)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '0.9rem',
-                color: 'var(--border)',
+                width: '30px', height: '30px', background: 'var(--blue)',
+                border: '2px solid var(--border)', display: 'flex', alignItems: 'center',
+                justifyContent: 'center', fontFamily: 'var(--font-heading)',
+                fontWeight: 900, fontSize: '0.8rem', color: '#FFF',
               }}>S</div>
-              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.9rem', color: 'var(--text-on-dark)' }}>
-                SUMIT<span style={{ color: 'var(--accent-orange)' }}>.</span>
+              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.875rem', color: 'var(--bg)' }}>
+                SUMIT<span style={{ color: 'var(--blue)' }}>.</span>
               </span>
             </Link>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: 1.7, maxWidth: '22rem' }}>
-              Systems engineer shipping Rust kernels, production React apps, and real-time platforms.
+            <p style={{ color: '#888', fontSize: '0.8125rem', lineHeight: 1.7, maxWidth: '20rem' }}>
+              Full-stack developer shipping real-time platforms, AI-powered tools, and cross-platform apps from New Delhi.
             </p>
-            <div className="flex gap-2">
+            <div className="flex gap-1.5">
               {[
-                { icon: <Github size={16} />, href: 'https://github.com/halloffame12', label: 'GitHub' },
-                { icon: <Linkedin size={16} />, href: 'https://www.linkedin.com/in/sumit-chauhan-a4ba98325/', label: 'LinkedIn' },
-                { icon: <Mail size={16} />, href: 'mailto:sumitchauhan10062004@gmail.com', label: 'Email' },
+                { icon: <Github size={15} />, href: 'https://github.com/halloffame12', label: 'GitHub' },
+                { icon: <Linkedin size={15} />, href: 'https://www.linkedin.com/in/sumit-chauhan-a4ba98325/', label: 'LinkedIn' },
+                { icon: <Mail size={15} />, href: 'mailto:sumitchauhan10062004@gmail.com', label: 'Email' },
               ].map(s => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                  className="brutal-icon-link"
-                >{s.icon}</a>
+                  className="brutal-icon-link">{s.icon}</a>
               ))}
             </div>
           </div>
 
-          {/* Nav */}
           <div className="md:col-span-3">
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: '1rem' }}>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#666', marginBottom: '0.75rem' }}>
               Navigation
             </h4>
-            <ul className="flex flex-col gap-3">
-              {[{ n: 'Home', p: '/' }, { n: 'Work', p: '/projects' }, { n: 'About', p: '/about' }, { n: 'Contact', p: '/contact' }].map(l => (
-                <li key={l.n}>
-                  <Link to={l.p} className="brutal-nav-link">{l.n}</Link>
-                </li>
+            <ul className="flex flex-col gap-2.5">
+              {[{ n: 'Home', p: '/' }, { n: 'Builds', p: '/projects' }, { n: 'About', p: '/about' }, { n: 'Contact', p: '/contact' }].map(l => (
+                <li key={l.n}><Link to={l.p} className="brutal-nav-link">{l.n}</Link></li>
               ))}
             </ul>
           </div>
 
-          {/* CTA */}
           <div className="md:col-span-4">
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: '1rem' }}>
-              Let's Work Together
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#666', marginBottom: '0.75rem' }}>
+              Let's Build Together
             </h4>
-            <p style={{ color: 'var(--text-on-dark)', fontSize: '0.875rem', marginBottom: '1.25rem', lineHeight: 1.7, maxWidth: '18rem' }}>
-              Open to freelance gigs, systems-level contracts, and high-impact infrastructure projects.
+            <p style={{ color: 'var(--bg)', fontSize: '0.8125rem', marginBottom: '1rem', lineHeight: 1.7, maxWidth: '18rem' }}>
+              Open to freelance gigs, AI automation projects, and high-impact builds. Direct comms, no middlemen.
             </p>
             <Link to="/contact" className="brutal-btn brutal-btn-sm">
-              Start a Project <ArrowUpRight size={14} />
+              Start a Project <ArrowUpRight size={13} />
             </Link>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div
-          className="flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left"
-          style={{ marginTop: '3rem', paddingTop: '1.5rem', borderTop: 'var(--border-w-sm) solid var(--border)' }}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left"
+          style={{ marginTop: '2.5rem', paddingTop: '1.25rem', borderTop: 'var(--bw-sm) solid rgba(255,255,255,0.12)' }}
         >
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>
+          <p style={{ color: '#666', fontSize: '0.6875rem' }}>
             &copy; {year} Sumit Chauhan. Handcrafted with raw intention.
           </p>
+          <div className="flex items-center gap-4">
+            <p style={{ color: '#666', fontSize: '0.5625rem' }}>
+              Illustrations by <a href="https://www.openpeeps.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--blue)' }}>Open Peeps</a> (CC0 1.0)
+            </p>
+            <motion.a
+              href="#"
+              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              style={{ width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.2)', color: '#666' }}
+              aria-label="Back to top"
+            >
+              <ArrowUp size={12} />
+            </motion.a>
+          </div>
         </div>
       </div>
     </footer>

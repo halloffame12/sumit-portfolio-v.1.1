@@ -3,45 +3,27 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Send, CheckCircle, ArrowUpRight, Zap, Clock, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useForm, ValidationError } from '@formspree/react';
+import { SPRING_SNAPPY } from '../types';
 import SeoHelmet from '../components/SeoHelmet';
-
-const fadeUpSpring = {
-  hidden: { y: 25, opacity: 0 },
-  show: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 200, damping: 22 } },
-};
-
-const staggerContainer = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
-};
-
-const clipReveal = {
-  hidden: { clipPath: 'inset(0 100% 0 0)' },
-  show: { clipPath: 'inset(0 0% 0 0)', transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
-};
+import PeepIllustration from '../components/PeepIllustration';
+import ScrollReveal from '../components/ScrollReveal';
+import MagneticButton from '../components/MagneticButton';
 
 const Contact: React.FC = () => {
   const [state, handleSubmit] = useForm("maqyoojq");
 
   if (state.succeeded) {
     return (
-      <article className="page-shell flex items-center" style={{ minHeight: '60vh' }}>
-        <SeoHelmet
-          path="/contact"
-          title="Contact — Sumit Chauhan | Systems Engineer & Full-Stack Architect"
-          description="Message sent successfully."
-        />
+      <article className="page-shell flex items-center" style={{ height: '100svh', paddingTop: 0 }}>
+        <SeoHelmet path="/contact" title="Contact \u2014 Sumit Chauhan" description="Message sent successfully." />
         <div className="page-container">
           <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-            className="text-center" style={{ maxWidth: '28rem', margin: '0 auto' }}>
-            <div className="brutal-icon-box mx-auto" style={{ width: '64px', height: '64px', marginBottom: '1.5rem', background: 'var(--accent-green)', borderRadius: '0' }}>
-              <CheckCircle size={28} />
+            transition={SPRING_SNAPPY} className="text-center" style={{ maxWidth: '28rem', margin: '0 auto' }}>
+            <div className="brutal-icon-box mx-auto" style={{ width: '56px', height: '56px', marginBottom: '1rem', background: '#00CC66' }}>
+              <CheckCircle size={24} />
             </div>
-            <h1 style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '2rem', color: 'var(--text-primary)', marginBottom: '0.75rem' }}>
-              Message Sent
-            </h1>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>I'll respond within 24 hours.</p>
+            <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', color: 'var(--black)', marginBottom: '0.5rem' }}>Message Sent</h1>
+            <p style={{ color: '#555', fontSize: '0.8125rem', marginBottom: '1.5rem' }}>I'll respond within 24 hours.</p>
             <Link to="/" className="brutal-btn-outline">Back to Home <ArrowUpRight size={14} /></Link>
           </motion.div>
         </div>
@@ -50,152 +32,131 @@ const Contact: React.FC = () => {
   }
 
   const benefits = [
-    { icon: <Zap size={16} />, title: 'Fast Response', desc: '< 24 hours' },
-    { icon: <Clock size={16} />, title: 'Any Timezone', desc: 'Flexible hours' },
-    { icon: <MessageSquare size={16} />, title: 'Direct Comms', desc: 'No middlemen' },
+    { icon: <Zap size={14} />, title: 'Fast Response', desc: '< 24 hours' },
+    { icon: <Clock size={14} />, title: 'Any Timezone', desc: 'Flexible hours' },
+    { icon: <MessageSquare size={14} />, title: 'Direct Comms', desc: 'No middlemen' },
   ];
 
   return (
     <article className="page-shell">
-      <SeoHelmet
-        path="/contact"
-        title="Contact — Sumit Chauhan | Systems Engineer & Full-Stack Architect"
-        description="Available for freelance contracts, systems-level work, and high-impact infrastructure projects. Fast response, direct communication."
-      />
+      <SeoHelmet path="/contact" title="Contact \u2014 Sumit Chauhan" description="Available for freelance contracts, AI automation projects, and full-stack builds." />
 
       <div className="page-container">
-        {/* Header */}
-        <section>
-          <motion.div className="text-center" style={{ marginBottom: '2.5rem' }}
-            variants={staggerContainer} initial="hidden" animate="show"
-          >
-            <span className="brutal-kicker" style={{ marginBottom: '0.75rem', display: 'inline-flex' }}>Contact</span>
-            <motion.h1 style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'var(--text-primary)', letterSpacing: '-0.04em', marginTop: '0.75rem', marginBottom: '0.5rem' }} variants={clipReveal}>
-              Let's Talk Scope
-            </motion.h1>
-            <motion.p style={{ color: 'var(--text-secondary)', maxWidth: '28rem', margin: '0 auto' }} variants={fadeUpSpring}>
-              Got a hard problem? A contract worth doing? Drop a message.
-            </motion.p>
-          </motion.div>
-        </section>
+        <ScrollReveal variant="clipReveal">
+          <div style={{ marginBottom: '1rem' }}>
+            <div className="flex items-end gap-4 flex-wrap">
+              <div>
+                <span className="brutal-kicker" style={{ marginBottom: '0.625rem', display: 'inline-flex' }}>Contact</span>
+                <h1 className="brutal-section-title" style={{ marginTop: '0.5rem', marginBottom: '0.25rem' }}>Let's Talk</h1>
+              </div>
+              <div className="hidden lg:block" style={{ width: '80px' }}>
+                <PeepIllustration pose="thinking" colors={{ outfit: 'var(--yellow)' }} size={80} />
+              </div>
+            </div>
+            <p style={{ color: '#555', maxWidth: '26rem', fontSize: '0.875rem' }}>
+              Got a hard problem? A project worth building? Drop a message.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        {/* Benefits */}
-        <section aria-labelledby="benefits-h">
-          <h2 id="benefits-h" className="sr-only">Contact Benefits</h2>
-          <motion.div className="hidden sm:flex flex-wrap justify-center gap-3" style={{ marginBottom: '2.5rem' }}
-            variants={staggerContainer} initial="hidden" animate="show"
-          >
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="hidden sm:flex flex-wrap justify-center gap-2.5" style={{ marginBottom: '1rem' }}>
             {benefits.map((b, i) => (
-              <motion.div key={i} className="brutal-card-static flex items-center gap-2.5" style={{ padding: '0.6rem 1rem' }} variants={fadeUpSpring}>
-                <div style={{ color: 'var(--accent-orange)' }}>{b.icon}</div>
+              <div key={i} className="brutal-card-static flex items-center gap-2" style={{ padding: '0.5rem 0.875rem' }}>
+                <div style={{ color: 'var(--blue)' }}>{b.icon}</div>
                 <div>
-                  <p style={{ fontWeight: 800, fontSize: '0.75rem', color: 'var(--text-primary)' }}>{b.title}</p>
-                  <p style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>{b.desc}</p>
+                  <p style={{ fontWeight: 800, fontSize: '0.6875rem', color: 'var(--black)' }}>{b.title}</p>
+                  <p style={{ fontSize: '0.5625rem', color: '#888' }}>{b.desc}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-        </section>
+          </div>
+        </ScrollReveal>
 
-        {/* Main Grid */}
-        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-6 lg:gap-8">
-          {/* Form */}
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ type: 'spring', stiffness: 180, damping: 22, delay: 0.1 }}
-            className="lg:col-span-3 order-1 lg:order-2"
-          >
-            <div className="brutal-card" style={{ padding: 'clamp(1.25rem, 3vw, 2rem)' }}>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '1.125rem', color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
+        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-5 lg:gap-6">
+          <ScrollReveal variant="slideRight" delay={0.1} className="lg:col-span-3 order-1 lg:order-2">
+            <div className="brutal-card" style={{ padding: '1.25rem' }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '1rem', color: 'var(--black)', marginBottom: '0.2rem' }}>
                 Send a Message
               </h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem', marginBottom: '1.5rem' }}>All fields with * are required.</p>
+              <p style={{ color: '#888', fontSize: '0.6875rem', marginBottom: '1rem' }}>All fields with * are required.</p>
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label htmlFor="name" style={{ display: 'block', fontSize: '0.6875rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Name *</label>
-                    <input type="text" id="name" name="name" required className="brutal-input" placeholder="John Doe" />
-                    <ValidationError prefix="Name" field="name" errors={state.errors} className="text-xs mt-1" style={{ color: 'var(--accent-orange)' }} />
+                    <label htmlFor="name" style={{ display: 'block', fontSize: '0.625rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#555', marginBottom: '0.375rem' }}>Name *</label>
+                    <input type="text" id="name" name="name" required className="brutal-input" placeholder="Your name" />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} className="text-xs mt-1" style={{ color: '#CC0000' }} />
                   </div>
                   <div>
-                    <label htmlFor="email" style={{ display: 'block', fontSize: '0.6875rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Email *</label>
-                    <input type="email" id="email" name="email" required className="brutal-input" placeholder="john@example.com" />
-                    <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs mt-1" style={{ color: 'var(--accent-orange)' }} />
+                    <label htmlFor="email" style={{ display: 'block', fontSize: '0.625rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#555', marginBottom: '0.375rem' }}>Email *</label>
+                    <input type="email" id="email" name="email" required className="brutal-input" placeholder="you@example.com" />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs mt-1" style={{ color: '#CC0000' }} />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subject" style={{ display: 'block', fontSize: '0.6875rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Subject</label>
+                  <label htmlFor="subject" style={{ display: 'block', fontSize: '0.625rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#555', marginBottom: '0.375rem' }}>Subject</label>
                   <input type="text" id="subject" name="subject" className="brutal-input" placeholder="Project Inquiry" />
                 </div>
                 <div>
-                  <label htmlFor="message" style={{ display: 'block', fontSize: '0.6875rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Message *</label>
+                  <label htmlFor="message" style={{ display: 'block', fontSize: '0.625rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#555', marginBottom: '0.375rem' }}>Message *</label>
                   <textarea id="message" name="message" required rows={5} className="brutal-input" placeholder="Describe your project, timeline, and budget..." />
-                  <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs mt-1" style={{ color: 'var(--accent-orange)' }} />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs mt-1" style={{ color: '#CC0000' }} />
                 </div>
                 <button type="submit" disabled={state.submitting} className="brutal-btn brutal-btn-block">
                   {state.submitting ? (
-                    <><div className="animate-spin" style={{ width: '16px', height: '16px', border: '2px solid rgba(0,0,0,0.3)', borderTopColor: '#000', borderRadius: '50%' }} /><span>Sending...</span></>
+                    <><div className="animate-spin" style={{ width: '14px', height: '14px', border: '2px solid rgba(255,255,255,0.3)', borderTopColor: '#FFF', borderRadius: '50%' }} /><span>Sending...</span></>
                   ) : (
-                    <><Send size={16} /><span>Send Message</span></>
+                    <><Send size={14} /><span>Send Message</span></>
                   )}
                 </button>
               </form>
             </div>
-          </motion.section>
+          </ScrollReveal>
 
-          {/* Sidebar */}
-          <motion.aside
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ type: 'spring', stiffness: 180, damping: 22, delay: 0.2 }}
-            className="lg:col-span-2 order-2 lg:order-1 flex flex-col gap-4"
-          >
-            <div className="brutal-card" style={{ padding: '1.25rem' }}>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '1rem', color: 'var(--text-primary)', marginBottom: '1rem' }}>Quick Contact</h2>
-              <motion.div className="flex flex-col gap-3"
-                variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
-              >
-                {[
-                  { icon: <Mail size={16} />, label: 'Email', val: 'sumitchauhan10062004@gmail.com', href: 'mailto:sumitchauhan10062004@gmail.com' },
-                  { icon: <Phone size={16} />, label: 'Phone', val: 'Available on request' },
-                  { icon: <MapPin size={16} />, label: 'Location', val: 'India' },
-                ].map((c, i) => (
-                  <motion.div key={i} className="brutal-sidebar-item" variants={fadeUpSpring}>
-                    <div className="brutal-icon-box" style={{ width: '36px', height: '36px' }}>{c.icon}</div>
-                    <div className="min-w-0">
-                      <p style={{ fontSize: '0.5625rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)' }}>{c.label}</p>
-                      {c.href ? (
-                        <a href={c.href} className="truncate block" style={{ fontWeight: 700, fontSize: '0.75rem', color: 'var(--text-primary)' }}>{c.val}</a>
-                      ) : (
-                        <p className="truncate" style={{ fontWeight: 700, fontSize: '0.75rem', color: 'var(--text-primary)' }}>{c.val}</p>
-                      )}
+          <ScrollReveal variant="slideLeft" delay={0.2} className="lg:col-span-2 order-2 lg:order-1">
+            <div className="flex flex-col gap-3">
+              <div className="brutal-card" style={{ padding: '1rem' }}>
+                <h2 style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '0.875rem', color: 'var(--black)', marginBottom: '0.75rem' }}>Quick Contact</h2>
+                <div className="flex flex-col gap-2.5">
+                  {[
+                    { icon: <Mail size={14} />, label: 'Email', val: 'sumitchauhan10062004@gmail.com', href: 'mailto:sumitchauhan10062004@gmail.com' },
+                    { icon: <Phone size={14} />, label: 'Phone', val: 'Available on request' },
+                    { icon: <MapPin size={14} />, label: 'Location', val: 'New Delhi, India' },
+                  ].map((c, i) => (
+                    <div key={i} className="brutal-sidebar-item">
+                      <div className="brutal-icon-box" style={{ width: '32px', height: '32px' }}>{c.icon}</div>
+                      <div className="min-w-0">
+                        <p style={{ fontSize: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#888' }}>{c.label}</p>
+                        {c.href ? (
+                          <a href={c.href} className="truncate block" aria-label={`${c.label}: ${c.val}`} style={{ fontWeight: 700, fontSize: '0.6875rem', color: 'var(--black)' }}>{c.val}</a>
+                        ) : (
+                          <p className="truncate" style={{ fontWeight: 700, fontSize: '0.6875rem', color: 'var(--black)' }}>{c.val}</p>
+                        )}
+                      </div>
                     </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-
-            <motion.div className="brutal-card" style={{ padding: '1rem' }}
-              initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ type: 'spring', stiffness: 180, damping: 22, delay: 0.35 }}
-            >
-              <p style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', marginBottom: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Find me online</p>
-              <div className="flex gap-2">
-                {[
-                  { icon: <Github size={16} />, label: 'GitHub', href: 'https://github.com/halloffame12' },
-                  { icon: <Linkedin size={16} />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/sumit-chauhan-a4ba98325/' },
-                ].map(s => (
-                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                    className="flex-1 flex items-center justify-center gap-2 brutal-hover-fill"
-                  >{s.icon} {s.label}</a>
-                ))}
+                  ))}
+                </div>
               </div>
-            </motion.div>
-          </motion.aside>
+
+              <div className="brutal-card" style={{ padding: '0.875rem' }}>
+                <p style={{ fontSize: '0.625rem', color: '#888', marginBottom: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Find me online</p>
+                <div className="flex flex-col gap-1.5">
+                  {[
+                    { icon: <Github size={16} />, label: 'GitHub', href: 'https://github.com/halloffame12' },
+                    { icon: <Linkedin size={16} />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/sumit-chauhan-a4ba98325/' },
+                  ].map(s => (
+                    <MagneticButton key={s.label} strength={0.15}>
+                      <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
+                        className="flex items-center gap-2.5 brutal-hover-fill"
+                        style={{ padding: '0.75rem 0.875rem' }}
+                      >{s.icon} <span style={{ fontWeight: 800, fontSize: '0.75rem' }}>{s.label}</span></a>
+                    </MagneticButton>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </article>

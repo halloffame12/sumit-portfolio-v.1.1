@@ -1,76 +1,53 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════
-   NEO-BRUTALIST DESIGN SYSTEM — SINGLE SOURCE OF TRUTH
+   NEO-BRUTALIST DESIGN SYSTEM — 4-COLOR DISCIPLINE
+   Black #0A0A0A · Cream #FFFDF7 · Cobalt #0047FF · Yellow #FFE500
    ═══════════════════════════════════════════════════════════ */
 :root {
-  /* ── Palette ── */
-  --bg-main: #F5F0EB;
+  --bg: #FFFDF7;
   --bg-card: #FFFFFF;
-  --bg-dark: #1A1A1A;
-  --bg-cream: #EDE8E2;
-  --accent-orange: #FF5A36;
-  --accent-orange-hover: #E8401E;
-  --accent-blue: #2979FF;
-  --accent-yellow: #FFD166;
-  --accent-green: #06D6A0;
-  --text-primary: #1A1A1A;
-  --text-secondary: #4A4A4A;
-  --text-muted: #7A7A7A;
-  --text-on-dark: #F5F0EB;
-  --border: #000000;
+  --black: #0A0A0A;
+  --cream: #F0ECE4;
+  --blue: #0047FF;
+  --blue-hover: #0036CC;
+  --yellow: #FFE500;
+  --yellow-dark: #E6CF00;
+  --border: #0A0A0A;
 
-  /* ── Shadows (hard offset, no blur) ── */
-  --shadow-brutal: 6px 6px 0px var(--border);
-  --shadow-brutal-sm: 4px 4px 0px var(--border);
-  --shadow-brutal-lg: 10px 10px 0px var(--border);
-  --shadow-brutal-hover: 8px 8px 0px var(--border);
+  --sh: 6px 6px 0px var(--border);
+  --sh-sm: 4px 4px 0px var(--border);
+  --sh-lg: 10px 10px 0px var(--border);
+  --sh-hover: 8px 8px 0px var(--border);
+  --sh-pressed: 2px 2px 0px var(--border);
 
-  /* ── Borders ── */
-  --border-w: 3px;
-  --border-w-sm: 2px;
+  --bw: 3px;
+  --bw-sm: 2px;
 
-  /* ── Radii (sharp = brutal) ── */
-  --radius: 2px;
-  --radius-sm: 0px;
-
-  /* ── Typography ── */
+  --font-display: 'Archivo Black', sans-serif;
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  /* ── Spacing ── */
-  --section-gap: clamp(5rem, 10vw, 8rem);
-  --container-max: 88rem;
-  --container-pad: 1.5rem;
-
-  /* ── Easing ── */
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --section-gap: clamp(4rem, 8vw, 7rem);
+  --container-max: 82rem;
+  --container-pad: 1.25rem;
 }
 
-/* ── Tailwind Theme Bridge ── */
 @theme {
-  --color-bg-main: #F5F0EB;
+  --color-bg: #FFFDF7;
   --color-bg-card: #FFFFFF;
-  --color-bg-dark: #1A1A1A;
-  --color-accent: #FF5A36;
-  --color-accent-blue: #2979FF;
-  --color-accent-yellow: #FFD166;
-  --color-accent-green: #06D6A0;
-  --color-text-primary: #1A1A1A;
-  --color-text-secondary: #4A4A4A;
-  --color-text-muted: #7A7A7A;
+  --color-black: #0A0A0A;
+  --color-cream: #F0ECE4;
+  --color-blue: #0047FF;
+  --color-yellow: #FFE500;
 }
 
-
-/* ═══════════════════════════════════════════════════════════
-   BASE RESETS
-   ═══════════════════════════════════════════════════════════ */
+/* ── Reset & Base ── */
 html { scroll-behavior: smooth; }
 html, body, #root { width: 100%; min-height: 100vh; }
-
 body {
-  background: var(--bg-main);
-  color: var(--text-primary);
+  background: var(--bg);
+  color: var(--black);
   font-family: var(--font-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -79,188 +56,163 @@ body {
   line-height: 1.6;
 }
 
-/* ── Heading Hierarchy ── */
 h1 { font-family: var(--font-heading); line-height: 0.9; letter-spacing: -0.04em; }
 h2 { font-family: var(--font-heading); line-height: 1.0; letter-spacing: -0.03em; }
 h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; letter-spacing: -0.02em; }
-p { line-height: 1.7; color: var(--text-secondary); }
+p { line-height: 1.7; }
 a { text-decoration: none; color: inherit; }
-
-::selection { background: rgba(255, 90, 54, 0.3); color: var(--text-primary); }
+::selection { background: rgba(0, 71, 255, 0.25); }
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--bg-main); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 0; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent-orange); }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--black); }
+::-webkit-scrollbar-thumb:hover { background: var(--blue); }
 
-
-/* ═══════════════════════════════════════════════════════════
-   LAYOUT SYSTEM
-   ═══════════════════════════════════════════════════════════ */
+/* ── Layout ── */
 .page-shell {
   position: relative;
-  padding-top: clamp(6rem, 10vw, 8rem);
-  padding-bottom: var(--section-gap);
+  padding-top: clamp(5rem, 8vw, 7rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
 }
-
-/* Shadow-safe container: internal padding prevents shadow clipping */
 .page-container {
   width: 100%;
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--container-pad);
 }
-@media (min-width: 640px) {
-  :root { --container-pad: 2.5rem; }
-}
-@media (min-width: 1024px) {
-  :root { --container-pad: 3rem; }
-}
-
-/* Grid wrapper */
-.brutal-grid {
-  width: 100%;
-}
-
+@media (min-width: 640px) { :root { --container-pad: 1.5rem; } }
+@media (min-width: 1024px) { :root { --container-pad: 2rem; } }
 
 /* ═══════════════════════════════════════════════════════════
-   NEO-BRUTALIST CARD
+   CARD SYSTEM
    ═══════════════════════════════════════════════════════════ */
 .brutal-card {
   background: var(--bg-card);
-  border: var(--border-w) solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-brutal);
-  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  border: var(--bw) solid var(--border);
+  box-shadow: var(--sh);
+  transition: transform 0.12s cubic-bezier(0.22,1,0.36,1), box-shadow 0.12s cubic-bezier(0.22,1,0.36,1);
 }
 .brutal-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-brutal-hover);
+  transform: translate(-3px, -3px) rotate(-0.5deg);
+  box-shadow: var(--sh-hover);
 }
 .brutal-card:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px var(--border);
+  transform: translate(4px, 4px) rotate(0deg);
+  box-shadow: var(--sh-pressed);
 }
-
-/* Static card (no hover effect) */
 .brutal-card-static {
   background: var(--bg-card);
-  border: var(--border-w) solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-brutal);
+  border: var(--bw) solid var(--border);
+  box-shadow: var(--sh);
 }
-
-/* Dark variant */
 .brutal-card-dark {
-  background: var(--bg-dark);
-  color: var(--text-on-dark);
-  border: var(--border-w) solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-brutal);
+  background: var(--black);
+  color: var(--bg);
+  border: var(--bw) solid var(--border);
+  box-shadow: var(--sh);
 }
-
+.brutal-card-primary {
+  background: var(--blue);
+  color: #FFF;
+  border: var(--bw) solid var(--border);
+  box-shadow: var(--sh);
+}
+.brutal-card-yellow {
+  background: var(--yellow);
+  color: var(--black);
+  border: var(--bw) solid var(--border);
+  box-shadow: var(--sh);
+}
 
 /* ═══════════════════════════════════════════════════════════
-   NEO-BRUTALIST BUTTONS
+   BUTTONS
    ═══════════════════════════════════════════════════════════ */
 .brutal-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.8rem;
-  background: var(--accent-orange);
-  color: var(--border);
+  padding: 0.75rem 1.5rem;
+  background: var(--blue);
+  color: #FFF;
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  border: var(--border-w) solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-brutal-sm);
+  letter-spacing: 0.04em;
+  border: var(--bw) solid var(--border);
+  box-shadow: var(--sh-sm);
   cursor: pointer;
-  transition: transform 0.12s var(--ease-out), box-shadow 0.12s var(--ease-out);
+  transition: transform 0.1s cubic-bezier(0.22,1,0.36,1), box-shadow 0.1s cubic-bezier(0.22,1,0.36,1), background 0.1s;
   white-space: nowrap;
   text-decoration: none;
 }
 .brutal-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-brutal);
-  background: var(--accent-orange-hover);
+  box-shadow: var(--sh);
+  background: var(--blue-hover);
 }
 .brutal-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px var(--border);
+  transform: translate(4px, 4px);
+  box-shadow: var(--sh-pressed);
 }
-
+.brutal-btn-yellow { background: var(--yellow); color: var(--black); }
+.brutal-btn-yellow:hover { background: var(--yellow-dark); }
 .brutal-btn-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.8rem;
+  padding: 0.75rem 1.5rem;
   background: var(--bg-card);
-  color: var(--text-primary);
+  color: var(--black);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  border: var(--border-w) solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-brutal-sm);
+  letter-spacing: 0.04em;
+  border: var(--bw) solid var(--border);
+  box-shadow: var(--sh-sm);
   cursor: pointer;
-  transition: transform 0.12s var(--ease-out), box-shadow 0.12s var(--ease-out);
+  transition: transform 0.1s cubic-bezier(0.22,1,0.36,1), box-shadow 0.1s cubic-bezier(0.22,1,0.36,1), background 0.1s, color 0.1s;
   white-space: nowrap;
   text-decoration: none;
 }
 .brutal-btn-outline:hover {
   transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-brutal);
-  background: var(--bg-cream);
+  box-shadow: var(--sh);
+  background: var(--yellow);
 }
 .brutal-btn-outline:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px var(--border);
+  transform: translate(4px, 4px);
+  box-shadow: var(--sh-pressed);
 }
-
-.brutal-btn-sm {
-  padding: 0.5rem 1.2rem;
-  font-size: 0.75rem;
-  box-shadow: var(--shadow-brutal-sm);
-}
-
-.brutal-btn-block {
-  display: flex;
-  width: 100%;
-}
-
+.brutal-btn-sm { padding: 0.45rem 1rem; font-size: 0.75rem; }
+.brutal-btn-block { display: flex; width: 100%; }
 
 /* ═══════════════════════════════════════════════════════════
-   FORM INPUTS
+   INPUTS
    ═══════════════════════════════════════════════════════════ */
 .brutal-input {
   width: 100%;
-  padding: 0.85rem 1rem;
-  background: var(--bg-main);
-  border: var(--border-w) solid var(--border);
-  border-radius: var(--radius);
-  color: var(--text-primary);
+  padding: 0.75rem 0.875rem;
+  background: var(--bg);
+  border: var(--bw) solid var(--border);
+  color: var(--black);
   font-family: var(--font-body);
-  font-size: 0.9375rem;
-  box-shadow: var(--shadow-brutal-sm);
-  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  font-size: 0.875rem;
+  box-shadow: var(--sh-sm);
+  transition: box-shadow 0.1s, transform 0.1s, border-color 0.1s;
+  outline: none;
 }
 .brutal-input:focus {
-  outline: none;
-  box-shadow: var(--shadow-brutal);
+  box-shadow: var(--sh);
   transform: translate(-2px, -2px);
+  border-color: var(--blue);
 }
-.brutal-input::placeholder { color: var(--text-muted); }
-textarea.brutal-input { resize: vertical; min-height: 130px; }
-
+.brutal-input::placeholder { color: #999; }
+textarea.brutal-input { resize: vertical; min-height: 120px; }
 
 /* ═══════════════════════════════════════════════════════════
    BADGE & TAG
@@ -268,82 +220,84 @@ textarea.brutal-input { resize: vertical; min-height: 130px; }
 .brutal-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.3rem 0.75rem;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
   background: var(--bg-card);
-  color: var(--text-primary);
+  color: var(--black);
   font-family: var(--font-heading);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  border: var(--border-w-sm) solid var(--border);
-  border-radius: var(--radius-sm);
-  box-shadow: 3px 3px 0px var(--border);
+  border: var(--bw-sm) solid var(--border);
+  box-shadow: 2px 2px 0px var(--border);
   white-space: nowrap;
 }
-.brutal-badge-accent {
-  background: var(--accent-orange);
-  color: var(--border);
-}
-.brutal-badge-blue {
-  background: var(--accent-blue);
-  color: white;
-}
-.brutal-badge-yellow {
-  background: var(--accent-yellow);
-  color: var(--border);
-}
+.brutal-badge-primary { background: var(--blue); color: #FFF; }
+.brutal-badge-yellow { background: var(--yellow); color: var(--black); }
+.brutal-badge-dark { background: var(--black); color: var(--bg); }
 
 .brutal-tag {
   display: inline-flex;
   align-items: center;
-  padding: 0.2rem 0.6rem;
-  background: var(--bg-main);
-  color: var(--text-secondary);
+  padding: 0.15rem 0.5rem;
+  background: var(--cream);
+  color: var(--black);
   font-family: var(--font-heading);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 600;
-  border: var(--border-w-sm) solid var(--border);
-  border-radius: var(--radius-sm);
-  transition: all 0.15s ease;
+  border: var(--bw-sm) solid var(--border);
+  transition: all 0.1s;
 }
 .brutal-tag:hover {
-  background: var(--accent-orange);
-  color: var(--border);
+  background: var(--blue);
+  color: #FFF;
   transform: translateY(-1px);
 }
-
 
 /* ═══════════════════════════════════════════════════════════
    SECTION TYPOGRAPHY
    ═══════════════════════════════════════════════════════════ */
 .brutal-section-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
   font-weight: 900;
-  line-height: 1.0;
-  letter-spacing: -0.04em;
-  color: var(--text-primary);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--black);
 }
-
 .brutal-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.85rem;
-  background: var(--accent-orange);
-  color: var(--border);
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  background: var(--yellow);
+  color: var(--black);
   font-family: var(--font-heading);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border: var(--border-w-sm) solid var(--border);
-  border-radius: var(--radius-sm);
-  box-shadow: 3px 3px 0px var(--border);
+  border: var(--bw-sm) solid var(--border);
+  box-shadow: 2px 2px 0px var(--border);
 }
-
+.brutal-sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.75rem;
+  background: var(--yellow);
+  color: var(--black);
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: var(--bw-sm) solid var(--border);
+  box-shadow: 2px 2px 0px var(--border);
+  transform: rotate(-2deg);
+  white-space: nowrap;
+}
 
 /* ═══════════════════════════════════════════════════════════
    MARQUEE
@@ -354,10 +308,10 @@ textarea.brutal-input { resize: vertical; min-height: 130px; }
 }
 .marquee-wrapper {
   overflow: hidden;
-  border-top: var(--border-w) solid var(--border);
-  border-bottom: var(--border-w) solid var(--border);
-  background: var(--accent-orange);
-  padding: 0.7rem 0;
+  border-top: var(--bw) solid var(--border);
+  border-bottom: var(--bw) solid var(--border);
+  background: var(--blue);
+  padding: 0.6rem 0;
 }
 .marquee-track {
   display: flex;
@@ -365,189 +319,204 @@ textarea.brutal-input { resize: vertical; min-height: 130px; }
   animation: marquee-scroll 25s linear infinite;
   width: max-content;
 }
-.marquee-track:hover {
-  animation-play-state: paused;
-}
+.marquee-track:hover { animation-play-state: paused; }
 .marquee-item {
   font-family: var(--font-heading);
   font-weight: 900;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--border);
-  padding: 0 2rem;
+  color: #FFF;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
-.marquee-item::after {
-  content: '◆';
-  font-size: 0.5rem;
-}
-
-
-/* ═══════════════════════════════════════════════════════════
-   TIMELINE
-   ═══════════════════════════════════════════════════════════ */
-.brutal-timeline {
-  position: relative;
-  padding-left: 2rem;
-}
-.brutal-timeline::before {
-  content: '';
-  position: absolute;
-  left: 7px;
-  top: 4px;
-  bottom: 4px;
-  width: var(--border-w-sm);
-  background: var(--border);
-}
-.brutal-timeline-item {
-  position: relative;
-  padding-bottom: 1.5rem;
-}
-.brutal-timeline-item:last-child { padding-bottom: 0; }
-.brutal-timeline-dot {
-  position: absolute;
-  left: -2rem;
-  top: 6px;
-  width: 16px;
-  height: 16px;
-  background: var(--bg-card);
-  border: var(--border-w) solid var(--border);
-  border-radius: 0;
-  z-index: 1;
-  transition: background 0.2s ease;
-}
-.brutal-timeline-item:hover .brutal-timeline-dot {
-  background: var(--accent-orange);
-}
-
+.marquee-item::after { content: '\25C6'; font-size: 0.4rem; opacity: 0.6; }
 
 /* ═══════════════════════════════════════════════════════════
    ICON BOX
    ═══════════════════════════════════════════════════════════ */
 .brutal-icon-box {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-orange);
-  border: var(--border-w-sm) solid var(--border);
-  border-radius: var(--radius-sm);
-  box-shadow: 3px 3px 0px var(--border);
-  color: var(--border);
+  background: var(--blue);
+  border: var(--bw-sm) solid var(--border);
+  box-shadow: 2px 2px 0px var(--border);
+  color: #FFF;
 }
 
-
 /* ═══════════════════════════════════════════════════════════
-   IMAGE SKELETON
+   SKELETON — Flat solid pulse
    ═══════════════════════════════════════════════════════════ */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 .skeleton-loading {
-  background: linear-gradient(90deg, var(--bg-cream) 25%, var(--bg-main) 50%, var(--bg-cream) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s ease-in-out infinite;
+  background: var(--cream);
+  border: var(--bw-sm) solid var(--border);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
 }
-
 
 /* ═══════════════════════════════════════════════════════════
-   INTERACTIVE ELEMENTS (no inline DOM mutations)
+   INTERACTIVE
    ═══════════════════════════════════════════════════════════ */
-/* Footer social icon — dark bg, muted border, hover accent */
 .brutal-icon-link {
-  width: 40px; height: 40px;
+  width: 36px; height: 36px;
   display: flex; align-items: center; justify-content: center;
   background: transparent;
-  border: var(--border-w-sm) solid var(--text-muted);
-  color: var(--text-muted);
-  transition: border-color 0.15s, color 0.15s;
+  border: var(--bw-sm) solid var(--border);
+  color: var(--black);
+  transition: border-color 0.1s, color 0.1s, background 0.1s;
 }
 .brutal-icon-link:hover {
-  border-color: var(--accent-orange);
-  color: var(--accent-orange);
+  border-color: var(--blue);
+  color: var(--blue);
+  background: rgba(0, 71, 255, 0.06);
 }
-
-/* Footer nav link — dark text, hover accent */
 .brutal-nav-link {
-  color: var(--text-on-dark);
+  color: var(--bg);
   font-size: 0.875rem;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.15s;
 }
-.brutal-nav-link:hover {
-  color: var(--accent-orange);
-}
-
-/* Contact social button — cream bg, hover fills orange */
+.brutal-nav-link:hover { color: var(--blue); }
 .brutal-hover-fill {
-  padding: 0.75rem;
-  background: var(--bg-cream);
-  border: var(--border-w-sm) solid var(--border);
+  padding: 0.7rem;
+  background: var(--cream);
+  border: var(--bw-sm) solid var(--border);
   font-weight: 800;
   font-size: 0.75rem;
-  color: var(--text-primary);
-  transition: background 0.15s, color 0.15s;
+  color: var(--black);
+  transition: background 0.1s, color 0.1s;
 }
 .brutal-hover-fill:hover {
-  background: var(--accent-orange);
-  color: var(--border);
+  background: var(--blue);
+  color: #FFF;
 }
-
-/* Sidebar contact item — cream bg inside card */
 .brutal-sidebar-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  background: var(--bg-cream);
-  border: var(--border-w-sm) solid var(--border);
+  gap: 0.625rem;
+  padding: 0.625rem;
+  background: var(--cream);
+  border: var(--bw-sm) solid var(--border);
 }
 
-
 /* ═══════════════════════════════════════════════════════════
-   DIVIDER
+   SKILL BAR
    ═══════════════════════════════════════════════════════════ */
-.brutal-divider {
-  height: var(--border-w);
-  background: var(--border);
-  border: none;
-  margin: 2rem 0;
+.brutal-skill-bar {
+  height: 6px;
+  background: var(--cream);
+  border: var(--bw-sm) solid var(--border);
+  overflow: hidden;
+}
+.brutal-skill-bar-fill {
+  height: 100%;
+  background: var(--blue);
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-
 /* ═══════════════════════════════════════════════════════════
-   SKIP LINK & ACCESSIBILITY
+   SKIP LINK
    ═══════════════════════════════════════════════════════════ */
 .skip-link {
   position: absolute;
   top: -100%;
   left: 1rem;
   padding: 0.5rem 1rem;
-  background: var(--accent-orange);
-  color: var(--border);
+  background: var(--blue);
+  color: #FFF;
   font-family: var(--font-heading);
   font-weight: 800;
   z-index: 99999;
-  border: var(--border-w-sm) solid var(--border);
+  border: var(--bw-sm) solid var(--border);
   transition: top 0.2s;
 }
 .skip-link:focus { top: 1rem; }
 
+/* ═══════════════════════════════════════════════════════════
+   FOCUS VISIBLE
+   ═══════════════════════════════════════════════════════════ */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 3px solid var(--accent-orange);
+textarea:focus-visible {
+  outline: 3px solid var(--blue);
   outline-offset: 2px;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   GRAIN OVERLAY
+   ═══════════════════════════════════════════════════════════ */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION NUMBER WATERMARK
+   ═══════════════════════════════════════════════════════════ */
+.brutal-section-number {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 900;
+  line-height: 0.8;
+  color: var(--border);
+  opacity: 0.04;
+  position: absolute;
+  top: -1rem;
+  left: -0.5rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   WATERMARK
+   ═══════════════════════════════════════════════════════════ */
+.brutal-watermark {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 18vw, 16rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: rgba(255, 255, 255, 0.04);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PULSE DOT
+   ═══════════════════════════════════════════════════════════ */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+.animate-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* ═══════════════════════════════════════════════════════════
+   SPINNER
+   ═══════════════════════════════════════════════════════════ */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
