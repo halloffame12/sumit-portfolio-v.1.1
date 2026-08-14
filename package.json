@@ -7,8 +7,8 @@
     "dev": "vite",
     "sync:github": "node scripts/sync-github.mjs",
     "build": "node scripts/sync-github.mjs && vite build",
-    "preview": "npm run build && wrangler dev",
-    "deploy": "npm run build && wrangler deploy"
+    "preview": "vite preview",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name=sumit-portfolio-v-1-1"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
