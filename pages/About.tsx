@@ -1,241 +1,160 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, FileText, Trophy, Calendar, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { ACHIEVEMENTS_DATA, SKILLS_DATA } from '../constants';
-import { SPRING_SNAPPY, staggerContainer, fadeUp, clipReveal } from '../types';
+import { Trophy, MapPin, Calendar } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { ACHIEVEMENTS_DATA, RESEARCH } from '../data/experience';
+import { SPRING_SNAPPY } from '../types';
 import SeoHelmet from '../components/SeoHelmet';
-import PeepIllustration from '../components/PeepIllustration';
 import ScrollReveal from '../components/ScrollReveal';
 import MagneticButton from '../components/MagneticButton';
-
-const RESEARCH = {
-  title: 'BrowserOS: A Web-Based Operating System Simulation',
-  abstract: 'This paper presents BrowserOS, an innovative web-based operating system simulation running entirely in the browser using Rust and WebAssembly.',
-  journal: 'OSF Preprints', date: '2026',
-  link: 'https://osf.io/m3gv8/files/vu5eq',
-};
+import Timeline from '../components/Timeline';
+import TechDiagram from '../components/TechDiagram';
+import LabExperiments from '../components/LabExperiments';
+import ChapterHeader from '../components/ChapterHeader';
+import { InkStar, InkStroke } from '../components/Ink';
 
 const About: React.FC = () => {
-  const experiences = [
-    { period: '2023 \u2014 Now', title: 'Full-Stack & AI Development', org: 'Freelance & OSS', desc: 'Building production apps with React, Node.js, and AI integrations. Real-time platforms with Socket.IO, computer vision with OpenCV, and cross-platform mobile apps with Flutter.', tech: ['React', 'Node.js', 'Flutter', 'Python'] },
-    { period: '2022 \u2014 Now', title: 'Mobile Development', org: 'Freelance', desc: 'Shipping high-performance Flutter apps with gesture-based UX, local-first architecture, and deep native API integration across Android and iOS.', tech: ['Flutter', 'Dart', 'SQLite', 'Material 3'] },
-    { period: '2024 \u2014 Now', title: 'Systems & OS Research', org: 'Independent', desc: 'Building BrowserOS \u2014 a Rust kernel compiled to WASM with process management, vFS, syscall dispatch, and cooperative multitasking in the browser.', tech: ['Rust', 'WebAssembly', 'wasm-bindgen'] },
-  ];
+  const location = useLocation();
+  const topRef = useRef<HTMLDivElement>(null);
+
+  /* handle "scroll to a chapter" nav requests (LAB / JOURNEY) */
+  useEffect(() => {
+    const target = (location.state as { scrollTo?: string } | null)?.scrollTo;
+    if (!target) return;
+    const t = window.setTimeout(() => {
+      const el = document.getElementById(target);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.history.replaceState({}, '');
+    }, 120);
+    return () => window.clearTimeout(t);
+  }, [location.state]);
 
   return (
-    <article className="page-shell">
+    <article className="page-shell" ref={topRef}>
       <SeoHelmet
         path="/about"
-        title="About \u2014 Sumit Chauhan | Full-Stack Developer"
-        description="Full-stack developer building real-time platforms, AI-powered tools, and cross-platform apps. Based in New Delhi, India."
+        title="About — Sumit Chauhan | Full-Stack Developer"
+        description="The chapters behind the code: experiments on GitHub, the tool pipeline, the journey from first line to published research, and the person doing the work."
       />
 
       <div className="page-container">
-        {/* ═══ HERO: Photo + Bio ═══ */}
-        <section className="grid lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-12 items-start" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={SPRING_SNAPPY}
-          >
-            <div className="relative" style={{ marginBottom: '0.875rem' }}>
-              <div className="absolute w-full h-full" style={{ top: '10px', left: '10px', background: 'var(--yellow)', border: 'var(--bw) solid var(--border)' }} />
-              <div className="relative overflow-hidden" style={{ border: 'var(--bw) solid var(--border)', boxShadow: 'var(--sh)', background: 'var(--bg-card)', transform: 'rotate(-1deg)' }}>
-                <img
-                  src="/sumit.jpg"
-                  alt="Sumit Chauhan \u2014 Full-Stack Developer based in New Delhi, India"
-                  className="w-full object-cover object-top"
-                  style={{ aspectRatio: '4/5' }}
-                  loading="eager"
-                />
-                <div className="absolute bottom-0 left-0 right-0" style={{ padding: '1.125rem', background: 'linear-gradient(to top, rgba(10,10,10,0.85), transparent)' }}>
-                  <p style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: '1.125rem', color: 'var(--bg)' }}>Sumit Chauhan</p>
-                  <p style={{ color: 'var(--blue)', fontSize: '0.75rem', fontWeight: 700 }}>Full-Stack Developer</p>
+        {/* ═══ CHAPTER 08 — PERSON · the person doing the work ═══ */}
+        <section id="person" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }} aria-label="About Sumit Chauhan">
+          <ScrollReveal variant="clipReveal">
+            <ChapterHeader
+              level={1}
+              kicker="Chapter 08 — Person"
+              page="PAGE 08 / 09"
+              title={<>The story behind<br /><span className="ink-underline">the ink.</span></>}
+              intro="chapters 05–07 below, the person here ↓"
+            />
+          </ScrollReveal>
+
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-12 items-start" style={{ marginTop: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={SPRING_SNAPPY}>
+              <div className="relative">
+                <div className="relative" style={{ border: 'var(--bw) solid var(--border)', boxShadow: 'var(--sh-lg)', background: 'var(--bg-card)', padding: '0.625rem 0.625rem 0', transform: 'rotate(-1.5deg)' }}>
+                  <img
+                    src="/sumit.jpg"
+                    alt="Sumit Chauhan — Full-Stack Developer based in New Delhi, India"
+                    className="w-full object-cover object-top"
+                    style={{ aspectRatio: '4/5' }}
+                    loading="eager"
+                  />
+                  <p className="font-ink" style={{ padding: '0.5rem 0.25rem 0.6rem', fontSize: '1.05rem', color: 'var(--ink-soft)', textAlign: 'center', lineHeight: 1.1 }}>
+                    the person behind the pixels
+                  </p>
                 </div>
+                <div aria-hidden="true" style={{ position: 'absolute', top: '-14px', left: '-16px', width: '84px', height: '26px', background: 'rgba(236,230,217,0.85)', border: '1px solid var(--border)', transform: 'rotate(-42deg)', zIndex: 4 }} />
+                <div aria-hidden="true" style={{ position: 'absolute', top: '-14px', right: '-16px', width: '84px', height: '26px', background: 'rgba(236,230,217,0.85)', border: '1px solid var(--border)', transform: 'rotate(42deg)', zIndex: 4 }} />
+                <span aria-hidden="true" style={{ position: 'absolute', bottom: '-30px', left: '12%', width: 'clamp(90px, 12vw, 140px)', color: 'var(--ink-faint)', opacity: 0.6 }}>
+                  <InkStroke kind="squiggle" width="100%" height={12} strokeWidth={2} />
+                </span>
               </div>
-            </div>
 
-            <div className="flex items-end gap-3">
-              <motion.div
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 22, delay: 0.3 }}
-                className="flex flex-wrap gap-1.5"
-              >
-                <div className="brutal-badge" style={{ gap: '0.25rem' }}><MapPin size={11} /> New Delhi, India</div>
-                <div className="brutal-badge" style={{ gap: '0.25rem' }}><Calendar size={11} /> Coding since 2020</div>
-              </motion.div>
-              <div className="hidden lg:block" style={{ width: '72px', marginLeft: 'auto' }}>
-                <PeepIllustration pose="standing-wave" colors={{ outfit: 'var(--yellow)' }} size={72} />
+              <div className="flex flex-wrap gap-1.5" style={{ marginTop: '2rem' }}>
+                <div className="brutal-badge" style={{ gap: '0.3rem' }}><MapPin size={11} /> New Delhi, India</div>
+                <div className="brutal-badge" style={{ gap: '0.3rem' }}><Calendar size={11} /> Coding since 2020</div>
               </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ ...SPRING_SNAPPY, delay: 0.1 }}
-          >
-            <motion.span className="brutal-kicker" style={{ marginBottom: '0.875rem', display: 'inline-flex' }} variants={clipReveal} initial="hidden" animate="show">About</motion.span>
-            <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', lineHeight: 1.0, letterSpacing: '-0.03em', color: 'var(--black)', marginTop: '0.625rem', marginBottom: '1.25rem' }}>
-              <motion.span className="block" variants={clipReveal} initial="hidden" animate="show">I build things that</motion.span>
-              <motion.span className="block" variants={clipReveal} initial="hidden" animate="show"><span style={{ color: 'var(--blue)' }}>actually ship.</span></motion.span>
-            </h1>
-            <motion.div style={{ maxWidth: '40rem', display: 'flex', flexDirection: 'column', gap: '0.875rem', fontSize: 'clamp(0.8125rem, 1.4vw, 0.9375rem)', color: '#555', lineHeight: 1.75 }}
-              variants={staggerContainer} initial="hidden" animate="show"
-            >
-              <motion.p variants={fadeUp}>
-                My work sits at the intersection of full-stack product engineering and AI automation \u2014
-                real-time chat platforms that handle live traffic, Flutter apps that ship fast,
-                and computer vision pipelines that actually work in production.
-              </motion.p>
-              <motion.p variants={fadeUp}>
-                I don't do hand-waving. 15-20 hour deep-work sprints, clean code, zero scope creep.
-                If it runs on silicon, I can architect it, build it, and ship it. Based in New Delhi, working with clients everywhere.
-              </motion.p>
             </motion.div>
-          </motion.div>
-        </section>
 
-        {/* ═══ SKILLS ═══ */}
-        <section style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>
-          <ScrollReveal variant="fadeUp">
-            <div className="flex items-center gap-3" style={{ marginBottom: '1.5rem' }}>
-              <h2 className="brutal-section-title">Technical DNA</h2>
-              <div className="hidden lg:block" style={{ marginLeft: 'auto', width: '100px' }}>
-                <PeepIllustration pose="pointing-right" colors={{ outfit: 'var(--yellow)' }} size={100} />
+            <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ ...SPRING_SNAPPY, delay: 0.1 }}>
+              <div style={{ maxWidth: '40rem', display: 'flex', flexDirection: 'column', gap: '0.875rem', fontSize: 'clamp(0.8125rem, 1.4vw, 0.9375rem)', color: 'var(--ink-soft)', lineHeight: 1.75 }}>
+                <p>
+                  My work sits at the intersection of full-stack product engineering and AI automation — real-time chat platforms that handle live traffic, Flutter apps that ship fast, and computer vision pipelines that actually work in production.
+                </p>
+                <p>
+                  I don't do hand-waving. 15-20 hour deep-work sprints, clean code, zero scope creep. If it runs on silicon, I can architect it, build it, and ship it. Based in New Delhi, working with clients everywhere.
+                </p>
               </div>
-            </div>
 
-            <div style={{ marginBottom: '1.5rem' }}>
-              {[
-                { name: 'Flutter / Dart', level: 90 },
-                { name: 'React / Next.js', level: 92 },
-                { name: 'Node.js / Express', level: 88 },
-                { name: 'Python / AI', level: 82 },
-                { name: 'TypeScript', level: 90 },
-              ].map((skill, i) => (
-                <ScrollReveal key={skill.name} variant="fadeUp" delay={i * 0.06}>
-                  <div style={{ marginBottom: '0.625rem' }}>
-                    <div className="flex justify-between" style={{ marginBottom: '0.25rem' }}>
-                      <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.6875rem', color: 'var(--black)' }}>{skill.name}</span>
-                      <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.625rem', color: 'var(--blue)' }}>{skill.level}%</span>
-                    </div>
-                    <div className="brutal-skill-bar">
-                      <motion.div
-                        className="brutal-skill-bar-fill"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.2 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                      />
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {SKILLS_DATA.map((cat, i) => (
-                <ScrollReveal key={cat.title} variant="fadeUp" delay={i * 0.06}>
-                  <div className="brutal-card-static" style={{ padding: '1rem' }}>
-                    <div className="flex items-center gap-2" style={{ marginBottom: '0.5rem' }}>
-                      <div className="brutal-icon-box" style={{ width: '32px', height: '32px' }}>{cat.icon}</div>
-                      <h3 style={{ fontWeight: 800, fontSize: '0.8125rem', color: 'var(--black)' }}>{cat.title}</h3>
-                    </div>
-                    <p style={{ fontSize: '0.6875rem', color: '#888', lineHeight: 1.55, marginBottom: '0.5rem' }}>{cat.description}</p>
-                    <div className="flex flex-wrap gap-1">
-                      {cat.skills.map((s, j) => (
-                        <span key={j} className="brutal-tag" style={{ fontSize: '0.5625rem' }}>{s}</span>
-                      ))}
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </ScrollReveal>
-        </section>
-
-        {/* ═══ EXPERIENCE ═══ */}
-        <section style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>
-          <ScrollReveal variant="fadeUp">
-            <h2 className="brutal-section-title" style={{ marginBottom: '1.5rem' }}>Experience</h2>
-            <div className="grid md:grid-cols-3 gap-3">
-              {experiences.map((exp, i) => (
-                <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
-                  <div className="brutal-card" style={{ padding: '1.125rem' }}>
-                    <div className="flex flex-wrap items-center gap-1.5" style={{ marginBottom: '0.4rem' }}>
-                      <span className="brutal-badge brutal-badge-primary">{exp.period}</span>
-                      <span style={{ fontSize: '0.625rem', color: '#888' }}>{exp.org}</span>
-                    </div>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.875rem', color: 'var(--black)', marginBottom: '0.35rem' }}>{exp.title}</h3>
-                    <p style={{ fontSize: '0.75rem', color: '#555', lineHeight: 1.6, marginBottom: '0.625rem' }}>{exp.desc}</p>
-                    <div className="flex flex-wrap gap-1">
-                      {exp.tech.map((t, j) => <span key={j} className="brutal-tag" style={{ fontSize: '0.5625rem' }}>{t}</span>)}
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </ScrollReveal>
-        </section>
-
-        {/* ═══ RESEARCH & ACHIEVEMENTS ═══ */}
-        <section style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>
-          <ScrollReveal variant="fadeUp">
-            <h2 className="brutal-section-title" style={{ marginBottom: '1.5rem' }}>Recognition</h2>
-
-            <article className="brutal-card" style={{ padding: 'clamp(1.125rem, 2.5vw, 1.75rem)', marginBottom: '1rem' }}>
-              <div className="flex items-center gap-2.5" style={{ marginBottom: '0.75rem' }}>
-                <div className="brutal-icon-box"><FileText size={16} /></div>
-                <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--blue)' }}>Published Research</span>
-              </div>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: 'clamp(0.9375rem, 1.8vw, 1.125rem)', color: 'var(--black)', marginBottom: '0.4rem' }}>{RESEARCH.title}</h3>
-              <p style={{ fontSize: '0.75rem', color: '#555', lineHeight: 1.7, marginBottom: '0.875rem', maxWidth: '58ch' }}>{RESEARCH.abstract}</p>
-              <a href={RESEARCH.link} target="_blank" rel="noopener noreferrer" className="brutal-btn brutal-btn-sm">
-                Read Paper <ArrowUpRight size={13} />
-              </a>
-            </article>
-
-            <div className="grid sm:grid-cols-2 gap-3">
-              {ACHIEVEMENTS_DATA.map((a) => (
-                <ScrollReveal key={a.id} variant="fadeUp">
-                  <div className="brutal-card-static" style={{ padding: '1rem' }}>
-                    <div className="flex items-start gap-2.5">
-                      <div style={{ width: '32px', height: '32px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--yellow)', border: '2px solid var(--border)', color: 'var(--border)' }}>
-                        <Trophy size={14} />
-                      </div>
-                      <div className="min-w-0">
-                        <div className="flex flex-wrap items-center gap-1.5" style={{ marginBottom: '2px' }}>
-                          <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.75rem', color: 'var(--black)' }}>{a.title}</h4>
-                          <span style={{ fontSize: '0.625rem', color: '#888' }}>{a.date}</span>
+              {/* Achievements */}
+              <div className="grid sm:grid-cols-2 gap-3" style={{ marginTop: '1.5rem' }}>
+                {ACHIEVEMENTS_DATA.map((a, i) => (
+                  <ScrollReveal key={a.id} variant="fadeUp" delay={i * 0.06}>
+                    <div className="brutal-card-static h-full" style={{ padding: '1rem', transform: i % 2 === 1 ? 'rotate(0.3deg)' : 'rotate(-0.3deg)' }}>
+                      <div className="flex items-start gap-2.5">
+                        <div style={{ width: '34px', height: '34px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--black)', border: '2px solid var(--border)', color: 'var(--bg)', boxShadow: '2px 2px 0px var(--border)' }}>
+                          <Trophy size={15} />
                         </div>
-                        <p style={{ fontSize: '0.625rem', fontWeight: 700, color: 'var(--blue)', marginBottom: '0.2rem' }}>{a.organization}</p>
-                        <p style={{ fontSize: '0.6875rem', color: '#555', lineHeight: 1.55 }}>{a.description}</p>
+                        <div className="min-w-0">
+                          <div className="flex flex-wrap items-center gap-1.5" style={{ marginBottom: '2px' }}>
+                            <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.75rem', color: 'var(--black)' }}>{a.title}</h4>
+                            <span className="font-mono" style={{ fontSize: '0.5625rem', color: 'var(--ink-faint)' }}>{a.date}</span>
+                          </div>
+                          <p className="font-mono" style={{ fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-faint)', marginBottom: '0.2rem' }}>{a.organization}</p>
+                          <p style={{ fontSize: '0.6875rem', color: 'var(--ink-soft)', lineHeight: 1.55 }}>{a.description}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </ScrollReveal>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </section>
 
-        {/* ═══ CTA ═══ */}
+        {/* ═══ CHAPTER 07 — JOURNEY ═══ */}
+        <section id="journey">
+          <Timeline />
+        </section>
+
+        {/* ═══ CHAPTER 06 — TOOLS ═══ */}
+        <section id="tools">
+          <TechDiagram />
+        </section>
+
+        {/* ═══ CHAPTER 05 — EXPERIMENTS ═══ */}
+        <section id="lab">
+          <LabExperiments
+            research={{
+              title: RESEARCH.title,
+              desc: RESEARCH.abstract,
+              org: RESEARCH.journal,
+              year: RESEARCH.date,
+              link: RESEARCH.link,
+            }}
+          />
+        </section>
+
+        {/* ═══ CTA — the final chapter ═══ */}
         <ScrollReveal variant="fadeUp" viewportMargin="-60px">
-          <div className="brutal-card-dark text-center" style={{ padding: 'clamp(1.75rem, 3.5vw, 2.75rem)' }}>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.125rem, 2.5vw, 1.75rem)', color: 'var(--bg)', marginBottom: '0.5rem' }}>
-              Want to work together?
+          <div className="brutal-card-dark text-center relative overflow-hidden" style={{ padding: 'clamp(1.75rem, 3.5vw, 2.75rem)' }}>
+            <span aria-hidden="true" style={{ position: 'absolute', top: '1rem', left: '1.25rem', color: 'var(--bg)', opacity: 0.25 }}>
+              <InkStar width={26} height={26} />
+            </span>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.25rem, 2.75vw, 2rem)', color: 'var(--bg)', marginBottom: '0.5rem' }}>
+              Finished the back matter?
             </h2>
-            <p style={{ color: '#888', fontSize: '0.8125rem', maxWidth: '26rem', margin: '0 auto 1.25rem' }}>
-              Open to freelance contracts, AI automation projects, and full-stack builds.
+            <p style={{ color: '#B5B0A4', fontSize: '0.8125rem', maxWidth: '26rem', margin: '0 auto 1.25rem' }}>
+              Chapter 09 — the last one — starts with a hard problem and your message.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2.5">
               <MagneticButton strength={0.2}>
-                <Link to="/projects" className="brutal-btn">View Builds <ArrowUpRight size={15} /></Link>
+                <Link to="/projects" className="brutal-btn">Back to the Work <span aria-hidden="true">←</span></Link>
               </MagneticButton>
               <MagneticButton strength={0.2}>
-                <Link to="/contact" className="brutal-btn-outline" style={{ borderColor: '#555', color: 'var(--bg)' }}>Get in Touch <ArrowUpRight size={15} /></Link>
+                <Link to="/contact" className="brutal-btn-outline" style={{ borderColor: '#B5B0A4', color: 'var(--bg)' }}>Write Chapter 09 <span aria-hidden="true">→</span></Link>
               </MagneticButton>
             </div>
           </div>

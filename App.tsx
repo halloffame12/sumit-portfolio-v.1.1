@@ -4,6 +4,8 @@ import { MotionConfig, AnimatePresence, motion } from 'framer-motion';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import PageWipe from './components/PageWipe';
+import { InkStroke } from './components/Ink';
 
 
 const Home = lazy(() => import('./pages/Home'));
@@ -18,9 +20,29 @@ const ScrollToTop = () => {
   return null;
 };
 
+/* ── Error state: ink spilled ── */
+class InkErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
+  state = { hasError: false };
+  static getDerivedStateFromError() { return { hasError: true }; }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="page-container" style={{ minHeight: '100svh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1rem', textAlign: 'center' }}>
+          <p style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 8vw, 4rem)', color: 'var(--black)', lineHeight: 0.95 }}>INK SPILLED.</p>
+          <p style={{ fontSize: '0.875rem', color: 'var(--ink-soft)', maxWidth: '24rem' }}>
+            Something on this page ran off the page. Refresh to pick the pen back up.
+          </p>
+          <button onClick={() => window.location.reload()} className="brutal-btn">Refresh Page</button>
+        </div>
+      );
+    }
+    return (this as any).props.children;
+  }
+}
+
 const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   useEffect(() => {
-    const timer = setTimeout(onComplete, 1400);
+    const timer = setTimeout(onComplete, 1600);
     return () => clearTimeout(timer);
   }, [onComplete]);
 
@@ -29,37 +51,28 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 0.98 }}
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      className="grain-overlay"
       style={{
         position: 'fixed', inset: 0, zIndex: 9999,
-        background: 'var(--black)',
+        background: 'var(--bg)',
         display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center', gap: '1.5rem',
+        alignItems: 'center', justifyContent: 'center', gap: '1rem',
       }}
     >
-      <motion.div
-        initial={{ scale: 0.5, opacity: 0, rotate: -10 }}
-        animate={{ scale: 1, opacity: 1, rotate: 0 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 20, delay: 0.1 }}
-        style={{
-          width: '64px', height: '64px',
-          background: 'var(--blue)',
-          border: '3px solid var(--border)',
-          boxShadow: '6px 6px 0px var(--border)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontFamily: 'var(--font-display)', fontSize: '1.5rem',
-          color: '#FFF',
-        }}
-      >
-        S
-      </motion.div>
-      <div style={{ width: '120px', height: '3px', background: 'rgba(255,255,255,0.1)', overflow: 'hidden' }}>
-        <motion.div
-          initial={{ x: '-100%' }}
-          animate={{ x: '100%' }}
-          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-          style={{ width: '100%', height: '100%', background: 'var(--blue)' }}
-        />
+      <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 8vw, 4rem)', color: 'var(--black)', lineHeight: 0.9 }}>
+        S<span className="font-ink" style={{ fontSize: '1.2em' }}>.</span>
       </div>
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+        style={{ width: 'clamp(120px, 22vw, 220px)', transformOrigin: 'left' }}
+      >
+        <InkStroke kind="scratch" width="100%" height={10} />
+      </motion.div>
+      <p className="font-mono" style={{ fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'var(--ink-faint)' }}>
+        Drawing the data<span className="ink-cursor" style={{ color: 'var(--black)' }}>_</span>
+      </p>
     </motion.div>
   );
 };
@@ -69,11 +82,30 @@ const PageLoader = () => (
     <div style={{
       width: '32px', height: '32px',
       border: '3px solid var(--border)',
-      borderTopColor: 'var(--blue)',
+      borderTopColor: 'var(--bg-card)',
       animation: 'spin 0.6s linear infinite',
     }} />
   </div>
 );
+
+const AnimatedRoutes: React.FC = () => {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <PageWipe key={location.pathname}>
+        <Suspense fallback={<PageLoader />}>
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </PageWipe>
+    </AnimatePresence>
+  );
+};
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -94,15 +126,9 @@ const App: React.FC = () => {
             >
               <Navbar />
               <main id="main-content" className="flex-grow relative" role="main">
-                <Suspense fallback={<PageLoader />}>
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/projects" element={<Projects />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </Suspense>
+                <InkErrorBoundary>
+                  <AnimatedRoutes />
+                </InkErrorBoundary>
               </main>
               <Footer />
             </div>

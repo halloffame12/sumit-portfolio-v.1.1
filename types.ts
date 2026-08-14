@@ -12,6 +12,57 @@ export interface Project {
   role: string;
   techStack: string[];
   repoUrl: string;
+  stars?: number;
+  forks?: number;
+  source?: 'curated' | 'github';
+  demoUrl?: string;
+  status?: ProjectStatus;
+  score?: number;
+  pushedAt?: string;
+  topics?: string[];
+  featured?: boolean;
+  priority?: number;
+  display?: boolean;
+  howItWorks?: string;
+  challenges?: string;
+  learned?: string;
+}
+
+export type ProjectStatus = 'active' | 'maintained' | 'stable' | 'archived';
+
+export interface GithubActivityEvent {
+  type: string;
+  repo: string;
+  at: string;
+}
+
+export interface ContributionWeek {
+  date: string;
+  level: number;
+}
+
+export interface SyncMeta {
+  syncedAt: string;
+  owner: string;
+  repoCount: number;
+  totalContributionsLastYear: number;
+  source: string;
+}
+
+export interface TimelineItem {
+  period: string;
+  title: string;
+  org: string;
+  desc: string;
+  tech: string[];
+  tag?: string;
+}
+
+export interface SocialLink {
+  label: string;
+  href: string;
+  icon: ReactNode;
+  handle: string;
 }
 
 export interface Achievement {

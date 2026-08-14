@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, AlertTriangle } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { SPRING_BOUNCY } from '../types';
 import SeoHelmet from '../components/SeoHelmet';
-import PeepIllustration from '../components/PeepIllustration';
+import { InkArrow, InkStar, InkStroke } from '../components/Ink';
 
 const NotFound: React.FC = () => {
   return (
@@ -18,26 +18,10 @@ const NotFound: React.FC = () => {
             transition={{ type: 'spring', stiffness: 500, damping: 25 }}
             className="text-center lg:text-left"
           >
-            <motion.div
-              initial={{ rotate: -12, scale: 0.8 }}
-              animate={{ rotate: 0, scale: 1 }}
-              transition={{ delay: 0.1, ...SPRING_BOUNCY }}
-              className="inline-flex items-center gap-2"
-              style={{
-                padding: '0.5rem 1rem',
-                background: 'var(--yellow)',
-                border: 'var(--bw) solid var(--border)',
-                boxShadow: 'var(--sh)',
-                marginBottom: '1rem',
-                fontFamily: 'var(--font-heading)',
-                fontWeight: 900, fontSize: '0.75rem',
-                color: 'var(--black)',
-                textTransform: 'uppercase', letterSpacing: '0.06em',
-              }}
-            >
-              <AlertTriangle size={16} aria-hidden="true" />
-              PAGE NOT FOUND
-            </motion.div>
+            <div className="flex items-center gap-3 flex-wrap" style={{ marginBottom: '0.875rem' }}>
+              <span className="brutal-badge" style={{ padding: '0.3rem 0.7rem', background: 'var(--black)', color: 'var(--bg)' }}>PAGE NOT FOUND</span>
+              <span className="ink-page-chip">404</span>
+            </div>
 
             <h1 style={{
               fontFamily: 'var(--font-display)',
@@ -47,14 +31,16 @@ const NotFound: React.FC = () => {
             }}>
               404
             </h1>
+            <div style={{ width: '140px', marginBottom: '0.875rem' }}>
+              <InkStroke kind="scratch" width="100%" height={10} />
+            </div>
 
-            <p style={{ color: '#555', fontSize: '0.875rem', marginBottom: '1.5rem', maxWidth: '20rem' }}>
+            <p style={{ color: 'var(--ink-soft)', fontSize: '0.875rem', marginBottom: '1.5rem', maxWidth: '20rem' }}>
               This address doesn't resolve. The page was either moved or never existed.
             </p>
 
             <Link to="/" className="brutal-btn">
-              <ArrowLeft size={14} />
-              Back to Home
+              <ArrowLeft size={14} /> Back to the cover
             </Link>
           </motion.div>
 
@@ -64,18 +50,16 @@ const NotFound: React.FC = () => {
             transition={{ ...SPRING_BOUNCY, delay: 0.3 }}
             className="hidden lg:flex flex-col items-center gap-3"
           >
-            <div style={{
-              border: 'var(--bw) solid var(--border)',
-              boxShadow: 'var(--sh)',
-              background: 'var(--cream)',
-              padding: '1.25rem',
-              transform: 'rotate(2deg)',
-            }}>
-              <PeepIllustration pose="thinking" colors={{ outfit: 'var(--yellow)' }} size={140} animate />
+            <div className="relative" style={{ border: 'var(--bw) solid var(--border)', boxShadow: 'var(--sh)', background: 'var(--bg-card)', padding: '1.25rem 1.5rem', transform: 'rotate(2deg)' }}>
+              <span className="font-ink" style={{ fontSize: '1.6rem', color: 'var(--black)' }}>you look lost?</span>
+              <div style={{ marginTop: '0.25rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                <span className="font-ink" style={{ fontSize: '1.2rem', color: 'var(--ink-faint)' }}>back to the start</span>
+                <InkArrow variant="curved" width={52} height={28} strokeWidth={2.5} style={{ color: 'var(--black)' }} />
+              </div>
+              <span aria-hidden="true" style={{ position: 'absolute', top: '-14px', right: '-10px', color: 'var(--ink-faint)', opacity: 0.7, transform: 'rotate(12deg)' }}>
+                <InkStar width={22} height={22} />
+              </span>
             </div>
-            <span className="brutal-sticker" style={{ transform: 'rotate(-5deg)' }}>
-              Lost?
-            </span>
           </motion.div>
         </div>
       </div>

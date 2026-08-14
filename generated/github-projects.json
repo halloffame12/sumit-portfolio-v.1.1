@@ -1,0 +1,1040 @@
+{
+  "meta": {
+    "syncedAt": "2026-08-13T19:40:18.891Z",
+    "owner": "halloffame12",
+    "repoCount": 34,
+    "totalContributionsLastYear": 348,
+    "source": "github-api"
+  },
+  "projects": [
+    {
+      "id": "gh-1331497565",
+      "slug": "ctx",
+      "title": "CTX",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EC%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "Rust"
+      ],
+      "repoUrl": "https://github.com/halloffame12/CTX",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "active",
+      "score": 18,
+      "pushedAt": "2026-08-13T16:48:32Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1319380369",
+      "slug": "replaytrade",
+      "title": "Replay Trade",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ER%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/ReplayTrade",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "active",
+      "score": 18,
+      "pushedAt": "2026-08-02T06:39:27Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1300383014",
+      "slug": "asterion",
+      "title": "Asterion",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EA%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [],
+      "repoUrl": "https://github.com/halloffame12/Asterion",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "active",
+      "score": 16,
+      "pushedAt": "2026-07-14T11:07:48Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1152689666",
+      "slug": "browser-os",
+      "title": "Browser OS",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EB%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "Rust"
+      ],
+      "repoUrl": "https://github.com/halloffame12/browser-os",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "active",
+      "score": 13,
+      "pushedAt": "2026-07-11T16:23:31Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1180727534",
+      "slug": "versz-app",
+      "title": "Versz App",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EV%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "Dart"
+      ],
+      "repoUrl": "https://github.com/halloffame12/versz-app",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 9,
+      "pushedAt": "2026-03-14T11:56:26Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1160248733",
+      "slug": "optylize",
+      "title": "Optylize",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EO%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/Optylize",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 9,
+      "pushedAt": "2026-02-18T04:03:46Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1158554645",
+      "slug": "desktop-controller",
+      "title": "Desktop Controller",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ED%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [],
+      "repoUrl": "https://github.com/halloffame12/Desktop-Controller",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 7,
+      "pushedAt": "2026-02-15T15:12:41Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1152654690",
+      "slug": "data-analyst-ai",
+      "title": "Data Analyst AI",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ED%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "Python"
+      ],
+      "repoUrl": "https://github.com/halloffame12/data_analyst_ai",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2026-02-08T07:55:52Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1143959104",
+      "slug": "docuedit",
+      "title": "Docuedit",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ED%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/docuedit",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2026-01-28T06:11:14Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1130953129",
+      "slug": "forgestack-os",
+      "title": "Forgestack OS",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EF%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/forgestack-os",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2026-01-23T04:25:10Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1138141425",
+      "slug": "hush",
+      "title": "Hush",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EH%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "Dart"
+      ],
+      "repoUrl": "https://github.com/halloffame12/Hush",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2026-01-20T10:38:55Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1135613477",
+      "slug": "blueprintai",
+      "title": "Blueprint AI",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EB%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [],
+      "repoUrl": "https://github.com/halloffame12/BlueprintAI",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 3,
+      "pushedAt": "2026-01-16T10:51:39Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1131998876",
+      "slug": "aurelian",
+      "title": "Aurelian",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EA%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/aurelian",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2026-01-11T05:30:20Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1128462109",
+      "slug": "flame-and-flow",
+      "title": "Flame And Flow",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EF%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/Flame-And-Flow",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2026-01-06T09:33:52Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1096373408",
+      "slug": "pixelandneuron",
+      "title": "Pixelandneuron",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EP%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/pixelandneuron",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2025-11-26T03:23:09Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1050416855",
+      "slug": "sumitchauhan-ai-bot",
+      "title": "Sumitchauhan AI Bot",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ES%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/sumitchauhan-ai-bot",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2025-11-15T12:06:02Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1081904906",
+      "slug": "gpt-chatbot",
+      "title": "GPT Chatbot",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EG%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "Python"
+      ],
+      "repoUrl": "https://github.com/halloffame12/GPT-Chatbot",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2025-10-23T13:34:56Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1065170027",
+      "slug": "exoplanets-with-ai",
+      "title": "Exoplanets With AI",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EE%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "Python"
+      ],
+      "repoUrl": "https://github.com/halloffame12/Exoplanets-with-AI",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2025-09-27T13:59:23Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1053522315",
+      "slug": "better-com-replica",
+      "title": "Better Com Replica",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EB%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/better.com-replica",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2025-09-09T15:07:50Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1052001639",
+      "slug": "snakegame-ai",
+      "title": "Snake Game AI",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ES%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "Python"
+      ],
+      "repoUrl": "https://github.com/halloffame12/SnakeGame-ai",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2025-09-07T07:29:29Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1046395777",
+      "slug": "nexuschat",
+      "title": "Nexus Chat",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EN%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/NexusChat",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2025-08-28T17:09:03Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1041185320",
+      "slug": "techsavvy-insights-personal-blog",
+      "title": "Techsavvy Insights Personal Blog",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ET%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/techsavvy-insights-personal-blog",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "maintained",
+      "score": 5,
+      "pushedAt": "2025-08-20T05:42:03Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1032591861",
+      "slug": "codease-ai",
+      "title": "Codease AI",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EC%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/codease.ai",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "stable",
+      "score": 5,
+      "pushedAt": "2025-08-05T16:29:15Z",
+      "topics": []
+    },
+    {
+      "id": "gh-980032437",
+      "slug": "isrolandingpage",
+      "title": "Isrolandingpage",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EI%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "an modern landing page for isro",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "HTML"
+      ],
+      "repoUrl": "https://github.com/halloffame12/isrolandingpage",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "stable",
+      "score": 11,
+      "pushedAt": "2025-05-08T13:05:46Z",
+      "topics": []
+    },
+    {
+      "id": "gh-980027301",
+      "slug": "iafastro-landing-page",
+      "title": "Iafastro Landing Page",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EI%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "this is the moder and responsive landing page for iafastro ",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "HTML"
+      ],
+      "repoUrl": "https://github.com/halloffame12/Iafastro-landing-page-",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "stable",
+      "score": 11,
+      "pushedAt": "2025-05-08T12:56:39Z",
+      "topics": []
+    },
+    {
+      "id": "gh-932573921",
+      "slug": "flysky-tour",
+      "title": "Flysky Tour",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EF%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [],
+      "repoUrl": "https://github.com/halloffame12/flysky_tour",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "stable",
+      "score": 3,
+      "pushedAt": "2025-02-14T06:09:50Z",
+      "topics": []
+    },
+    {
+      "id": "gh-932539829",
+      "slug": "medstudy",
+      "title": "Medstudy",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EM%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "HTML"
+      ],
+      "repoUrl": "https://github.com/halloffame12/Medstudy",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "stable",
+      "score": 5,
+      "pushedAt": "2025-02-14T05:15:03Z",
+      "topics": []
+    },
+    {
+      "id": "gh-930569860",
+      "slug": "hand-gesture-mouse",
+      "title": "Hand Gesture Mouse",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EH%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "Python"
+      ],
+      "repoUrl": "https://github.com/halloffame12/Hand-Gesture-Mouse",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "stable",
+      "score": 5,
+      "pushedAt": "2025-02-10T21:15:33Z",
+      "topics": []
+    },
+    {
+      "id": "gh-922087570",
+      "slug": "tic-tac-toe",
+      "title": "Tic Tac Toe",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ET%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "JavaScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/Tic-Tac-Toe",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "stable",
+      "score": 5,
+      "pushedAt": "2025-01-25T09:34:38Z",
+      "topics": []
+    },
+    {
+      "id": "gh-911546183",
+      "slug": "telegram-bot",
+      "title": "Telegram Bot",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ET%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [],
+      "repoUrl": "https://github.com/halloffame12/telegram-bot",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "stable",
+      "score": 3,
+      "pushedAt": "2025-01-03T09:17:47Z",
+      "topics": []
+    },
+    {
+      "id": "gh-900646486",
+      "slug": "resturant-website",
+      "title": "Resturant Website",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ER%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "HTML"
+      ],
+      "repoUrl": "https://github.com/halloffame12/Resturant-Website",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "stable",
+      "score": 5,
+      "pushedAt": "2024-12-09T08:10:18Z",
+      "topics": []
+    },
+    {
+      "id": "gh-888381063",
+      "slug": "3d-model-game-with-hand-gesture-control-using-python-opengl-and-mediapipe",
+      "title": "3 D Model Game With Hand Gesture Control Using Python Open GL And Media Pipe",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3E3%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "I developed a unique 3D game experience using Python, integrating OpenGL for 3D rendering and MediaPipe for hand gesture recognition. The project allows users to interact with a 3D model—a cube—through hand gestures, captured in real time via a webcam.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "Python"
+      ],
+      "repoUrl": "https://github.com/halloffame12/3D-Model-Game-with-Hand-Gesture-Control-Using-Python-OpenGL-and-MediaPipe",
+      "stars": 0,
+      "forks": 1,
+      "source": "github",
+      "status": "stable",
+      "score": 12,
+      "pushedAt": "2024-11-14T09:56:14Z",
+      "topics": []
+    },
+    {
+      "id": "gh-879617679",
+      "slug": "todo-list",
+      "title": "To Do List",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ET%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "JavaScript"
+      ],
+      "repoUrl": "https://github.com/halloffame12/ToDo-List",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "stable",
+      "score": 5,
+      "pushedAt": "2024-10-28T08:55:01Z",
+      "topics": []
+    },
+    {
+      "id": "gh-879583592",
+      "slug": "qr-code-ganerator",
+      "title": "QR Code Ganerator",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EQ%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Open-source project by Sumit Chauhan.",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "HTML"
+      ],
+      "repoUrl": "https://github.com/halloffame12/QR-Code-Ganerator",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "stable",
+      "score": 5,
+      "pushedAt": "2024-10-28T07:25:21Z",
+      "topics": []
+    }
+  ],
+  "contributions": [
+    {
+      "date": "2025-08-11",
+      "level": 0
+    },
+    {
+      "date": "2025-08-18",
+      "level": 1
+    },
+    {
+      "date": "2025-08-25",
+      "level": 2
+    },
+    {
+      "date": "2025-09-01",
+      "level": 1
+    },
+    {
+      "date": "2025-09-08",
+      "level": 1
+    },
+    {
+      "date": "2025-09-15",
+      "level": 0
+    },
+    {
+      "date": "2025-09-22",
+      "level": 1
+    },
+    {
+      "date": "2025-09-29",
+      "level": 0
+    },
+    {
+      "date": "2025-10-06",
+      "level": 0
+    },
+    {
+      "date": "2025-10-13",
+      "level": 0
+    },
+    {
+      "date": "2025-10-20",
+      "level": 1
+    },
+    {
+      "date": "2025-10-27",
+      "level": 0
+    },
+    {
+      "date": "2025-11-03",
+      "level": 0
+    },
+    {
+      "date": "2025-11-10",
+      "level": 3
+    },
+    {
+      "date": "2025-11-17",
+      "level": 0
+    },
+    {
+      "date": "2025-11-24",
+      "level": 2
+    },
+    {
+      "date": "2025-12-01",
+      "level": 0
+    },
+    {
+      "date": "2025-12-08",
+      "level": 1
+    },
+    {
+      "date": "2025-12-15",
+      "level": 0
+    },
+    {
+      "date": "2025-12-22",
+      "level": 1
+    },
+    {
+      "date": "2025-12-29",
+      "level": 0
+    },
+    {
+      "date": "2026-01-05",
+      "level": 3
+    },
+    {
+      "date": "2026-01-12",
+      "level": 4
+    },
+    {
+      "date": "2026-01-19",
+      "level": 4
+    },
+    {
+      "date": "2026-01-26",
+      "level": 1
+    },
+    {
+      "date": "2026-02-02",
+      "level": 1
+    },
+    {
+      "date": "2026-02-09",
+      "level": 2
+    },
+    {
+      "date": "2026-02-16",
+      "level": 1
+    },
+    {
+      "date": "2026-02-23",
+      "level": 1
+    },
+    {
+      "date": "2026-03-02",
+      "level": 2
+    },
+    {
+      "date": "2026-03-09",
+      "level": 2
+    },
+    {
+      "date": "2026-03-16",
+      "level": 0
+    },
+    {
+      "date": "2026-03-23",
+      "level": 0
+    },
+    {
+      "date": "2026-03-30",
+      "level": 0
+    },
+    {
+      "date": "2026-04-06",
+      "level": 0
+    },
+    {
+      "date": "2026-04-13",
+      "level": 0
+    },
+    {
+      "date": "2026-04-20",
+      "level": 1
+    },
+    {
+      "date": "2026-04-27",
+      "level": 1
+    },
+    {
+      "date": "2026-05-04",
+      "level": 1
+    },
+    {
+      "date": "2026-05-11",
+      "level": 1
+    },
+    {
+      "date": "2026-05-18",
+      "level": 2
+    },
+    {
+      "date": "2026-05-25",
+      "level": 0
+    },
+    {
+      "date": "2026-06-01",
+      "level": 0
+    },
+    {
+      "date": "2026-06-08",
+      "level": 0
+    },
+    {
+      "date": "2026-06-15",
+      "level": 0
+    },
+    {
+      "date": "2026-06-22",
+      "level": 0
+    },
+    {
+      "date": "2026-06-29",
+      "level": 0
+    },
+    {
+      "date": "2026-07-06",
+      "level": 2
+    },
+    {
+      "date": "2026-07-13",
+      "level": 1
+    },
+    {
+      "date": "2026-07-20",
+      "level": 0
+    },
+    {
+      "date": "2026-07-27",
+      "level": 1
+    },
+    {
+      "date": "2026-08-03",
+      "level": 0
+    },
+    {
+      "date": "2026-08-10",
+      "level": 4
+    }
+  ],
+  "activity": [
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-13T16:48:33Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-13T16:39:39Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-13T16:23:50Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/awesome-mcp-servers-1",
+      "at": "2026-08-13T16:18:28Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/awesome-mcp-servers",
+      "at": "2026-08-13T16:17:35Z"
+    },
+    {
+      "type": "ForkEvent",
+      "repo": "appcypher/awesome-mcp-servers",
+      "at": "2026-08-13T16:17:46Z"
+    },
+    {
+      "type": "PullRequestEvent",
+      "repo": "punkpeye/awesome-mcp-servers",
+      "at": "2026-08-13T16:17:42Z"
+    },
+    {
+      "type": "ForkEvent",
+      "repo": "punkpeye/awesome-mcp-servers",
+      "at": "2026-08-13T16:15:37Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-13T16:14:10Z"
+    },
+    {
+      "type": "IssuesEvent",
+      "repo": "chatmcp/mcpso",
+      "at": "2026-08-13T16:14:20Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-13T16:05:48Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-13T16:04:31Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-13T15:58:57Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-13T15:49:41Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-13T15:44:58Z"
+    }
+  ]
+}

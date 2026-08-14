@@ -1,32 +1,41 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════
-   NEO-BRUTALIST DESIGN SYSTEM — 4-COLOR DISCIPLINE
-   Black #0A0A0A · Cream #FFFDF7 · Cobalt #0047FF · Yellow #FFE500
+   INK NEO-BRUTALISM DESIGN SYSTEM — MONOCHROME DISCIPLINE
+   Paper #F7F3EC · Card #FFFFFF · Ink #0A0A0A
+   Hand-drawn ink strokes, editorial sketchbook layout.
    ═══════════════════════════════════════════════════════════ */
 :root {
-  --bg: #FFFDF7;
+  --bg: #F7F3EC;
   --bg-card: #FFFFFF;
   --black: #0A0A0A;
-  --cream: #F0ECE4;
-  --blue: #0047FF;
-  --blue-hover: #0036CC;
-  --yellow: #FFE500;
-  --yellow-dark: #E6CF00;
+  --ink: #0A0A0A;
+  --ink-soft: #2B2B2B;
+  --ink-faint: #6E6A61;
+  --cream: #ECE6D9;
+  --paper: #F7F3EC;
+
+  /* legacy aliases → ink (kept so existing components render monochrome) */
+  --blue: #0A0A0A;
+  --blue-hover: #1A1A1A;
+  --yellow: #0A0A0A;
+  --yellow-dark: #000000;
   --border: #0A0A0A;
 
-  --sh: 6px 6px 0px var(--border);
-  --sh-sm: 4px 4px 0px var(--border);
-  --sh-lg: 10px 10px 0px var(--border);
-  --sh-hover: 8px 8px 0px var(--border);
-  --sh-pressed: 2px 2px 0px var(--border);
+  --sh: 5px 5px 0px var(--border);
+  --sh-sm: 3px 3px 0px var(--border);
+  --sh-lg: 8px 8px 0px var(--border);
+  --sh-hover: 7px 7px 0px var(--border);
+  --sh-pressed: 1px 1px 0px var(--border);
 
-  --bw: 3px;
-  --bw-sm: 2px;
+  --bw: 2px;
+  --bw-sm: 1px;
 
   --font-display: 'Archivo Black', sans-serif;
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
+  --font-ink: 'Caveat', cursive;
+  --font-mono: 'Space Mono', monospace;
 
   --section-gap: clamp(4rem, 8vw, 7rem);
   --container-max: 82rem;
@@ -34,16 +43,16 @@
 }
 
 @theme {
-  --color-bg: #FFFDF7;
+  --color-bg: #F7F3EC;
   --color-bg-card: #FFFFFF;
   --color-black: #0A0A0A;
-  --color-cream: #F0ECE4;
-  --color-blue: #0047FF;
-  --color-yellow: #FFE500;
+  --color-cream: #ECE6D9;
+  --color-blue: #0A0A0A;
+  --color-yellow: #0A0A0A;
 }
 
 /* ── Reset & Base ── */
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; position: relative; }
 html, body, #root { width: 100%; min-height: 100vh; }
 body {
   background: var(--bg);
@@ -61,13 +70,17 @@ h2 { font-family: var(--font-heading); line-height: 1.0; letter-spacing: -0.03em
 h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; letter-spacing: -0.02em; }
 p { line-height: 1.7; }
 a { text-decoration: none; color: inherit; }
-::selection { background: rgba(0, 71, 255, 0.25); }
+::selection { background: var(--black); color: var(--bg); }
+
+/* ── Font helpers ── */
+.font-ink { font-family: var(--font-ink); }
+.font-mono { font-family: var(--font-mono); }
 
 /* ── Scrollbar ── */
-::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--black); }
-::-webkit-scrollbar-thumb:hover { background: var(--blue); }
+::-webkit-scrollbar-thumb { background: var(--black); border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-soft); }
 
 /* ── Layout ── */
 .page-shell {
@@ -85,6 +98,139 @@ a { text-decoration: none; color: inherit; }
 @media (min-width: 1024px) { :root { --container-pad: 2rem; } }
 
 /* ═══════════════════════════════════════════════════════════
+   INK SKETCH UTILITIES
+   Hand-drawn wobble borders, ruled sheets, ink notes.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Sketchy hand-drawn rectangle corners */
+.ink-wobble { border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; }
+.ink-wobble-2 { border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px; }
+.ink-wobble-3 { border-radius: 255px 15px 15px 225px / 15px 255px 225px 15px; }
+
+/* Hand-drawn underline (SVG wavy stroke) */
+.ink-underline { position: relative; }
+.ink-underline::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -0.15em;
+  height: 0.35em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M0 4 Q 4 1 8 4 T 16 4 T 24 4 T 32 4 T 40 4 T 48 4 T 56 4 T 64 4 T 72 4 T 80 4 T 88 4 T 96 4 T 100 4' stroke='%230A0A0A' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0;
+  transform: translateY(0.2em);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  pointer-events: none;
+}
+.ink-underline:hover::after,
+.ink-underline.is-active::after { opacity: 1; transform: none; }
+
+/* Dashed sketch underline — always on */
+.ink-dashed {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cline x1='0' y1='3' x2='100' y2='3' stroke='%230A0A0A' stroke-width='2.5' stroke-dasharray='6 5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: bottom;
+  padding-bottom: 0.25em;
+}
+
+/* Ink note — handwritten annotation (Caveat) */
+.ink-note {
+  font-family: var(--font-ink);
+  font-weight: 600;
+  line-height: 1.15;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+/* Technical label — Space Mono */
+.ink-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Solid ink block */
+.ink-block {
+  background: var(--black);
+  color: var(--bg);
+  border: var(--bw) solid var(--border);
+  box-shadow: var(--sh-sm);
+}
+
+/* Ruled notebook sheet */
+.sheet-lined {
+  background-color: var(--bg-card);
+  background-image: repeating-linear-gradient(
+    transparent 0px,
+    transparent 31px,
+    rgba(10, 10, 10, 0.05) 31px,
+    rgba(10, 10, 10, 0.05) 32px
+  );
+}
+
+/* Hand-drawn divider rule */
+.ink-rule {
+  border: none;
+  border-top: 2px solid var(--black);
+  position: relative;
+  overflow: visible;
+}
+.ink-rule::after {
+  content: '';
+  position: absolute;
+  left: 6px; right: 6px; top: -6px;
+  border-top: 2px solid var(--black);
+}
+
+/* SVG stroke draw-in animation */
+@keyframes ink-draw {
+  to { stroke-dashoffset: 0; }
+}
+.ink-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ink-draw 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Hand-drawn wiggle on hover */
+@keyframes ink-wiggle {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(1.5deg); }
+}
+.ink-wiggle-hover:hover { animation: ink-wiggle 0.3s ease-in-out 2; }
+
+@keyframes ink-scribble {
+  0% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+  100% { transform: rotate(-3deg); }
+}
+.ink-scribble { animation: ink-scribble 6s ease-in-out infinite; transform-origin: center; }
+
+/* Blinking ink cursor */
+@keyframes ink-cursor {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.ink-cursor { animation: ink-cursor 1.1s steps(1) infinite; }
+
+/* Editorial page chip — e.g. "PAGE 01 / 08" */
+.ink-page-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════════════════
    CARD SYSTEM
    ═══════════════════════════════════════════════════════════ */
 .brutal-card {
@@ -94,11 +240,11 @@ a { text-decoration: none; color: inherit; }
   transition: transform 0.12s cubic-bezier(0.22,1,0.36,1), box-shadow 0.12s cubic-bezier(0.22,1,0.36,1);
 }
 .brutal-card:hover {
-  transform: translate(-3px, -3px) rotate(-0.5deg);
+  transform: translate(-2px, -2px) rotate(-0.3deg);
   box-shadow: var(--sh-hover);
 }
 .brutal-card:active {
-  transform: translate(4px, 4px) rotate(0deg);
+  transform: translate(2px, 2px) rotate(0deg);
   box-shadow: var(--sh-pressed);
 }
 .brutal-card-static {
@@ -113,14 +259,14 @@ a { text-decoration: none; color: inherit; }
   box-shadow: var(--sh);
 }
 .brutal-card-primary {
-  background: var(--blue);
-  color: #FFF;
+  background: var(--black);
+  color: var(--bg);
   border: var(--bw) solid var(--border);
   box-shadow: var(--sh);
 }
 .brutal-card-yellow {
-  background: var(--yellow);
-  color: var(--black);
+  background: var(--black);
+  color: var(--bg);
   border: var(--bw) solid var(--border);
   box-shadow: var(--sh);
 }
@@ -134,8 +280,8 @@ a { text-decoration: none; color: inherit; }
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: var(--blue);
-  color: #FFF;
+  background: var(--black);
+  color: var(--bg);
   font-family: var(--font-heading);
   font-weight: 800;
   font-size: 0.8125rem;
@@ -151,14 +297,14 @@ a { text-decoration: none; color: inherit; }
 .brutal-btn:hover {
   transform: translate(-2px, -2px);
   box-shadow: var(--sh);
-  background: var(--blue-hover);
+  background: #1C1C1C;
 }
 .brutal-btn:active {
   transform: translate(4px, 4px);
   box-shadow: var(--sh-pressed);
 }
-.brutal-btn-yellow { background: var(--yellow); color: var(--black); }
-.brutal-btn-yellow:hover { background: var(--yellow-dark); }
+.brutal-btn-yellow { background: var(--black); color: var(--bg); }
+.brutal-btn-yellow:hover { background: #1C1C1C; }
 .brutal-btn-outline {
   display: inline-flex;
   align-items: center;
@@ -182,7 +328,8 @@ a { text-decoration: none; color: inherit; }
 .brutal-btn-outline:hover {
   transform: translate(-2px, -2px);
   box-shadow: var(--sh);
-  background: var(--yellow);
+  background: var(--black);
+  color: var(--bg);
 }
 .brutal-btn-outline:active {
   transform: translate(4px, 4px);
@@ -209,9 +356,9 @@ a { text-decoration: none; color: inherit; }
 .brutal-input:focus {
   box-shadow: var(--sh);
   transform: translate(-2px, -2px);
-  border-color: var(--blue);
+  border-color: var(--border);
 }
-.brutal-input::placeholder { color: #999; }
+.brutal-input::placeholder { color: var(--ink-faint); }
 textarea.brutal-input { resize: vertical; min-height: 120px; }
 
 /* ═══════════════════════════════════════════════════════════
@@ -233,8 +380,8 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
   box-shadow: 2px 2px 0px var(--border);
   white-space: nowrap;
 }
-.brutal-badge-primary { background: var(--blue); color: #FFF; }
-.brutal-badge-yellow { background: var(--yellow); color: var(--black); }
+.brutal-badge-primary { background: var(--black); color: var(--bg); }
+.brutal-badge-yellow { background: var(--black); color: var(--bg); }
 .brutal-badge-dark { background: var(--black); color: var(--bg); }
 
 .brutal-tag {
@@ -250,8 +397,8 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
   transition: all 0.1s;
 }
 .brutal-tag:hover {
-  background: var(--blue);
-  color: #FFF;
+  background: var(--black);
+  color: var(--bg);
   transform: translateY(-1px);
 }
 
@@ -271,8 +418,8 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
   align-items: center;
   gap: 0.35rem;
   padding: 0.3rem 0.7rem;
-  background: var(--yellow);
-  color: var(--black);
+  background: var(--black);
+  color: var(--bg);
   font-family: var(--font-heading);
   font-size: 0.625rem;
   font-weight: 800;
@@ -286,8 +433,8 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
   align-items: center;
   gap: 0.3rem;
   padding: 0.35rem 0.75rem;
-  background: var(--yellow);
-  color: var(--black);
+  background: var(--black);
+  color: var(--bg);
   font-family: var(--font-heading);
   font-size: 0.6875rem;
   font-weight: 800;
@@ -310,7 +457,7 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
   overflow: hidden;
   border-top: var(--bw) solid var(--border);
   border-bottom: var(--bw) solid var(--border);
-  background: var(--blue);
+  background: var(--black);
   padding: 0.6rem 0;
 }
 .marquee-track {
@@ -322,17 +469,17 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
 .marquee-track:hover { animation-play-state: paused; }
 .marquee-item {
   font-family: var(--font-heading);
-  font-weight: 900;
-  font-size: 0.8125rem;
+  font-weight: 700;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #FFF;
+  letter-spacing: 0.1em;
+  color: var(--bg);
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
-.marquee-item::after { content: '\25C6'; font-size: 0.4rem; opacity: 0.6; }
+.marquee-item::after { content: '\2716'; font-size: 0.6rem; opacity: 0.6; }
 
 /* ═══════════════════════════════════════════════════════════
    ICON BOX
@@ -344,10 +491,10 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--blue);
+  background: var(--black);
   border: var(--bw-sm) solid var(--border);
   box-shadow: 2px 2px 0px var(--border);
-  color: #FFF;
+  color: var(--bg);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -375,17 +522,17 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
   transition: border-color 0.1s, color 0.1s, background 0.1s;
 }
 .brutal-icon-link:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-  background: rgba(0, 71, 255, 0.06);
+  border-color: var(--black);
+  color: var(--bg);
+  background: var(--black);
 }
 .brutal-nav-link {
-  color: var(--bg);
+  color: var(--black);
   font-size: 0.875rem;
   font-weight: 500;
   transition: color 0.15s;
 }
-.brutal-nav-link:hover { color: var(--blue); }
+.brutal-nav-link:hover { color: var(--ink-soft); }
 .brutal-hover-fill {
   padding: 0.7rem;
   background: var(--cream);
@@ -396,8 +543,8 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
   transition: background 0.1s, color 0.1s;
 }
 .brutal-hover-fill:hover {
-  background: var(--blue);
-  color: #FFF;
+  background: var(--black);
+  color: var(--bg);
 }
 .brutal-sidebar-item {
   display: flex;
@@ -419,7 +566,7 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
 }
 .brutal-skill-bar-fill {
   height: 100%;
-  background: var(--blue);
+  background: var(--black);
   transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -431,8 +578,8 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
   top: -100%;
   left: 1rem;
   padding: 0.5rem 1rem;
-  background: var(--blue);
-  color: #FFF;
+  background: var(--black);
+  color: var(--bg);
   font-family: var(--font-heading);
   font-weight: 800;
   z-index: 99999;
@@ -448,19 +595,19 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid var(--blue);
+  outline: 3px solid var(--black);
   outline-offset: 2px;
 }
 
 /* ═══════════════════════════════════════════════════════════
-   GRAIN OVERLAY
+   GRAIN OVERLAY — ink paper noise
    ═══════════════════════════════════════════════════════════ */
 .grain-overlay::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.03;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
@@ -512,6 +659,120 @@ textarea:focus-visible {
    ═══════════════════════════════════════════════════════════ */
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHAPTER SYSTEM (automated ink story)
+   ── chapter teaser numbers, spine chips, ruled notebook
+   ── back-cover, thread nodes
+   ═══════════════════════════════════════════════════════════ */
+
+/* Chapter number — outlined display type (poster A / spine C) */
+.chapter-no {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--border);
+}
+
+/* Vertical spine label used in the asymmetric layout */
+.chapter-spine {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--border);
+  writing-mode: vertical-rl;
+}
+
+/* Tiny mono running-footer like a real book */
+.chapter-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  border-top: var(--bw-sm) solid var(--border);
+  padding-top: 0.875rem;
+}
+
+/* Make brutal-tag usable as a <button> (reset default chrome) */
+button.brutal-tag {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--cream);
+  border: var(--bw-sm) solid var(--border);
+  color: var(--black);
+  font-family: var(--font-heading);
+  font-size: 0.625rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.1s;
+  line-height: 1.4;
+}
+button.brutal-tag:hover {
+  background: var(--black);
+  color: var(--bg);
+  transform: translateY(-1px);
+}
+
+/* Ink thread node marker (small ink dot at chapter starts) */
+.ink-thread-node {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: var(--bw) solid var(--border);
+  box-shadow: var(--sh-sm);
+  flex-shrink: 0;
+}
+
+/* Plain sketch sheet (back cover / research pages) — subtle margin line */
+.sheet-plain {
+  background-color: var(--bg-card);
+  background-image: linear-gradient(
+    to right,
+    transparent 0px,
+    transparent calc(var(--container-pad, 1.25rem) * 1),
+    rgba(10, 10, 10, 0.06) calc(var(--container-pad, 1.25rem) * 1),
+    rgba(10, 10, 10, 0.06) calc(var(--container-pad, 1.25rem) * 1 + 2px),
+    transparent calc(var(--container-pad, 1.25rem) * 1 + 2px)
+  );
+}
+
+/* Back cover — full-bleed ink block that closes the story */
+.back-cover {
+  background: var(--black);
+  color: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.back-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+.back-cover .back-cover-content { position: relative; z-index: 1; }
+
+/* Hand-drawn "THE END" flourish on the back cover */
+@keyframes ink-dot-fade {
+  0% { opacity: 0; transform: scale(0.6); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.ink-end-mark {
+  animation: ink-dot-fade 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* ═══════════════════════════════════════════════════════════

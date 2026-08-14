@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 const SITE_URL = 'https://sumitchauhan.me';
 const DEFAULT_TITLE = 'Sumit Chauhan | Full-Stack Developer & AI Automation';
 const DEFAULT_DESC = 'Full-stack developer building real-time platforms, AI-powered tools, and cross-platform apps. React, Flutter, Node.js, OpenCV. Based in New Delhi, India.';
-const DEFAULT_OG_IMAGE = `${SITE_URL}/sumit.jpg`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
 
 interface SeoHelmetProps {
   title?: string;
