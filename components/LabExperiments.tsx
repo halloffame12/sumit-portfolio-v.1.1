@@ -58,7 +58,7 @@ const LabRow: React.FC<{ project: Project; index: number }> = ({ project: p, ind
 );
 
 const LabExperiments: React.FC<LabExperimentsProps> = ({ research, className = '' }) => {
-  const rows = LAB_PROJECTS.slice(0, 8);
+  const rows = (LAB_PROJECTS ?? []).slice(0, 8);
 
   return (
     <section className={className} style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>

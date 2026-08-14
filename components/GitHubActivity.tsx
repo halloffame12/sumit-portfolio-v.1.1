@@ -38,9 +38,9 @@ const timeAgo = (iso: string) => {
 };
 
 const GitHubActivity: React.FC = () => {
-  const weeks = useMemo(() => CONTRIBUTION_WEEKS, []);
-  const events = ACTIVITY_EVENTS.slice(0, 6);
-  const total = SYNC_META.totalContributionsLastYear;
+  const weeks = useMemo(() => CONTRIBUTION_WEEKS ?? [], []);
+  const events = (ACTIVITY_EVENTS ?? []).slice(0, 6);
+  const total = SYNC_META?.totalContributionsLastYear ?? 0;
 
   if (weeks.length === 0 && events.length === 0) return null;
 

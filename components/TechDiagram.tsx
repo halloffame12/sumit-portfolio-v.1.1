@@ -26,7 +26,7 @@ const hasProjects = (t: string) => (TECH_TO_PROJECTS[t]?.length ?? 0) > 0;
 
 const TechDiagram: React.FC = () => {
   const [hovered, setHovered] = useState<string | null>(null);
-  const usedIn = hovered ? TECH_TO_PROJECTS[hovered] : [];
+  const usedIn = hovered ? (TECH_TO_PROJECTS[hovered] ?? []) : [];
 
   return (
     <section style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>

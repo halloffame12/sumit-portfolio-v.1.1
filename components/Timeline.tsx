@@ -13,9 +13,10 @@ const TAG_STYLE: Record<string, { className: string }> = {
 };
 
 const Timeline: React.FC = () => {
+  const items = TIMELINE ?? [];
   const nodes: { x: number; y: number; bend: number }[] = [];
-  const N = TIMELINE.length;
-  TIMELINE.forEach((_, i) => {
+  const N = items.length;
+  items.forEach((_, i) => {
     const t = N === 1 ? 0.5 : i / (N - 1);
     const x = 50 + Math.sin(t * Math.PI * 2.4) * 42;
     const y = 8 + t * 84;
@@ -59,7 +60,7 @@ const Timeline: React.FC = () => {
         </InkDraw>
 
         <div className="flex flex-col gap-5">
-          {TIMELINE.map((item, i) => {
+          {items.map((item, i) => {
             const tag = TAG_STYLE[item.tag || 'build'] || TAG_STYLE.build;
             const isMilestone = item.tag === 'milestone';
             const left = i % 2 === 0; /* alternate sides on desktop */
@@ -92,7 +93,7 @@ const Timeline: React.FC = () => {
                       </div>
                       <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.875rem', color: 'var(--black)', marginBottom: '0.3rem' }}>{item.title}</h3>
                       <p style={{ fontSize: '0.75rem', color: 'var(--ink-soft)', lineHeight: 1.65, maxWidth: '34ch' }}>{item.desc}</p>
-                      {item.tech.length > 0 && (
+                      {Array.isArray(item.tech) && item.tech.length > 0 && (
                         <div className="flex flex-wrap gap-1" style={{ marginTop: '0.5rem', justifyContent: left ? 'flex-end' : 'flex-start' }}>
                           {item.tech.map((t) => <span key={t} className="brutal-tag" style={{ fontSize: '0.5rem' }}>{t}</span>)}
                         </div>
