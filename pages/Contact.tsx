@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Send, CheckCircle, ArrowUpRight, Zap, Clock, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
   if (state.succeeded) {
     return (
       <article className="page-shell flex items-center" style={{ height: '100svh', paddingTop: 0 }}>
-        <SeoHelmet path="/contact" title="Contact \u2014 Sumit Chauhan" description="Message sent successfully." />
+        <SeoHelmet path="/contact" title="Contact — Sumit Chauhan" description="Message sent successfully." />
         <div className="page-container">
           <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }}
             transition={SPRING_SNAPPY} className="text-center" style={{ maxWidth: '28rem', margin: '0 auto' }}>
@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
 
   return (
     <article className="page-shell">
-      <SeoHelmet path="/contact" title="Contact \u2014 Sumit Chauhan" description="Available for freelance contracts, AI automation projects, and full-stack builds." />
+      <SeoHelmet path="/contact" title="Contact — Sumit Chauhan" description="Available for freelance contracts, AI automation projects, and full-stack builds." />
 
       <div className="page-container">
         <ScrollReveal variant="clipReveal">
@@ -78,6 +78,25 @@ const Contact: React.FC = () => {
           </div>
         </ScrollReveal>
 
+        <ScrollReveal variant="fadeUp" delay={0.15}>
+          <div className="sheet-lined relative" style={{ marginBottom: '1.5rem', border: 'var(--bw) solid var(--border)', boxShadow: 'var(--sh-sm)', background: 'var(--bg-card)', padding: '0.875rem 1.125rem' }}>
+            <span className="font-mono ink-label" style={{ color: 'var(--ink-faint)' }}>What happens next</span>
+            <div className="flex flex-col sm:flex-row gap-2" style={{ marginTop: '0.5rem' }}>
+              {[
+                { n: '01', t: 'You send a letter', d: 'form, email, or LinkedIn' },
+                { n: '02', t: 'I reply', d: 'within 24 hours' },
+                { n: '03', t: 'We scope it', d: 'timeline, budget, fit — free' },
+              ].map((s) => (
+                <div key={s.n} className="brutal-card-static flex items-center gap-2" style={{ padding: '0.5rem 0.75rem', flex: 1 }}>
+                  <span className="font-mono" style={{ fontSize: '0.5625rem', fontWeight: 800, color: 'var(--bg)', background: 'var(--black)', border: '1px solid var(--border)', padding: '2px 6px' }}>{s.n}</span>
+                  <span style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--black)', whiteSpace: 'nowrap' }}>{s.t}</span>
+                  <span className="font-mono" style={{ fontSize: '0.5625rem', color: 'var(--ink-faint)' }}>{s.d}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
         <div className="flex flex-col lg:grid lg:grid-cols-5 gap-5 lg:gap-6">
           <ScrollReveal variant="slideRight" delay={0.1} className="lg:col-span-3 order-1 lg:order-2">
             <div className="sheet-lined relative" data-cursor="view" style={{ padding: '1.25rem', border: 'var(--bw) solid var(--border)', boxShadow: 'var(--sh)', background: 'var(--bg-card)' }}>
@@ -94,24 +113,24 @@ const Contact: React.FC = () => {
               <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label htmlFor="name" className="font-mono" style={{ display: 'block', fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)', marginBottom: '0.375rem' }}>Name *</label>
+                    <label htmlFor="name" className="font-mono" style={{ display: 'block', fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)', marginBottom: '0.375rem' }}>Name *</label>
                     <input type="text" id="name" name="name" required className="brutal-input" placeholder="Your name" />
-                    <ValidationError prefix="Name" field="name" errors={state.errors} className="text-xs mt-1" style={{ color: '#CC0000' }} />
+                    <div aria-live="polite"><ValidationError prefix="Name" field="name" errors={state.errors} className="text-xs mt-1" style={{ color: '#CC0000' }} /></div>
                   </div>
                   <div>
-                    <label htmlFor="email" className="font-mono" style={{ display: 'block', fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)', marginBottom: '0.375rem' }}>Email *</label>
+                    <label htmlFor="email" className="font-mono" style={{ display: 'block', fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)', marginBottom: '0.375rem' }}>Email *</label>
                     <input type="email" id="email" name="email" required className="brutal-input" placeholder="you@example.com" />
-                    <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs mt-1" style={{ color: '#CC0000' }} />
+                    <div aria-live="polite"><ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs mt-1" style={{ color: '#CC0000' }} /></div>
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subject" className="font-mono" style={{ display: 'block', fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)', marginBottom: '0.375rem' }}>Subject</label>
+                  <label htmlFor="subject" className="font-mono" style={{ display: 'block', fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)', marginBottom: '0.375rem' }}>Subject</label>
                   <input type="text" id="subject" name="subject" className="brutal-input" placeholder="Project Inquiry" />
                 </div>
                 <div>
-                  <label htmlFor="message" className="font-mono" style={{ display: 'block', fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)', marginBottom: '0.375rem' }}>Message *</label>
+                  <label htmlFor="message" className="font-mono" style={{ display: 'block', fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)', marginBottom: '0.375rem' }}>Message *</label>
                   <textarea id="message" name="message" required rows={5} className="brutal-input" placeholder="Describe your project, timeline, and budget..." />
-                  <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs mt-1" style={{ color: '#CC0000' }} />
+                  <div aria-live="polite"><ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs mt-1" style={{ color: '#CC0000' }} /></div>
                 </div>
                 <button type="submit" disabled={state.submitting} className="brutal-btn brutal-btn-block">
                   {state.submitting ? (
@@ -134,7 +153,7 @@ const Contact: React.FC = () => {
                   <CopyEmail />
                   {[
                     { icon: <Phone size={14} />, label: 'Phone', val: 'Available on request' },
-                    { icon: <MapPin size={14} />, label: 'Location', val: 'New Delhi, India' },
+                    { icon: <MapPin size={14} />, label: 'Location', val: 'Delhi, India' },
                   ].map((c, i) => (
                     <div key={i} className="brutal-sidebar-item">
                       <div className="brutal-icon-box" style={{ width: '34px', height: '34px' }}>{c.icon}</div>

@@ -26,6 +26,10 @@ export interface Project {
   howItWorks?: string;
   challenges?: string;
   learned?: string;
+  /** plain-language one-liner for non-technical visitors */
+  value?: string;
+  /** shown when there is no live demo (native/desktop apps) */
+  demoNote?: string;
 }
 
 export type ProjectStatus = 'active' | 'maintained' | 'stable' | 'archived';

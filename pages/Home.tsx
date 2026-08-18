@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
@@ -175,7 +175,7 @@ const Home: React.FC = () => {
 
                 <h1 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(2.75rem, min(11vw, 13vh), 7rem)',
+                  fontSize: 'clamp(2.5rem, min(11vw, 13vh), 7rem)',
                   lineHeight: 0.85,
                   letterSpacing: '-0.03em',
                   marginBottom: 'clamp(0.5rem, 1.2vh, 0.9rem)',
@@ -246,7 +246,7 @@ const Home: React.FC = () => {
                   transition={{ delay: 1.5 }}
                   style={{ marginTop: 'clamp(0.75rem, 2vh, 1.25rem)', fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)' }}
                 >
-                  9 chapters · {PROJECT_COUNTS.total}+ real projects · all of it true
+                  9 chapters · {PROJECT_COUNTS.total}+ real projects · synced live from GitHub
                 </motion.p>
               </div>
 
@@ -272,7 +272,9 @@ const Home: React.FC = () => {
                   }}>
                     <img
                       src="/sumit.jpg"
-                      alt="Sumit Chauhan — Full-Stack Developer based in New Delhi, India"
+                      alt="Sumit Chauhan — Full-Stack Developer based in Delhi, India"
+                      width={960}
+                      height={1280}
                       style={{ width: '100%', aspectRatio: '3/3.4', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
                       loading="eager"
                     />
@@ -311,7 +313,7 @@ const Home: React.FC = () => {
                     >
                       <div className="flex items-center gap-1.5" style={{ transform: 'rotate(-3deg)' }}>
                         <InkStar width={16} height={16} />
-                        <span className="font-ink" style={{ fontSize: '1.2rem', color: 'var(--ink-faint)' }}>New Delhi, IN</span>
+                        <span className="font-ink" style={{ fontSize: '1.2rem', color: 'var(--ink-faint)' }}>Delhi, IN</span>
                       </div>
                     </motion.div>
                   </div>
@@ -334,11 +336,11 @@ const Home: React.FC = () => {
 
           {/* cover footer — metrics / turn-the-page hint */}
           <div className="flex-none" style={{ paddingBottom: 'clamp(0.75rem, 2vh, 1.25rem)' }}>
-            <div className="hidden lg:block">
-              <div className="flex items-center justify-between" style={{ borderTop: 'var(--bw) solid var(--border)', paddingTop: '0.65rem', maxWidth: '46rem' }}>
-                <div className="flex items-center gap-6">
+            <div style={{ borderTop: 'var(--bw) solid var(--border)', paddingTop: '0.65rem', maxWidth: '46rem' }}>
+              <div className="flex items-center justify-between flex-wrap gap-y-1.5">
+                <div className="flex items-center flex-wrap gap-x-4 gap-y-1">
                   {metrics.map((s, i) => (
-                    <div key={s.label} className="flex items-center gap-6" style={i < metrics.length - 1 ? { borderRight: 'var(--bw-sm) solid var(--border)', paddingRight: '1.5rem' } : {}}>
+                    <div key={s.label} className="flex items-center gap-1.5" style={i < metrics.length - 1 ? { borderRight: 'var(--bw-sm) solid var(--border)', paddingRight: '0.875rem' } : {}}>
                       <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.875rem', color: 'var(--black)' }}>
                         <StatCounter value={s.num} suffix={s.suffix} />
                       </span>
@@ -346,7 +348,7 @@ const Home: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="hidden md:flex items-center gap-2">
                   <span className="font-mono" style={{ fontSize: '0.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)' }}>Last pushed</span>
                   <span className="brutal-badge" style={{ fontSize: '0.5rem', padding: '0.12rem 0.4rem' }}>{getLastActiveLabel()}</span>
                 </div>
@@ -357,7 +359,8 @@ const Home: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2.1 }}
-              className="lg:hidden flex flex-col items-center gap-1"
+              className="md:hidden flex flex-col items-center gap-1"
+              style={{ marginTop: '0.5rem' }}
             >
               <span className="font-mono" style={{ fontSize: '0.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'var(--ink-faint)' }}>
                 turn the page
@@ -442,7 +445,7 @@ const Home: React.FC = () => {
         <ScrollReveal variant="fadeUp" className="flex justify-center" style={{ marginTop: '2rem' }}>
           <MagneticButton strength={0.2}>
             <Link to="/projects" className="brutal-btn-outline">
-              Read all {PROJECT_COUNTS.total}+ chapters <ArrowUpRight size={15} />
+              Read all {PROJECT_COUNTS.total}+ projects <ArrowUpRight size={15} />
             </Link>
           </MagneticButton>
         </ScrollReveal>

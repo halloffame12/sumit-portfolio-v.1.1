@@ -1,8 +1,10 @@
 import React, { useMemo } from 'react';
-import { GitCommitHorizontal, ArrowUpRight, TrendingUp, Layers, CalendarClock } from 'lucide-react';
+import { GitCommitHorizontal, ArrowUpRight, TrendingUp, Layers, CalendarClock, Github } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { CONTRIBUTION_WEEKS, ACTIVITY_EVENTS, SYNC_META, getSyncAgeLabel, getCurrentStreak, getLatestPush, MOST_USED_TECH } from '../portfolioData';
 import ScrollReveal from './ScrollReveal';
 import ChapterHeader from './ChapterHeader';
+import StatCounter from './StatCounter';
 import { InkArrow } from './Ink';
 
 /* ═══════════════════════════════════════════════════════════
@@ -85,8 +87,13 @@ const GitHubActivity: React.FC = () => {
           title={<>Shipping <span className="ink-underline">in public</span></>}
           intro="every square below is a week I showed up —"
           meta={
-            <span className="font-mono" style={{ fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)' }}>
-              Sync {getSyncAgeLabel()}
+            <span className="flex items-center gap-2 flex-wrap" style={{ fontSize: '0.5625rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)' }}>
+              <span className="font-mono" style={{ fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)' }}>
+                Sync {getSyncAgeLabel()}
+              </span>
+              <a href="https://github.com/halloffame12" target="_blank" rel="noopener noreferrer" className="brutal-btn-outline brutal-btn-sm" style={{ gap: '0.3rem' }}>
+                <Github size={12} /> GitHub profile <ArrowUpRight size={11} />
+              </a>
             </span>
           }
         />
@@ -96,15 +103,17 @@ const GitHubActivity: React.FC = () => {
       <ScrollReveal variant="fadeUp" delay={0.05}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3" style={{ marginBottom: '1.25rem' }}>
           {stats.map((s) => (
-            <div key={s.label} className="brutal-card-static flex items-center gap-2.5" style={{ padding: '0.75rem 0.875rem' }}>
-              <div className="brutal-icon-box" style={{ width: '34px', height: '34px' }}>{s.icon}</div>
-              <div className="min-w-0">
-                <p style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: s.value.length > 14 ? '0.75rem' : '1rem', color: 'var(--black)', lineHeight: 1.2 }}>
-                  {s.value}<span className="font-mono" style={{ fontSize: '0.625rem', color: 'var(--ink-faint)' }}>{s.unit}</span>
-                </p>
-                <p className="font-mono" style={{ fontSize: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-faint)' }}>{s.label}</p>
+            <motion.div key={s.label} whileHover={{ y: -3, rotate: -0.5 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }}>
+              <div className="brutal-card-static flex items-center gap-2.5" style={{ padding: '0.75rem 0.875rem' }}>
+                <div className="brutal-icon-box" style={{ width: '34px', height: '34px' }}>{s.icon}</div>
+                <div className="min-w-0">
+                  <p style={{ fontFamily: 'var(--font-heading)', fontWeight: 900, fontSize: s.value.length > 14 ? '0.75rem' : '1rem', color: 'var(--black)', lineHeight: 1.2 }}>
+                    {s.value}<span className="font-mono" style={{ fontSize: '0.625rem', color: 'var(--ink-faint)' }}>{s.unit}</span>
+                  </p>
+                  <p className="font-mono" style={{ fontSize: '0.5625rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-faint)' }}>{s.label}</p>
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </ScrollReveal>
@@ -127,17 +136,26 @@ const GitHubActivity: React.FC = () => {
               role="img"
               aria-label="Contribution activity over the last year, darker blocks mean more activity"
             >
-              {weeks.map((w) => (
-                <div
+              {weeks.map((w, i) => (
+                <motion.div
                   key={w.date}
-                  style={{ aspectRatio: '1', background: LEVEL_COLORS[w.level] || LEVEL_COLORS[0], border: '1px solid rgba(10,10,10,0.22)' }}
+                  initial={{ opacity: 0, scale: 0.4 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ delay: Math.min(i * 0.012, 0.5), type: 'spring', stiffness: 500, damping: 26 }}
+                  animate={w.level === 4 ? { opacity: [1, 0.45, 1] } : undefined}
+                  style={{
+                    aspectRatio: '1', background: LEVEL_COLORS[w.level] || LEVEL_COLORS[0],
+                    border: '1px solid rgba(10,10,10,0.22)',
+                    transformOrigin: 'center',
+                  }}
                   title={`Week of ${w.date} — level ${w.level}`}
                   aria-label={`Week of ${w.date}, activity level ${w.level} of 4`}
                 />
               ))}
             </div>
             <div className="flex items-center justify-between flex-wrap gap-2" style={{ marginTop: '0.75rem' }}>
-              <div className="flex items-center gap-2 font-mono" style={{ fontSize: '0.5rem', fontWeight: 700, color: 'var(--ink-faint)' }}>
+              <div className="flex items-center gap-2 font-mono" style={{ fontSize: '0.5625rem', fontWeight: 700, color: 'var(--ink-faint)' }}>
                 <span>LESS</span>
                 {LEVEL_COLORS.map((c) => (
                   <span key={c} style={{ width: '10px', height: '10px', background: c, border: '1px solid rgba(10,10,10,0.22)', display: 'inline-block' }} />
@@ -146,7 +164,7 @@ const GitHubActivity: React.FC = () => {
               </div>
               <div className="flex gap-2 flex-wrap">
                 {monthGroups.map((m) => (
-                  <span key={m.index} className="font-mono" style={{ fontSize: '0.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink-faint)' }}>
+                  <span key={m.index} className="font-mono" style={{ fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink-faint)' }}>
                     {m.label}
                   </span>
                 ))}
@@ -156,7 +174,7 @@ const GitHubActivity: React.FC = () => {
 
           <div className="flex items-center justify-between flex-wrap gap-2" style={{ padding: '0.75rem 1.125rem', borderTop: 'var(--bw-sm) dashed var(--border)' }}>
             <span className="font-mono" style={{ fontSize: '0.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-faint)' }}>
-              {total} ink drops logged this year
+              <StatCounter value={total} suffix="" /> ink drops logged this year
             </span>
             <span className="font-ink" style={{ fontSize: '1rem', color: 'var(--ink-faint)', transform: 'rotate(-1.5deg)' }}>no gaps, no excuses →</span>
           </div>
@@ -185,7 +203,7 @@ const GitHubActivity: React.FC = () => {
                     style={{ color: 'var(--bg)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}>
                     {e.repo.replace('halloffame12/', '')} <ArrowUpRight size={10} />
                   </a>
-                  <span className="ml-auto font-mono" style={{ color: '#77736A', flexShrink: 0 }}>{timeAgo(e.at)}</span>
+                  <span className="ml-auto font-mono" style={{ color: 'var(--ink-on-dark)', flexShrink: 0 }}>{timeAgo(e.at)}</span>
                 </li>
               ))}
             </ul>

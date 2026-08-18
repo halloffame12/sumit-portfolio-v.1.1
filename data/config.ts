@@ -5,37 +5,31 @@ export type ProjectOverride = Partial<Pick<Project, 'category' | 'description' |
 };
 
 export const PROJECT_OVERRIDES: Record<string, ProjectOverride> = {
-  'anonchat-live': {
+  ctx: {
     featured: true,
     priority: 100,
     status: 'active',
-    category: 'Real-time Platform',
-    demoUrl: 'https://anonchatweb.netlify.app/',
+    category: 'Developer Tooling',
   },
-  'ai-powered-blog': {
+  'versz-app': {
+    featured: true,
+    priority: 95,
+    status: 'maintained',
+    category: 'Social Platform',
+    demoUrl: 'https://versz.app/',
+  },
+  'anonchat-live': {
     featured: true,
     priority: 90,
-    status: 'maintained',
-    category: 'AI Integration',
-  },
-  clearlist: {
-    featured: true,
-    priority: 85,
-    status: 'stable',
-    category: 'Mobile App',
+    status: 'active',
+    category: 'Real-time Platform',
+    demoUrl: 'https://anonchatweb.netlify.app/',
   },
   'codecraftgames': {
     featured: true,
     priority: 80,
     status: 'stable',
     category: 'AI / Computer Vision',
-    demoUrl: 'https://codecraftgames.netlify.app/',
-  },
-  'versz-app': {
-    priority: 60,
-    featured: true,
-    category: 'Mobile App',
-    status: 'maintained',
   },
   'browser-os': {
     priority: 55,
@@ -45,10 +39,6 @@ export const PROJECT_OVERRIDES: Record<string, ProjectOverride> = {
   'replaytrade': {
     priority: 50,
     category: 'Web Platform',
-  },
-  'ctx': {
-    priority: 45,
-    category: 'Systems',
   },
   'hush': {
     priority: 40,
@@ -70,8 +60,12 @@ export const PROJECT_OVERRIDES: Record<string, ProjectOverride> = {
     priority: 30,
     category: 'Computer Vision',
   },
+  'snakegame-ai': {
+    priority: 28,
+    category: 'AI / Reinforcement Learning',
+  },
 };
 
-export const ACTIVE_SLUGS: string[] = ['anonchat-live'];
+export const ACTIVE_SLUGS: string[] = ['ctx', 'anonchat-live'];
 
 export const HIDE_SLUGS: string[] = [];

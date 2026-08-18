@@ -1,9 +1,9 @@
 {
   "meta": {
-    "syncedAt": "2026-08-14T01:49:46.938Z",
+    "syncedAt": "2026-08-18T14:55:20.320Z",
     "owner": "halloffame12",
-    "repoCount": 34,
-    "totalContributionsLastYear": 349,
+    "repoCount": 36,
+    "totalContributionsLastYear": 377,
     "source": "github-api"
   },
   "projects": [
@@ -26,7 +26,49 @@
       "source": "github",
       "status": "active",
       "score": 18,
-      "pushedAt": "2026-08-13T16:48:32Z",
+      "pushedAt": "2026-08-15T01:23:13Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1334241263",
+      "slug": "scoop-ctx",
+      "title": "Scoop Ctx",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3ES%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Scoop bucket for ctx — codebase intelligence and context engine for AI coding agents",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [],
+      "repoUrl": "https://github.com/halloffame12/scoop-ctx",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "active",
+      "score": 22,
+      "pushedAt": "2026-08-14T14:02:13Z",
+      "topics": []
+    },
+    {
+      "id": "gh-1334240281",
+      "slug": "homebrew-ctx",
+      "title": "Homebrew Ctx",
+      "category": "Open Source",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFE500%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22800%22%20height%3D%22450%22%20fill%3D%22%23FFFDF7%22%20stroke%3D%22%230A0A0A%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22315%22%20font-family%3D%22'Archivo%20Black'%2C'Arial%20Black'%2Csans-serif%22%20font-size%3D%22230%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%230A0A0A%22%3EH%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "description": "Homebrew tap for ctx — codebase intelligence and context engine for AI coding agents",
+      "problem": "",
+      "solution": "",
+      "role": "Open Source",
+      "techStack": [
+        "Ruby"
+      ],
+      "repoUrl": "https://github.com/halloffame12/homebrew-ctx",
+      "stars": 0,
+      "forks": 0,
+      "source": "github",
+      "status": "active",
+      "score": 24,
+      "pushedAt": "2026-08-14T14:01:19Z",
       "topics": []
     },
     {
@@ -67,7 +109,7 @@
       "forks": 0,
       "source": "github",
       "status": "active",
-      "score": 16,
+      "score": 11,
       "pushedAt": "2026-07-14T11:07:48Z",
       "topics": []
     },
@@ -133,7 +175,7 @@
       "forks": 0,
       "source": "github",
       "status": "maintained",
-      "score": 9,
+      "score": 5,
       "pushedAt": "2026-02-18T04:03:46Z",
       "topics": []
     },
@@ -153,7 +195,7 @@
       "forks": 0,
       "source": "github",
       "status": "maintained",
-      "score": 7,
+      "score": 3,
       "pushedAt": "2026-02-15T15:12:41Z",
       "topics": []
     },
@@ -748,10 +790,6 @@
   ],
   "contributions": [
     {
-      "date": "2025-08-11",
-      "level": 0
-    },
-    {
       "date": "2025-08-18",
       "level": 1
     },
@@ -958,83 +996,87 @@
     {
       "date": "2026-08-10",
       "level": 4
+    },
+    {
+      "date": "2026-08-17",
+      "level": 0
     }
   ],
   "activity": [
     {
       "type": "PushEvent",
-      "repo": "halloffame12/sumit-portfolio-v.1.1",
-      "at": "2026-08-14T01:26:56Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "halloffame12/sumit-portfolio-v.1.1",
-      "at": "2026-08-14T01:21:32Z"
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-15T01:23:13Z"
     },
     {
       "type": "PushEvent",
       "repo": "halloffame12/CTX",
-      "at": "2026-08-13T16:48:33Z"
+      "at": "2026-08-15T01:15:58Z"
     },
     {
       "type": "PushEvent",
       "repo": "halloffame12/CTX",
-      "at": "2026-08-13T16:39:39Z"
+      "at": "2026-08-15T01:11:53Z"
+    },
+    {
+      "type": "DeleteEvent",
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-15T01:05:12Z"
     },
     {
       "type": "PushEvent",
       "repo": "halloffame12/CTX",
-      "at": "2026-08-13T16:23:50Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "halloffame12/awesome-mcp-servers-1",
-      "at": "2026-08-13T16:18:28Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "halloffame12/awesome-mcp-servers",
-      "at": "2026-08-13T16:17:35Z"
-    },
-    {
-      "type": "ForkEvent",
-      "repo": "appcypher/awesome-mcp-servers",
-      "at": "2026-08-13T16:17:46Z"
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "punkpeye/awesome-mcp-servers",
-      "at": "2026-08-13T16:17:42Z"
-    },
-    {
-      "type": "ForkEvent",
-      "repo": "punkpeye/awesome-mcp-servers",
-      "at": "2026-08-13T16:15:37Z"
+      "at": "2026-08-15T00:53:43Z"
     },
     {
       "type": "PushEvent",
       "repo": "halloffame12/CTX",
-      "at": "2026-08-13T16:14:10Z"
-    },
-    {
-      "type": "IssuesEvent",
-      "repo": "chatmcp/mcpso",
-      "at": "2026-08-13T16:14:20Z"
+      "at": "2026-08-15T00:19:55Z"
     },
     {
       "type": "PushEvent",
       "repo": "halloffame12/CTX",
-      "at": "2026-08-13T16:05:48Z"
+      "at": "2026-08-15T00:17:19Z"
     },
     {
       "type": "PushEvent",
       "repo": "halloffame12/CTX",
-      "at": "2026-08-13T16:04:31Z"
+      "at": "2026-08-15T00:15:00Z"
     },
     {
       "type": "PushEvent",
       "repo": "halloffame12/CTX",
-      "at": "2026-08-13T15:58:57Z"
+      "at": "2026-08-14T17:42:19Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/CTX",
+      "at": "2026-08-14T17:28:34Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/winget-pkgs",
+      "at": "2026-08-14T17:06:20Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/winget-pkgs",
+      "at": "2026-08-14T17:06:16Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/winget-pkgs",
+      "at": "2026-08-14T17:06:14Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/winget-pkgs",
+      "at": "2026-08-14T17:06:01Z"
+    },
+    {
+      "type": "PushEvent",
+      "repo": "halloffame12/winget-pkgs",
+      "at": "2026-08-14T17:05:58Z"
     }
   ]
 }

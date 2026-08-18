@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Github, Star, GitFork, Calendar, Zap, Lightbulb, AlertTriangle, BookOpen, Puzzle } from 'lucide-react';
 import type { Project } from '../types';
 import SkeletonImage from './SkeletonImage';
+import ProjectVisual, { needsArtwork } from './ProjectVisual';
 import StatusBadge from './StatusBadge';
 import { getFormattedDate } from '../portfolioData';
 import { InkCross, InkStroke } from './Ink';
@@ -14,15 +15,47 @@ interface ProjectModalProps {
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   const closeRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!project) return;
+    const prevActive = document.activeElement as HTMLElement | null;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     const t = setTimeout(() => closeRef.current?.focus(), 60);
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+
+    const getFocusables = (): HTMLElement[] => {
+      const panel = panelRef.current as HTMLElement | null;
+      if (!panel) return [];
+      const nodes = Array.from(panel.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      ));
+      return nodes.filter((el) => el.offsetParent !== null || el === document.activeElement);
+    };
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { onClose(); return; }
+      if (e.key !== 'Tab') return;
+      const els = getFocusables();
+      if (els.length === 0) return;
+      const first = els[0];
+      const last = els[els.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      const inside = !!active && panelRef.current?.contains(active);
+      if (e.shiftKey) {
+        if (active === first || !inside) { e.preventDefault(); last.focus(); }
+      } else {
+        if (active === last || !inside) { e.preventDefault(); first.focus(); }
+      }
+    };
+
     window.addEventListener('keydown', onKey);
-    return () => { document.body.style.overflow = prev; clearTimeout(t); window.removeEventListener('keydown', onKey); };
+    return () => {
+      document.body.style.overflow = prev;
+      clearTimeout(t);
+      window.removeEventListener('keydown', onKey);
+      prevActive?.focus?.();
+    };
   }, [project, onClose]);
 
   if (!project) return null;
@@ -52,6 +85,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           style={{ position: 'absolute', inset: 0, background: 'rgba(10,10,10,0.6)' }}
         />
         <motion.aside
+          ref={panelRef}
           initial={{ x: '100%' }}
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
@@ -71,9 +105,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             {/* Header */}
             <div className="flex items-center justify-between gap-3" style={{ marginBottom: '1rem' }}>
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="font-mono ink-label" style={{ fontSize: '0.5625rem', color: 'var(--ink-faint)' }}>CASE FILE · CH 04 — THE WORK</span>
+                <span className="font-mono ink-label" style={{ fontSize: '0.625rem', color: 'var(--ink-faint)' }}>CASE FILE · CH 04 — THE WORK</span>
                 <StatusBadge status={project.status} />
-                <span className="brutal-badge" style={{ fontSize: '0.5rem' }}>{project.category}</span>
+                <span className="brutal-badge" style={{ fontSize: '0.625rem' }}>{project.category}</span>
                 {project.pushedAt && (
                   <span className="flex items-center gap-1 font-mono" style={{ fontSize: '0.5625rem', fontWeight: 700, color: 'var(--ink-faint)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                     <Calendar size={11} /> {getFormattedDate(project.pushedAt)}
@@ -104,10 +138,19 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             </div>
             <p style={{ color: 'var(--ink-soft)', fontSize: '0.8125rem', lineHeight: 1.7, marginBottom: '1rem', maxWidth: '52ch' }}>{project.description}</p>
 
+            {project.value && (
+              <div className="flex items-start gap-2" style={{ marginBottom: '1rem', background: 'rgba(255,229,0,0.14)', borderLeft: '3px solid var(--black)', padding: '0.625rem 0.75rem' }}>
+                <Lightbulb size={14} style={{ flexShrink: 0, marginTop: '2px' }} />
+                <p className="font-ink" style={{ fontSize: '1.05rem', color: 'var(--black)', lineHeight: 1.4 }}>{project.value}</p>
+              </div>
+            )}
+
             {/* Taped polaroid screenshot */}
             <div className="relative" style={{ marginBottom: '1.25rem' }}>
               <div className="brutal-card overflow-hidden" style={{ transform: 'rotate(-1deg)' }}>
-                <SkeletonImage src={project.imageUrl} alt={`Screenshot of ${project.title}`} className="w-full aspect-video" />
+                {needsArtwork(project)
+                  ? <ProjectVisual project={project} className="w-full aspect-video" />
+                  : <SkeletonImage src={project.imageUrl} alt={`Screenshot of ${project.title}`} className="w-full aspect-video" />}
               </div>
               <div aria-hidden="true" style={{ position: 'absolute', top: '-12px', left: '18%', width: '84px', height: '24px', background: 'rgba(236,230,217,0.9)', border: '1px solid var(--border)', transform: 'rotate(-8deg)' }} />
             </div>
@@ -123,6 +166,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" data-cursor="open" className="brutal-btn-outline brutal-btn-sm">
                   Live Demo <ArrowUpRight size={12} />
                 </a>
+              )}
+              {!project.demoUrl && project.demoNote && (
+                <span className="font-mono" style={{ fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink-faint)', alignSelf: 'center' }}>
+                  {project.demoNote}
+                </span>
               )}
               {typeof project.stars === 'number' && project.stars > 0 && (
                 <span className="flex items-center gap-1.5 brutal-btn-outline brutal-btn-sm" style={{ cursor: 'default' }}>
@@ -149,7 +197,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                   <div key={s.label} className="brutal-card-static" style={{ padding: '0.875rem 1rem' }}>
                     <div className="flex items-center gap-2" style={{ marginBottom: '0.375rem' }}>
                       <div className="brutal-icon-box" style={{ width: '28px', height: '28px' }}>{s.icon}</div>
-                      <span className="font-mono" style={{ fontSize: '0.5rem', color: 'var(--ink-faint)', marginRight: '0.25rem' }}>{String(i + 1).padStart(2, '0')}</span>
+                      <span className="font-mono" style={{ fontSize: '0.625rem', color: 'var(--ink-faint)', marginRight: '0.25rem' }}>{String(i + 1).padStart(2, '0')}</span>
                       <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--black)' }}>{s.label}</h3>
                     </div>
                     <p style={{ fontSize: '0.75rem', color: 'var(--ink-soft)', lineHeight: 1.7 }}>{s.body}</p>

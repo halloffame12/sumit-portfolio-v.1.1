@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ArrowUpRight, Download, Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight, Download, Github, Mail, Menu, X } from 'lucide-react';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import MagneticButton from './MagneticButton';
 import { InkStroke } from './Ink';
+import { PROFILE } from '../data/profile';
 
 const NAV_LINKS = [
   { n: '04', name: 'Work', path: '/projects' },
-  { n: '05', name: 'Experiments', path: '/about', anchor: 'lab' },
+  { n: '08', name: 'About', path: '/about', anchor: 'person' },
   { n: '07', name: 'Journey', path: '/about', anchor: 'journey' },
   { n: '09', name: 'Contact', path: '/contact' },
 ];
@@ -34,6 +35,9 @@ const Navbar: React.FC = () => {
   const [showPill, setShowPill] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 180, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
     const onScroll = () => {
@@ -84,6 +88,13 @@ const Navbar: React.FC = () => {
 
   return (
     <>
+      {/* ── reading progress — the ink line at the very top ── */}
+      <motion.div
+        aria-hidden="true"
+        className="fixed top-0 left-0 right-0 z-[120]"
+        style={{ scaleX: progress, transformOrigin: '0% 0%', height: '3px', background: 'var(--black)' }}
+      />
+
       {/* ── Editorial header — full index (folds away on scroll) ── */}
       <motion.header
         initial={{ y: -80 }}
@@ -99,7 +110,7 @@ const Navbar: React.FC = () => {
       >
         <motion.div
           animate={{
-            height: scrolled ? 0 : 64,
+            height: scrolled ? 0 : 68,
             opacity: scrolled ? 0 : 1,
             pointerEvents: scrolled ? 'none' : 'auto',
           }}
@@ -107,12 +118,12 @@ const Navbar: React.FC = () => {
           style={{ overflow: 'hidden' }}
         >
           <div className="page-container">
-            <div className="flex items-center justify-between" style={{ height: '64px' }}>
+            <div className="flex items-center justify-between" style={{ height: '68px' }}>
               <Link to="/" className="flex items-center gap-2.5 group" aria-label="Sumit Chauhan — Home">
                 <div
                   className="group-hover:rotate-[-5deg]"
                   style={{
-                    width: '36px', height: '36px',
+                    width: '38px', height: '38px',
                     background: 'var(--black)',
                     border: 'var(--bw) solid var(--border)',
                     boxShadow: '3px 3px 0px var(--border)',
@@ -128,7 +139,7 @@ const Navbar: React.FC = () => {
                   SUMIT<span className="font-ink" style={{ fontSize: '1.4rem', fontWeight: 700 }}>.</span>
                 </span>
                 <span className="hidden md:inline-block font-ink" style={{ marginLeft: '6px', fontSize: '1.05rem', color: 'var(--ink-faint)', transform: 'rotate(-2deg)' }}>
-                  — open for work
+                  — open for SDE intern roles
                 </span>
               </Link>
 
@@ -140,14 +151,14 @@ const Navbar: React.FC = () => {
                     onClick={() => goToSection(link.path, link.anchor)}
                     onMouseEnter={() => prefetchOnInteract(link.path)}
                     onFocus={() => prefetchOnInteract(link.path)}
-                    className={`relative ink-underline ${isActive(link.path) ? 'is-active' : ''}`}
+                    className={`relative ink-underline ${isActive(link.path) ? 'is-active' : ''} hover:!bg-[var(--black)] hover:!text-[var(--bg)]`}
                     style={{
                       display: 'flex', alignItems: 'baseline', gap: '6px',
                       padding: '0.35rem 0.75rem',
                       fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.8125rem',
                       textTransform: 'uppercase', letterSpacing: '0.05em',
                       color: isActive(link.path) ? 'var(--black)' : 'var(--ink-faint)',
-                      transition: 'color 0.15s', background: 'none', border: 'none', cursor: 'pointer',
+                      transition: 'background 0.12s, color 0.12s', background: 'none', border: 'none', cursor: 'pointer',
                     }}
                   >
                     <span className="font-mono" style={{ fontSize: '0.5625rem', letterSpacing: '0.1em' }}>{link.n}</span>
@@ -166,6 +177,11 @@ const Navbar: React.FC = () => {
               </nav>
 
               <div className="hidden lg:flex items-center gap-2.5">
+                <MagneticButton strength={0.2}>
+                  <a href={PROFILE.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="brutal-btn-outline brutal-btn-sm">
+                    <Github size={14} /> GitHub
+                  </a>
+                </MagneticButton>
                 <MagneticButton strength={0.2}>
                   <a href="/resume.pdf" download className="brutal-btn-outline brutal-btn-sm">
                     <Download size={13} /> Resume
@@ -293,7 +309,10 @@ const Navbar: React.FC = () => {
               style={{ background: 'var(--bg-card)' }}
             >
               <div className="flex items-center justify-between" style={{ padding: '0.75rem 1.25rem', borderBottom: 'var(--bw) solid var(--border)' }}>
-                <span className="ink-page-chip">INDEX</span>
+                <div className="flex items-center gap-2">
+                  <span className="ink-page-chip">INDEX</span>
+                  <span className="font-ink" style={{ fontSize: '1.15rem', color: 'var(--ink-faint)' }}>open for SDE intern roles</span>
+                </div>
                 <button
                   onClick={toggle}
                   style={{ width: '36px', height: '36px', border: 'var(--bw-sm) solid var(--border)', background: 'var(--bg)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
@@ -349,6 +368,14 @@ const Navbar: React.FC = () => {
                   <Link to="/contact" className="brutal-btn" style={{ flex: 1 }}>
                     Hire Me <ArrowUpRight size={15} />
                   </Link>
+                </div>
+                <div className="flex items-center justify-center gap-2" style={{ marginTop: '0.75rem' }}>
+                  <a href={PROFILE.githubUrl} target="_blank" rel="noopener noreferrer" className="brutal-badge" style={{ gap: '0.3rem' }}>
+                    <Github size={11} /> halloffame12
+                  </a>
+                  <a href={`mailto:${PROFILE.email}`} className="brutal-badge" style={{ gap: '0.3rem' }}>
+                    <Mail size={11} /> Email
+                  </a>
                 </div>
                 <p className="font-ink" style={{ marginTop: '0.75rem', fontSize: '1.1rem', color: 'var(--ink-faint)', textAlign: 'center' }}>
                   see something you like? let's talk →

@@ -1,102 +1,45 @@
+# Sumit Chauhan — Portfolio
 
-# 🌐 Sumit Chauhan | Full-Stack Architect Portfolio
+A monochrome "ink neo-brutalist" portfolio built as a hand-drawn casebook: 9 chapters, real GitHub data, and every project presented as a case file. Design by hand, data synced from GitHub, no staging.
 
-![Version](https://img.shields.io/badge/version-2.5.0--STABLE-00ff66?style=for-the-badge&logo=probot&logoColor=black)
-![License](https://img.shields.io/badge/License-MIT-00ff66?style=for-the-badge)
-![Tech](https://img.shields.io/badge/Stack-React--TS--Tailwind-blue?style=for-the-badge&logo=react)
+## Stack
 
-A high-performance, futuristic portfolio website engineered for **Sumit Chauhan**. This platform serves as a central command hub for a Full-Stack developer specializing in cross-platform mobile ecosystems, scalable web logic, and AI-driven automation.
+- **Frontend:** React 19 + TypeScript (ES modules)
+- **Styling:** Tailwind CSS v4 with a custom ink design system (paper/card/ink tokens)
+- **Motion:** Framer Motion for page wipes, scroll reveals, and micro-interactions
+- **Routing:** react-router-dom (BrowserRouter) with lazy-loaded routes
+- **Icons:** lucide-react
+- **SEO:** react-helmet-async per-route metadata + static meta in `index.html`
+- **Forms:** @formspree/react contact form
+- **Build:** Vite 6 · **Deploy:** Cloudflare Pages (with `netlify.toml` / `vercel.json` fallbacks)
 
-## 🚀 System Architecture
+## Data sync
 
-The application is built with a focus on **Visual Fidelity** and **Performance Integrity**. It utilizes a modern frontend stack to deliver a seamless, low-latency user experience.
-
-- **Frontend Core:** React 19 + TypeScript (ES6 Modules)
-- **Styling Engine:** Tailwind CSS with custom Neon-Green configurations.
-- **Motion Orchestration:** Framer Motion for complex transition logic and scroll-triggered animations.
-- **Routing Infrastructure:** `HashRouter` for client-side routing with hash-based URLs.
-- **Iconography:** Lucide-React for consistent, scalable vector graphics.
-- **Build Tool:** Vite for fast development and optimized production builds.
-- **Form Handling:** Formspree for secure contact form submissions.
-
-## ✨ Core Modules
-
-### 1. 📂 Project Vault
-A detailed registry of production-ready applications:
-- **AnonChat Live:** Real-time anonymous communication using Socket.IO.
-- **AI-Powered-Blog:** Knowledge sharing platform with integrated LLM assistance.
-- **ClearList:** Performance-optimized Flutter task manager.
-- **CodeCraftGames:** Computer vision-based gesture control systems.
-
-### 2. 🧠 Technical DNA (Skills)
-Visualized competency index across multiple domains:
-- **Mobile:** Flutter & Dart specialist.
-- **Frontend:** React, Next.js, and advanced GSAP/Framer animations.
-- **Backend:** Node.js, Express, and Flask architectures.
-- **AI/ML:** OpenCV, TensorFlow, and MediaPipe integration.
-
-### 3. 📡 Open Channels (Contact)
-Integrated communication system with:
-- Encrypted form logic.
-- Real-time system status indicators.
-- Direct links to GitHub, LinkedIn, and secure email channels.
-
-## 🛠️ Installation & Deployment
-
-To initialize the development environment locally:
+Project and contribution data is generated from the GitHub API:
 
 ```bash
-# Clone the repository
-git clone https://github.com/halloffame12/sumit-portfolio-v.1.1.git
-
-# Navigate to the project directory
-cd sumit-portfolio-v.1.1
-
-# Install dependencies
-npm install
-
-# Start the local development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview the production build
-npm run preview
+npm run sync:github    # pulls repos, stars, contribution weeks, and activity → generated/github-projects.json
 ```
 
-## 🔒 Security
+The sync script maps real repos to curated case files via `data/config.ts` overrides. Everything rendered on the site is either in `data/` or synced from GitHub — nothing is fabricated.
 
-This project prioritizes security with the following measures:
+## Development
 
-- **Dependency Management:** Regular updates to address security vulnerabilities.
-- **Form Security:** Contact form submissions handled via Formspree with built-in spam protection.
-- **External Links:** All external links use `rel="noopener noreferrer"` to prevent security risks.
-- **No Sensitive Data:** No API keys or secrets are exposed in the client-side code.
+```bash
+npm install
+npm run dev       # local dev server on :3000
+npm run build     # production build → dist/
+npm run preview   # preview the production build
+```
 
-## 🎨 Design Philosophy
+## Design system
 
-- **Color Theory:** Focused on `#00ff66` (Neon Green) on a `#000000` (True Black) background to minimize eye strain while emphasizing critical UI elements.
-- **Typography:** Utilizing **Space Grotesk** for technical data and **Inter** for narrative readability.
-- **User Experience:** Implementation of "Glassmorphism" through backdrop filters and grid-based overlays to simulate a futuristic terminal environment.
+- **Colors:** paper `#F7F3EC`, card `#FFFFFF`, ink `#0A0A0A` — monochrome by discipline
+- **Typefaces:** Archivo Black (display), Space Grotesk (headings), Inter (body), Space Mono (technical labels), Caveat (handwritten annotations)
+- **Interactions:** sketchy borders, hard offset shadows, magnetic buttons, focus-visible outlines, and full `prefers-reduced-motion` support
 
-## 📊 System Stats
+## Contact
 
-| Parameter | Value |
-| :--- | :--- |
-| **Uptime** | 99.9% (Native-Grade) |
-| **Integrity** | End-to-End Encryption |
-| **Optimized** | Mobile & Web Desktop |
-| **Current Build** | v2.5.0_STABLE |
-
----
-
-## 📞 Contact Transmission
-
-**Lead Architect:** Sumit Chauhan  
-**Email:** [sumitchauhan10062004@gmail.com](mailto:sumitchauhan10062004@gmail.com)  
-**Location:** New Delhi, India  
-**GitHub:** [@halloffame12](https://github.com/halloffame12)
-
----
-*Designed & Engineered with precision for the modern web.*
+- **Email:** sumitchauhan10062004@gmail.com
+- **GitHub:** [@halloffame12](https://github.com/halloffame12)
+- **LinkedIn:** [sumit-chauhan](https://www.linkedin.com/in/sumit-chauhan-a4ba98325/)

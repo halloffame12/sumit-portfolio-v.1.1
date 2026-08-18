@@ -42,7 +42,7 @@ class InkErrorBoundary extends React.Component<{ children: React.ReactNode }, { 
 
 const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   useEffect(() => {
-    const timer = setTimeout(onComplete, 1600);
+    const timer = setTimeout(onComplete, 1100);
     return () => clearTimeout(timer);
   }, [onComplete]);
 
@@ -108,13 +108,25 @@ const AnimatedRoutes: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return true;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return false;
+    try {
+      if (sessionStorage.getItem('sc_visited')) return false;
+    } catch { /* private mode — show loader */ }
+    return true;
+  });
+
+  const finishLoading = () => {
+    try { sessionStorage.setItem('sc_visited', '1'); } catch { /* ignore */ }
+    setLoading(false);
+  };
 
   return (
     <HelmetProvider>
       <MotionConfig reducedMotion="user">
         <AnimatePresence>
-          {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+          {loading && <LoadingScreen onComplete={finishLoading} />}
         </AnimatePresence>
 
         {!loading && (

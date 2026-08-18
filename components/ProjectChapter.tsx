@@ -1,10 +1,18 @@
-import React from 'react';
+﻿import React from 'react';
 import { ArrowUpRight, Star, GitFork } from 'lucide-react';
 import type { Project } from '../types';
 import SkeletonImage from './SkeletonImage';
+import ProjectVisual, { needsArtwork } from './ProjectVisual';
 import StatusBadge from './StatusBadge';
 import { getFormattedDate } from '../portfolioData';
 import { InkArrow, InkCross, InkStar, InkStroke } from './Ink';
+
+/* Project artwork: a real screenshot when one exists, otherwise the
+   hand-drawn animated scene (ctx code-graph, Versz debate, letter tile). */
+const Art: React.FC<{ project: Project; alt: string; className?: string }> = ({ project, alt, className }) =>
+  needsArtwork(project)
+    ? <ProjectVisual project={project} className={className} />
+    : <SkeletonImage src={project.imageUrl} alt={alt} className={className} />;
 
 /* ═══════════════════════════════════════════════════════════
    PROJECT CHAPTER — projects as chapters, not cards.
@@ -39,6 +47,19 @@ const ChapterLabel: React.FC<{ index: number }> = ({ index }) => (
   </div>
 );
 
+/* Plain-language value line — the "why it matters" for non-technical readers */
+const ValueNote: React.FC<{ text?: string; compact?: boolean }> = ({ text, compact }) => {
+  if (!text) return null;
+  return (
+    <div className="flex items-start gap-1.5" style={{ marginTop: compact ? '0.5rem' : '0.75rem' }}>
+      <InkStar width={12} height={12} style={{ color: 'var(--black)', flexShrink: 0, marginTop: '3px' }} />
+      <p className="font-ink" style={{ fontSize: compact ? '0.95rem' : '1.1rem', color: 'var(--ink-soft)', lineHeight: 1.4, transform: 'rotate(-0.5deg)' }}>
+        {text}
+      </p>
+    </div>
+  );
+};
+
 /* ── A: giant editorial poster ── */
 const LayoutPoster: React.FC<ProjectChapterProps> = ({ project: p, index, onOpen }) => (
   <div
@@ -52,7 +73,7 @@ const LayoutPoster: React.FC<ProjectChapterProps> = ({ project: p, index, onOpen
   >
     <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-0">
       <div className="relative">
-        <SkeletonImage src={p.imageUrl} alt={`Screenshot of ${p.title} — ${p.category}`} className="w-full aspect-video lg:aspect-auto lg:h-full" />
+        <Art project={p} alt={`Screenshot of ${p.title} — ${p.category}`} className="w-full aspect-video lg:aspect-auto lg:h-full" />
         <span aria-hidden="true" className="hidden lg:block absolute top-3 right-3" style={{ color: 'var(--bg-card)', WebkitTextStroke: '1.5px var(--border)', opacity: 0.85 }}>
           <InkStar width={20} height={20} />
         </span>
@@ -92,6 +113,7 @@ const LayoutPoster: React.FC<ProjectChapterProps> = ({ project: p, index, onOpen
         <p className="line-clamp-3" style={{ fontSize: '0.875rem', color: 'var(--ink-soft)', lineHeight: 1.7, marginBottom: '1rem', maxWidth: '48ch' }}>
           {p.description}
         </p>
+        <ValueNote text={p.value} />
         <TechChips items={p.techStack} />
         <div className="flex items-center justify-between flex-wrap gap-2" style={{ marginTop: '1.25rem' }}>
           <div className="flex items-center gap-3 font-mono" style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--black)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
@@ -123,7 +145,7 @@ const LayoutSplit: React.FC<ProjectChapterProps> = ({ project: p, index, onOpen 
   >
     <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-0 h-full">
       <div className="relative">
-        <SkeletonImage src={p.imageUrl} alt={`Screenshot of ${p.title}`} className="w-full aspect-video md:aspect-auto md:h-full" />
+        <Art project={p} alt={`Screenshot of ${p.title}`} className="w-full aspect-video md:aspect-auto md:h-full" />
         <span
           aria-hidden="true"
           className="md:absolute md:top-3 md:right-3 font-mono"
@@ -149,6 +171,8 @@ const LayoutSplit: React.FC<ProjectChapterProps> = ({ project: p, index, onOpen 
         <p className="line-clamp-3" style={{ fontSize: '0.75rem', color: 'var(--ink-soft)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
           {p.description}
         </p>
+
+        <ValueNote text={p.value} compact />
 
         {(p.problem || p.solution) && (
           <div className="flex flex-col gap-2" style={{ marginBottom: '0.75rem' }}>
@@ -210,7 +234,7 @@ const LayoutVertical: React.FC<ProjectChapterProps> = ({ project: p, index, onOp
         </span>
         <div className="grid sm:grid-cols-2 gap-0">
           <div className="relative">
-            <SkeletonImage src={p.imageUrl} alt={`Screenshot of ${p.title}`} className="w-full aspect-video sm:aspect-auto sm:h-full" />
+            <Art project={p} alt={`Screenshot of ${p.title}`} className="w-full aspect-video sm:aspect-auto sm:h-full" />
           </div>
           <div className="flex flex-col justify-center" style={{ padding: '1.125rem 1.25rem' }}>
             <div className="flex items-center gap-2" style={{ marginBottom: '0.5rem' }}>
@@ -229,6 +253,7 @@ const LayoutVertical: React.FC<ProjectChapterProps> = ({ project: p, index, onOp
             <p className="line-clamp-3" style={{ fontSize: '0.6875rem', color: 'var(--ink-soft)', lineHeight: 1.7, marginBottom: '0.625rem' }}>
               {p.description}
             </p>
+            <ValueNote text={p.value} compact />
             <TechChips items={p.techStack} size="0.5rem" />
             <div className="flex items-center gap-2 font-mono" style={{ marginTop: '0.75rem', fontSize: '0.625rem', fontWeight: 700, color: 'var(--black)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               Open case file
@@ -275,13 +300,14 @@ const LayoutNotebook: React.FC<ProjectChapterProps> = ({ project: p, index, onOp
           <p className="line-clamp-4" style={{ fontSize: '0.6875rem', color: 'var(--ink-soft)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
             {p.description}
           </p>
+          <ValueNote text={p.value} compact />
           <TechChips items={p.techStack} size="0.5rem" />
           <div className="flex items-center gap-2 font-mono" style={{ marginTop: '1rem', fontSize: '0.625rem', fontWeight: 700, color: 'var(--black)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
             Open case file <InkArrow variant="bend" width={36} height={18} strokeWidth={2.5} />
           </div>
         </div>
         <div className="lg:col-span-2 relative">
-          <SkeletonImage src={p.imageUrl} alt={`Screenshot of ${p.title}`} className="w-full aspect-video lg:aspect-auto lg:h-full" />
+          <Art project={p} alt={`Screenshot of ${p.title}`} className="w-full aspect-video lg:aspect-auto lg:h-full" />
           <span aria-hidden="true" className="hidden lg:flex absolute -bottom-2 -left-2 items-center" style={{ color: 'var(--ink-faint)', opacity: 0.7 }}>
             <InkCross width={20} height={20} />
           </span>

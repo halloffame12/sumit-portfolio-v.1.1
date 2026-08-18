@@ -9,7 +9,7 @@ import { InkArrow, InkStar, InkStroke } from '../components/Ink';
 const NotFound: React.FC = () => {
   return (
     <article className="page-shell flex items-center" style={{ height: '100svh', paddingTop: 0 }}>
-      <SeoHelmet path="/404" title="404 \u2014 Page Not Found | Sumit Chauhan" description="This page does not exist." />
+      <SeoHelmet path="/404" title="404 — Page Not Found | Sumit Chauhan" description="This page does not exist." />
       <div className="page-container">
         <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-center" style={{ maxWidth: '46rem', margin: '0 auto' }}>
           <motion.div

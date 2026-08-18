@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, ArrowUpRight, ArrowUp } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
               </span>
             </Link>
             <p style={{ color: '#B5B0A4', fontSize: '0.8125rem', lineHeight: 1.7, maxWidth: '20rem' }}>
-              Full-stack developer shipping real-time platforms, AI-powered tools, and cross-platform apps from New Delhi.
+              Software Engineer building AI developer tooling, real-time platforms, and cross-platform apps from Delhi. B.S. CS &amp; Data Science at IIT Patna.
             </p>
             <div className="flex gap-2">
               {[
@@ -55,14 +55,14 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="font-mono" style={{ fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#77736A', marginBottom: '0.875rem' }}>
+            <h2 className="font-mono" style={{ fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-on-dark)', marginBottom: '0.875rem' }}>
               Index
-            </h4>
+            </h2>
             <ul className="flex flex-col gap-2.5">
-              {[{ n: '00', name: 'Cover', p: '/' }, { n: '04', name: 'Work', p: '/projects' }, { n: '07', name: 'Journey', p: '/about' }, { n: '09', name: 'Contact', p: '/contact' }].map(l => (
+              {[{ n: '00', name: 'Cover', p: '/' }, { n: '08', name: 'About', p: '/about' }, { n: '04', name: 'Work', p: '/projects' }, { n: '07', name: 'Journey', p: '/about' }, { n: '09', name: 'Contact', p: '/contact' }].map(l => (
                 <li key={l.p}>
                   <Link to={l.p} className="ink-underline flex items-baseline gap-2" style={{ color: 'var(--bg)', fontSize: '0.8125rem', fontWeight: 600 }}>
-                    <span className="font-mono" style={{ fontSize: '0.5625rem', color: '#77736A' }}>{l.n}</span> {l.name}
+                    <span className="font-mono" style={{ fontSize: '0.625rem', color: 'var(--ink-on-dark)' }}>{l.n}</span> {l.name}
                   </Link>
                 </li>
               ))}
@@ -70,11 +70,11 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="md:col-span-4">
-            <h4 className="font-mono" style={{ fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#77736A', marginBottom: '0.875rem' }}>
+            <h2 className="font-mono" style={{ fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-on-dark)', marginBottom: '0.875rem' }}>
               Let's Build Together
-            </h4>
+            </h2>
             <p style={{ color: 'var(--bg)', fontSize: '0.8125rem', marginBottom: '1rem', lineHeight: 1.7, maxWidth: '18rem' }}>
-              Open to freelance gigs, AI automation projects, and high-impact builds. Direct comms, no middlemen.
+              Open to SDE internship opportunities, AI automation work, and high-impact builds. Direct comms, no middlemen.
             </p>
             <Link to="/contact" className="brutal-btn brutal-btn-sm" style={{ background: 'var(--bg)', color: 'var(--black)', borderColor: 'var(--bg)' }}>
               Start a Project <ArrowUpRight size={13} />
@@ -87,12 +87,12 @@ const Footer: React.FC = () => {
         >
           <div className="flex items-center gap-2">
             <InkStar width={14} height={14} style={{ color: 'var(--bg)', opacity: 0.5 }} />
-            <p className="font-mono" style={{ color: '#77736A', fontSize: '0.625rem' }}>
+            <p className="font-mono" style={{ color: 'var(--ink-on-dark)', fontSize: '0.6875rem' }}>
               &copy; {year} SUMIT CHAUHAN — HAND-DRAWN, ONE PIXEL AT A TIME.
             </p>
           </div>
           <div className="flex items-center gap-4">
-            <p className="font-mono" style={{ color: '#77736A', fontSize: '0.5625rem' }}>
+            <p className="font-mono" style={{ color: 'var(--ink-on-dark)', fontSize: '0.625rem' }}>
               SOURCE CODE ON GITHUB
             </p>
             <motion.a

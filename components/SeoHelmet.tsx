@@ -2,9 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SITE_URL = 'https://sumitchauhan.me';
-const DEFAULT_TITLE = 'Sumit Chauhan | Full-Stack Developer & AI Automation';
-const DEFAULT_DESC = 'Full-stack developer building real-time platforms, AI-powered tools, and cross-platform apps. React, Flutter, Node.js, OpenCV. Based in New Delhi, India.';
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
+const DEFAULT_TITLE = 'Sumit Chauhan | Software Engineer — AI Automation & Developer Tooling';
+const DEFAULT_DESC = 'Software Engineer building AI developer tooling, real-time platforms, and cross-platform apps. ctx MCP server, Versz, Flutter, Rust, TypeScript. B.S. CS & Data Science at IIT Patna. Based in Delhi, India.';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 interface SeoHelmetProps {
   title?: string;
@@ -32,6 +32,7 @@ const SeoHelmet: React.FC<SeoHelmetProps> = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:image:type" content="image/png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="Sumit Chauhan Portfolio" />
@@ -41,7 +42,6 @@ const SeoHelmet: React.FC<SeoHelmetProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:creator" content="@sumitchauhan" />
     </Helmet>
   );
 };

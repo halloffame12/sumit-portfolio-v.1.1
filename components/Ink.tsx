@@ -72,15 +72,6 @@ export const InkArrow: React.FC<InkProps & { variant?: 'curved' | 'bend' | 'stra
   );
 };
 
-export const InkArrowDown: React.FC<InkProps> = (props) => (
-  <svg className={props.className} style={props.style} width={props.width ?? 24} height={props.height ?? 30} viewBox="0 0 40 60" fill="none" stroke="currentColor" strokeWidth={props.strokeWidth ?? 3} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M20 4 C 18 16, 22 26, 20 40" />
-    <path d="M5 32 C 12 44, 16 50, 21 56" />
-    <path d="M35 32 C 28 44, 24 50, 19 56" />
-  </svg>
-);
-
-/* ── Hand-drawn underline / stroke ── */
 export const InkStroke: React.FC<InkProps & { kind?: 'underline' | 'scratch' | 'squiggle' }> = ({
   kind = 'underline', className, style, width = '100%', height = 10, strokeWidth = 3,
 }) => (
@@ -121,16 +112,6 @@ export const InkCross: React.FC<InkProps> = ({ className, style, width = 24, hei
   </svg>
 );
 
-/* ── Editorial divider rule with center flourish ── */
-export const InkDivider: React.FC<InkProps> = ({ className, style, width = '100%', height = 16, strokeWidth = 2.5 }) => (
-  <svg className={className} style={style} width={width} height={height} viewBox="0 0 200 24" preserveAspectRatio="none" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" aria-hidden="true">
-    <path d="M2 12 H 80" />
-    <path d="M120 12 H 198" />
-    <path d="M96 6 C 100 3, 103 5, 100 9 M 104 6 C 108 3, 111 5, 108 9" strokeWidth={strokeWidth - 0.5} />
-    <circle cx="100" cy="13" r="1.6" fill="currentColor" stroke="none" />
-  </svg>
-);
-
 /* ── Corner brackets (poster frame) ── */
 export const InkBrackets: React.FC<InkProps> = ({ className, style, width = '100%', height = '100%', strokeWidth = 3 }) => (
   <svg className={className} style={style} width={width} height={height} viewBox="0 0 200 200" preserveAspectRatio="none" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -145,13 +126,6 @@ export const InkBrackets: React.FC<InkProps> = ({ className, style, width = '100
 export const InkSpiral: React.FC<InkProps> = ({ className, style, width = 24, height = 24, strokeWidth = 2.5 }) => (
   <svg className={className} style={style} width={width} height={height} viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" aria-hidden="true">
     <path d="M20 20 m -2 0 a 2 2 0 1 1 4 0 a 6 6 0 1 1 -12 0 a 10 10 0 1 1 20 0 a 14 14 0 1 1 -28 0" />
-  </svg>
-);
-
-/* ── Swirl doodle ── */
-export const InkSwirl: React.FC<InkProps> = ({ className, style, width = 30, height = 30, strokeWidth = 2.5 }) => (
-  <svg className={className} style={style} width={width} height={height} viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" aria-hidden="true">
-    <path d="M6 22 C 6 10, 26 4, 30 13 C 33 21, 21 27, 16 19 C 12 13, 20 10, 24 14" />
   </svg>
 );
 

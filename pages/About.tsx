@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, MapPin, Calendar } from 'lucide-react';
+import { Trophy, MapPin, Calendar, User, GraduationCap, Briefcase, Sparkles } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ACHIEVEMENTS_DATA, RESEARCH } from '../data/experience';
+import { MOST_USED_TECH } from '../portfolioData';
 import { SPRING_SNAPPY } from '../types';
 import SeoHelmet from '../components/SeoHelmet';
 import ScrollReveal from '../components/ScrollReveal';
@@ -33,8 +34,8 @@ const About: React.FC = () => {
     <article className="page-shell" ref={topRef}>
       <SeoHelmet
         path="/about"
-        title="About — Sumit Chauhan | Full-Stack Developer"
-        description="The chapters behind the code: experiments on GitHub, the tool pipeline, the journey from first line to published research, and the person doing the work."
+        title="About — Sumit Chauhan | Software Engineer"
+        description="The chapters behind the code: ctx, Versz, the journey to IIT Patna, and the person doing the work."
       />
 
       <div className="page-container">
@@ -56,7 +57,9 @@ const About: React.FC = () => {
                 <div className="relative" style={{ border: 'var(--bw) solid var(--border)', boxShadow: 'var(--sh-lg)', background: 'var(--bg-card)', padding: '0.625rem 0.625rem 0', transform: 'rotate(-1.5deg)' }}>
                   <img
                     src="/sumit.jpg"
-                    alt="Sumit Chauhan — Full-Stack Developer based in New Delhi, India"
+                    alt="Sumit Chauhan — Full-Stack Developer based in Delhi, India"
+                    width={960}
+                    height={1200}
                     className="w-full object-cover object-top"
                     style={{ aspectRatio: '4/5' }}
                     loading="eager"
@@ -73,7 +76,7 @@ const About: React.FC = () => {
               </div>
 
               <div className="flex flex-wrap gap-1.5" style={{ marginTop: '2rem' }}>
-                <div className="brutal-badge" style={{ gap: '0.3rem' }}><MapPin size={11} /> New Delhi, India</div>
+                <div className="brutal-badge" style={{ gap: '0.3rem' }}><MapPin size={11} /> Delhi, India</div>
                 <div className="brutal-badge" style={{ gap: '0.3rem' }}><Calendar size={11} /> Coding since 2020</div>
               </div>
             </motion.div>
@@ -81,14 +84,15 @@ const About: React.FC = () => {
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ ...SPRING_SNAPPY, delay: 0.1 }}>
               <div style={{ maxWidth: '40rem', display: 'flex', flexDirection: 'column', gap: '0.875rem', fontSize: 'clamp(0.8125rem, 1.4vw, 0.9375rem)', color: 'var(--ink-soft)', lineHeight: 1.75 }}>
                 <p>
-                  My work sits at the intersection of full-stack product engineering and AI automation — real-time chat platforms that handle live traffic, Flutter apps that ship fast, and computer vision pipelines that actually work in production.
+                  Computer Science & Data Science student at IIT Patna who spent a self-directed gap year shipping real products — ctx, an open-source MCP code-intelligence server for AI coding agents, and Versz, a production social debate platform in React and Flutter.
                 </p>
                 <p>
-                  I don't do hand-waving. 15-20 hour deep-work sprints, clean code, zero scope creep. If it runs on silicon, I can architect it, build it, and ship it. Based in New Delhi, working with clients everywhere.
+                  The proof is public — every claim has a repo. A Rust code-graph engine that indexes 1,200+ files in about a second, an MCP server with eleven tools that Claude, Cursor and opencode can call over stdio, and a research paper on BrowserOS on OSF Preprints. Currently automating operational reporting as an MIS/Automation Intern at Rozana. Based in Delhi, seeking a Software Engineering Intern role on a high-caliber team.
                 </p>
               </div>
 
               {/* Achievements */}
+              <h2 className="sr-only">Achievements</h2>
               <div className="grid sm:grid-cols-2 gap-3" style={{ marginTop: '1.5rem' }}>
                 {ACHIEVEMENTS_DATA.map((a, i) => (
                   <ScrollReveal key={a.id} variant="fadeUp" delay={i * 0.06}>
@@ -99,7 +103,7 @@ const About: React.FC = () => {
                         </div>
                         <div className="min-w-0">
                           <div className="flex flex-wrap items-center gap-1.5" style={{ marginBottom: '2px' }}>
-                            <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.75rem', color: 'var(--black)' }}>{a.title}</h4>
+                            <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.75rem', color: 'var(--black)' }}>{a.title}</h3>
                             <span className="font-mono" style={{ fontSize: '0.5625rem', color: 'var(--ink-faint)' }}>{a.date}</span>
                           </div>
                           <p className="font-mono" style={{ fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-faint)', marginBottom: '0.2rem' }}>{a.organization}</p>
@@ -109,6 +113,41 @@ const About: React.FC = () => {
                     </div>
                   </ScrollReveal>
                 ))}
+              </div>
+
+              {/* Identity card — recruiter-scannable facts */}
+              <div className="brutal-card" style={{ padding: '1rem', marginTop: '1.5rem' }}>
+                <div className="flex items-center gap-2" style={{ marginBottom: '0.875rem' }}>
+                  <div className="brutal-icon-box" style={{ width: '30px', height: '30px' }}><User size={14} /></div>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--black)' }}>
+                    At a glance
+                  </h3>
+                </div>
+                <dl className="flex flex-col" style={{ gap: '0.625rem' }}>
+                  {[
+                    { icon: <GraduationCap size={13} />, k: 'Education', v: 'IIT Patna — B.S. CS & Data Science · CGPA 8.4' },
+                    { icon: <Briefcase size={13} />, k: 'Experience', v: 'Rozana · MIS/Automation Intern + Founder @ Versz' },
+                    { icon: <MapPin size={13} />, k: 'Base', v: 'Delhi, India' },
+                    { icon: <Sparkles size={13} />, k: 'Availability', v: 'Open — SDE Intern roles, 2026' },
+                    { icon: <Calendar size={13} />, k: 'Research', v: 'BrowserOS paper — OSF Preprints, 2026' },
+                  ].map((r) => (
+                    <div key={r.k} className="flex items-center gap-2.5" style={{ paddingBottom: '0.625rem', borderBottom: 'var(--bw-sm) dashed var(--border)' }}>
+                      <span style={{ color: 'var(--ink-faint)', display: 'flex', flexShrink: 0 }}>{r.icon}</span>
+                      <dt className="font-mono" style={{ fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)', minWidth: '6.5rem' }}>{r.k}</dt>
+                      <dd style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--black)' }}>{r.v}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <div style={{ marginTop: '0.875rem' }}>
+                  <p className="font-mono" style={{ fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)', marginBottom: '0.5rem' }}>
+                    Stack at a glance
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {MOST_USED_TECH.map((t) => (
+                      <span key={t.name} className="brutal-tag" style={{ fontSize: '0.5625rem' }}>{t.name}<span className="font-mono" style={{ color: 'var(--ink-faint)' }}> ·{t.count}</span></span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>

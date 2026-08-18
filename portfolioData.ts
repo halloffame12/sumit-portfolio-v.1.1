@@ -72,15 +72,14 @@ const compare = (a: Project, b: Project) => {
 
 const visible = merged.filter((p) => (p.display ?? true) && !HIDE_SLUGS.includes(p.slug)).sort(compare);
 
-const seenSlugs = new Set<string>();
-
-export const ALL_PROJECTS: Project[] = visible.filter((p) => {
-  if (seenSlugs.has(p.slug)) return false;
-  seenSlugs.add(p.slug);
-  return true;
-});
-
-export const FEATURED_PROJECT: Project = ALL_PROJECTS[0];
+/* Dedup by slug, preferring the curated case file when a repo is both
+   curated and synced from GitHub (ctx, versz-app). */
+const bySlug = new Map<string, Project>();
+for (const p of visible) {
+  const existing = bySlug.get(p.slug);
+  if (!existing || p.source === 'curated') bySlug.set(p.slug, p);
+}
+export const ALL_PROJECTS: Project[] = [...bySlug.values()];
 
 export const ALL_TECH_TAGS: string[] = Array.from(
   new Set(ALL_PROJECTS.flatMap((p) => p.techStack.filter(Boolean)))
@@ -99,11 +98,6 @@ export const PROJECT_COUNTS = {
 export const SYNC_META: SyncMeta = meta;
 export const CONTRIBUTION_WEEKS: ContributionWeek[] = contributions;
 export const ACTIVITY_EVENTS: GithubActivityEvent[] = activity;
-
-export const getProjectBySlug = (slug: string): Project | undefined =>
-  ALL_PROJECTS.find((p) => p.slug === slug);
-
-export const getGithubUrl = (repo: string) => `https://github.com/${repo}`;
 
 export const getSyncAgeLabel = (): string => {
   if (!meta.syncedAt) return 'static data';
