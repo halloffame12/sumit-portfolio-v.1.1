@@ -66,6 +66,4 @@ export const PROJECT_OVERRIDES: Record<string, ProjectOverride> = {
   },
 };
 
-export const ACTIVE_SLUGS: string[] = ['ctx', 'anonchat-live'];
-
 export const HIDE_SLUGS: string[] = [];

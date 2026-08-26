@@ -55,6 +55,7 @@
 /* ── Reset & Base ── */
 html { scroll-behavior: smooth; position: relative; }
 html, body, #root { width: 100%; min-height: 100vh; }
+[id] { scroll-margin-top: 80px; }
 body {
   background: var(--bg);
   color: var(--black);
@@ -66,10 +67,10 @@ body {
   line-height: 1.6;
 }
 
-h1 { font-family: var(--font-heading); line-height: 0.9; letter-spacing: -0.04em; }
-h2 { font-family: var(--font-heading); line-height: 1.0; letter-spacing: -0.03em; }
-h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; letter-spacing: -0.02em; }
-p { line-height: 1.7; }
+h1 { font-family: var(--font-heading); line-height: 0.9; letter-spacing: -0.05em; }
+h2 { font-family: var(--font-heading); line-height: 1.0; letter-spacing: -0.04em; }
+h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; letter-spacing: -0.025em; }
+p { line-height: 1.75; }
 a { text-decoration: none; color: inherit; }
 ::selection { background: var(--black); color: var(--bg); }
 
@@ -301,7 +302,7 @@ a { text-decoration: none; color: inherit; }
   background: #1C1C1C;
 }
 .brutal-btn:active {
-  transform: translate(4px, 4px);
+  transform: translate(4px, 4px) scale(0.97) rotate(-0.5deg);
   box-shadow: var(--sh-pressed);
 }
 .brutal-btn-yellow { background: var(--black); color: var(--bg); }
@@ -333,7 +334,7 @@ a { text-decoration: none; color: inherit; }
   color: var(--bg);
 }
 .brutal-btn-outline:active {
-  transform: translate(4px, 4px);
+  transform: translate(4px, 4px) scale(0.97) rotate(0.5deg);
   box-shadow: var(--sh-pressed);
 }
 .brutal-btn-sm { padding: 0.45rem 1rem; font-size: 0.75rem; }
@@ -527,13 +528,6 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
   color: var(--bg);
   background: var(--black);
 }
-.brutal-nav-link {
-  color: var(--black);
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: color 0.15s;
-}
-.brutal-nav-link:hover { color: var(--ink-soft); }
 .brutal-hover-fill {
   padding: 0.7rem;
   background: var(--cream);
@@ -590,14 +584,71 @@ textarea.brutal-input { resize: vertical; min-height: 120px; }
 .skip-link:focus { top: 1rem; }
 
 /* ═══════════════════════════════════════════════════════════
-   FOCUS VISIBLE
+   FOCUS VISIBLE — robust ink-style focus rings
    ═══════════════════════════════════════════════════════════ */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--black);
+  outline-offset: 3px;
+}
+/* Ensure sticky/fixed elements never cover focus */
+.skip-link:focus {
   outline: 3px solid var(--black);
   outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO DISPLAY TYPE — massive name typography
+   ═══════════════════════════════════════════════════════════ */
+.hero-name-display {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, min(12vw, 15vh), 9rem);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  color: var(--black);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO ACCOMPLISHMENTS — scannable proof list
+   ═══════════════════════════════════════════════════════════ */
+.hero-accomplishments {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.hero-accomplishments li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: clamp(0.6875rem, 0.95vw, 0.8125rem);
+  font-weight: 600;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.hero-accomplishments li::before {
+  content: '\2716';
+  font-size: 0.5rem;
+  color: var(--ink-faint);
+  flex-shrink: 0;
+  margin-top: 0.15em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO BG PATTERN — subtle radial dot grid
+   ═══════════════════════════════════════════════════════════ */
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: radial-gradient(circle, var(--black) 1px, transparent 1px);
+  background-size: 32px 32px;
+  z-index: 0;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -774,6 +825,106 @@ button.brutal-tag:hover {
 }
 .ink-end-mark {
   animation: ink-dot-fade 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UTILITY ADDITIONS — supreme redesign
+   ═══════════════════════════════════════════════════════════ */
+
+/* Tabular numbers for counters and data */
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* Link ink-fill: underline draws from left on hover */
+.ink-link {
+  position: relative;
+  display: inline;
+}
+.ink-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -0.1em;
+  width: 100%; height: 2px;
+  background: var(--black);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.ink-link:hover::after,
+.ink-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Button ink-squish: physical press feel */
+.ink-squish {
+  transition: transform 0.1s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ink-squish:active {
+  transform: scale(0.97) rotate(-0.5deg) !important;
+  box-shadow: var(--sh-pressed) !important;
+}
+
+/* Tag ink-stamp: scale punch on hover */
+.ink-stamp {
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), background 0.15s, color 0.15s;
+}
+.ink-stamp:hover {
+  transform: scale(1.08) rotate(-1deg);
+}
+
+/* Cursor trail dot */
+.ink-cursor-dot {
+  position: fixed;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--black);
+  pointer-events: none;
+  z-index: 99998;
+  mix-blend-mode: difference;
+}
+
+/* Paper crinkle texture on hover */
+.ink-crinkle {
+  position: relative;
+}
+.ink-crinkle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 1;
+  border-radius: inherit;
+}
+.ink-crinkle:hover::before {
+  opacity: 0.04;
+}
+
+/* Card hover lift with ink bracket tighten */
+.ink-card-lift {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ink-card-lift:hover {
+  transform: translate(-2px, -3px) rotate(-0.3deg);
+  box-shadow: var(--sh-hover);
+}
+.ink-card-lift:active {
+  transform: translate(2px, 2px) rotate(0deg);
+  box-shadow: var(--sh-pressed);
+}
+
+/* Stagger reveal helper — set --stagger-index on each child */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: stagger-fade-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--stagger-index, 0) * 0.08s);
+}
+@keyframes stagger-fade-in {
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ═══════════════════════════════════════════════════════════

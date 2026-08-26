@@ -91,7 +91,7 @@ const GitHubActivity: React.FC = () => {
               <span className="font-mono" style={{ fontSize: '0.5625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)' }}>
                 Sync {getSyncAgeLabel()}
               </span>
-              <a href="https://github.com/halloffame12" target="_blank" rel="noopener noreferrer" className="brutal-btn-outline brutal-btn-sm" style={{ gap: '0.3rem' }}>
+              <a href="https://github.com/halloffame12" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile" className="brutal-btn-outline brutal-btn-sm" style={{ gap: '0.3rem' }}>
                 <Github size={12} /> GitHub profile <ArrowUpRight size={11} />
               </a>
             </span>

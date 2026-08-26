@@ -95,16 +95,16 @@ const Footer: React.FC = () => {
             <p className="font-mono" style={{ color: 'var(--ink-on-dark)', fontSize: '0.625rem' }}>
               SOURCE CODE ON GITHUB
             </p>
-            <motion.a
-              href="#"
-              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            <motion.button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.95 }}
-              style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(247,243,236,0.3)', color: 'var(--bg)' }}
+              style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(247,243,236,0.3)', color: 'var(--bg)', background: 'none', cursor: 'pointer' }}
               aria-label="Back to top"
             >
               <ArrowUp size={12} />
-            </motion.a>
+            </motion.button>
           </div>
         </div>
       </div>

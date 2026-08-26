@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PageWipe from './components/PageWipe';
+import CursorTrail from './components/CursorTrail';
 import { InkStroke } from './components/Ink';
 
 
@@ -36,6 +37,7 @@ class InkErrorBoundary extends React.Component<{ children: React.ReactNode }, { 
         </div>
       );
     }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- useDefineForClassFields:false prevents this.props access
     return (this as any).props.children;
   }
 }
@@ -78,13 +80,28 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
 };
 
 const PageLoader = () => (
-  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', gap: '0.75rem' }}>
     <div style={{
-      width: '32px', height: '32px',
-      border: '3px solid var(--border)',
-      borderTopColor: 'var(--bg-card)',
-      animation: 'spin 0.6s linear infinite',
-    }} />
+      fontFamily: 'var(--font-display)',
+      fontSize: '1.5rem',
+      color: 'var(--black)',
+      lineHeight: 0.9,
+    }}>
+      S<span className="font-ink" style={{ fontSize: '1.2em' }}>.</span>
+    </div>
+    <div style={{ width: '80px', overflow: 'hidden' }}>
+      <svg viewBox="0 0 120 8" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%' }}>
+        <motion.path
+          d="M2 4 C 20 2, 40 6, 60 4 S 100 2, 118 4"
+          stroke="var(--black)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 1.2, repeat: Infinity, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </svg>
+    </div>
   </div>
 );
 
@@ -132,12 +149,13 @@ const App: React.FC = () => {
         {!loading && (
           <Router>
             <ScrollToTop />
+            <CursorTrail />
             <div
               className="min-h-screen w-full flex flex-col overflow-x-hidden antialiased"
               style={{ background: 'var(--bg)', color: 'var(--black)' }}
             >
               <Navbar />
-              <main id="main-content" className="flex-grow relative" role="main">
+              <main id="main-content" className="flex-grow relative">
                 <InkErrorBoundary>
                   <AnimatedRoutes />
                 </InkErrorBoundary>

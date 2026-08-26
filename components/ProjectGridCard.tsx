@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight, Star, GitFork, Calendar } from 'lucide-react';
+import { motion } from 'framer-motion';
 import type { Project } from '../types';
 import StatusBadge from './StatusBadge';
 import { InkStroke } from './Ink';
@@ -45,7 +46,15 @@ const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project: p, index }) 
         )}
         <div className="flex flex-wrap gap-1.5" style={{ marginBottom: '0.75rem' }}>
           {p.techStack.slice(0, 4).map((t) => (
-            <span key={t} className="brutal-tag" style={{ fontSize: '0.5625rem' }}>{t}</span>
+            <motion.span
+              key={t}
+              className="brutal-tag ink-stamp"
+              style={{ fontSize: '0.5625rem' }}
+              whileHover={{ scale: 1.1, rotate: -2 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 20 }}
+            >
+              {t}
+            </motion.span>
           ))}
         </div>
         <div className="mt-auto flex items-center justify-between gap-2" style={{ borderTop: 'var(--bw-sm) dashed var(--border)', paddingTop: '0.6rem' }}>
@@ -79,7 +88,7 @@ const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project: p, index }) 
         rel="noopener noreferrer"
         data-cursor="open"
         aria-label={`${p.title} — open repository on GitHub`}
-        className="brutal-card group h-full flex flex-col"
+        className="brutal-card ink-card-lift group h-full flex flex-col"
         style={{ transform: index % 2 === 1 ? 'rotate(0.2deg)' : 'rotate(-0.2deg)' }}
       >
         {inner}
@@ -90,7 +99,7 @@ const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project: p, index }) 
   return (
     <div
       data-cursor="view"
-      className="brutal-card group h-full flex flex-col"
+      className="brutal-card ink-card-lift group h-full flex flex-col"
       style={{ transform: index % 2 === 1 ? 'rotate(0.2deg)' : 'rotate(-0.2deg)' }}
     >
       {inner}

@@ -81,12 +81,12 @@ const CurrentlyBuilding: React.FC<CurrentlyBuildingProps> = ({ projects }) => {
                   )}
                   <div className="flex items-center gap-2">
                     {p.repoUrl && (
-                      <a href={p.repoUrl} target="_blank" rel="noopener noreferrer" className="brutal-btn-outline brutal-btn-sm">
+                      <a href={p.repoUrl} target="_blank" rel="noopener noreferrer" aria-label={`${p.title} repository`} className="brutal-btn-outline brutal-btn-sm">
                         Code <ArrowUpRight size={12} />
                       </a>
                     )}
                     {p.demoUrl && (
-                      <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="brutal-btn brutal-btn-sm">
+                      <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={`${p.title} live demo`} className="brutal-btn brutal-btn-sm">
                         Demo <ArrowUpRight size={12} />
                       </a>
                     )}

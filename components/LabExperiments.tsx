@@ -101,7 +101,7 @@ const LabExperiments: React.FC<LabExperimentsProps> = ({ research, className = '
                 </div>
                 <p className="line-clamp-2" style={{ fontSize: '0.6875rem', color: 'var(--ink-soft)', lineHeight: 1.6, marginTop: '0.2rem', maxWidth: '72ch' }}>{research.desc}</p>
                 {research.link && (
-                  <a href={research.link} target="_blank" rel="noreferrer noopener" className="font-mono no-underline" style={{ fontSize: '0.5625rem', fontWeight: 700, color: 'var(--black)', textDecoration: 'underline', textDecorationStyle: 'wavy', textUnderlineOffset: '3px', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', marginTop: '0.25rem' }}>
+                  <a href={research.link} target="_blank" rel="noreferrer noopener" aria-label={`Read paper: ${research.title}`} className="font-mono no-underline" style={{ fontSize: '0.5625rem', fontWeight: 700, color: 'var(--black)', textDecoration: 'underline', textDecorationStyle: 'wavy', textUnderlineOffset: '3px', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', marginTop: '0.25rem' }}>
                     read the paper <ArrowUpRight size={12} />
                   </a>
                 )}

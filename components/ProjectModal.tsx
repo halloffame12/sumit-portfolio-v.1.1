@@ -158,12 +158,12 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             {/* Actions */}
             <div className="flex flex-wrap gap-2" style={{ marginBottom: '1.25rem' }}>
               {project.repoUrl && (
-                <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" data-cursor="open" className="brutal-btn brutal-btn-sm">
+                <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" data-cursor="open" aria-label={`${project.title} repository on GitHub`} className="brutal-btn brutal-btn-sm">
                   <Github size={14} /> Repository <ArrowUpRight size={12} />
                 </a>
               )}
               {project.demoUrl && (
-                <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" data-cursor="open" className="brutal-btn-outline brutal-btn-sm">
+                <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" data-cursor="open" aria-label={`${project.title} live demo`} className="brutal-btn-outline brutal-btn-sm">
                   Live Demo <ArrowUpRight size={12} />
                 </a>
               )}

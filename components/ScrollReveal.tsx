@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { SPRING_SNAPPY } from '../types';
+import { InkStroke } from './Ink';
 
 interface ScrollRevealProps {
   children: React.ReactNode;
-  variant?: 'fadeUp' | 'clipReveal' | 'scaleIn' | 'slideLeft' | 'slideRight';
+  variant?: 'fadeUp' | 'clipReveal' | 'scaleIn' | 'slideLeft' | 'slideRight' | 'inkRule';
   delay?: number;
   className?: string;
   viewportMargin?: string;
@@ -32,6 +33,10 @@ const variants: Record<string, Variants> = {
     hidden: { x: 40, opacity: 0 },
     show: { x: 0, opacity: 1, transition: SPRING_SNAPPY },
   },
+  inkRule: {
+    hidden: { scaleX: 0, opacity: 0 },
+    show: { scaleX: 1, opacity: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+  },
 };
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
@@ -50,7 +55,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       viewport={{ once: true, margin: viewportMargin }}
       transition={delay ? { delay } : undefined}
       className={className}
-      style={style}
+      style={{ transformOrigin: variant === 'inkRule' ? 'center' : undefined, ...style }}
     >
       {children}
     </motion.div>

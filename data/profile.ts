@@ -32,9 +32,3 @@ export const SOCIALS = {
   linkedin: { label: 'LinkedIn', handle: 'sumit-chauhan', url: 'https://www.linkedin.com/in/sumit-chauhan-a4ba98325/' },
   email: { label: 'Email', handle: 'sumitchauhan10062004@gmail.com', url: 'mailto:sumitchauhan10062004@gmail.com' },
 };
-
-export const CONTACT_BENEFITS = [
-  { title: 'Fast Response', desc: '< 24 hours' },
-  { title: 'Any Timezone', desc: 'Flexible hours' },
-  { title: 'Direct Comms', desc: 'No middlemen' },
-];

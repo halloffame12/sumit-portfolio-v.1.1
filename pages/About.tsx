@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, MapPin, Calendar, User, GraduationCap, Briefcase, Sparkles } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -16,7 +16,6 @@ import { InkStar, InkStroke } from '../components/Ink';
 
 const About: React.FC = () => {
   const location = useLocation();
-  const topRef = useRef<HTMLDivElement>(null);
 
   /* handle "scroll to a chapter" nav requests (LAB / JOURNEY) */
   useEffect(() => {
@@ -31,7 +30,7 @@ const About: React.FC = () => {
   }, [location.state]);
 
   return (
-    <article className="page-shell" ref={topRef}>
+    <article className="page-shell">
       <SeoHelmet
         path="/about"
         title="About — Sumit Chauhan | Software Engineer"

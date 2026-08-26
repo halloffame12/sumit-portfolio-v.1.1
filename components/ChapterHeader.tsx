@@ -1,5 +1,7 @@
 import React from 'react';
-import { InkArrow } from './Ink';
+import { motion } from 'framer-motion';
+import { InkArrow, InkStroke } from './Ink';
+import { SPRING_SNAPPY } from '../types';
 
 /* ═══════════════════════════════════════════════════════════
    CHAPTER HEADER — one header system for every chapter, so the
@@ -41,35 +43,88 @@ const ChapterHeader: React.FC<ChapterHeaderProps> = ({
     <header style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
       <div className="flex items-center justify-between gap-3 flex-wrap" style={{ marginBottom: '0.875rem' }}>
         <div className="flex items-center gap-3 flex-wrap">
-          {kicker && <span className="brutal-sticker" style={{ display: 'inline-flex' }}>{kicker}</span>}
-          {page && <span className="ink-page-chip">{page}</span>}
+          {kicker && (
+            <motion.span
+              className="brutal-sticker"
+              style={{ display: 'inline-flex' }}
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ ...SPRING_SNAPPY, delay: 0 }}
+            >
+              {kicker}
+            </motion.span>
+          )}
+          {page && (
+            <motion.span
+              className="ink-page-chip"
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ ...SPRING_SNAPPY, delay: 0.06 }}
+            >
+              {page}
+            </motion.span>
+          )}
         </div>
         {meta && (
           <div className="flex items-center gap-2" style={{ flexShrink: 0 }}>{meta}</div>
         )}
       </div>
 
-      <Tag
-        id={titleId}
-        className="brutal-section-title"
-        style={{ marginBottom: intro || sub ? '0.875rem' : 0 }}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ ...SPRING_SNAPPY, delay: 0.1 }}
       >
-        {title}
-      </Tag>
+        <Tag
+          id={titleId}
+          className="brutal-section-title"
+          style={{ marginBottom: intro || sub ? '0.875rem' : 0 }}
+        >
+          {title}
+        </Tag>
+      </motion.div>
 
       {intro && (
-        <div className="flex items-center gap-2">
+        <motion.div
+          className="flex items-center gap-2"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ ...SPRING_SNAPPY, delay: 0.18 }}
+        >
           <InkArrow variant="bend" width={44} height={22} strokeWidth={2.5} style={{ color: 'var(--ink-faint)', flexShrink: 0 }} />
           <span className="font-ink" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', color: 'var(--ink-faint)', transform: 'rotate(-2deg)', display: 'inline-block' }}>
             {intro}
           </span>
-        </div>
+        </motion.div>
       )}
       {!intro && sub && (
-        <p className="font-mono" style={{ fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)' }}>
+        <motion.p
+          className="font-mono"
+          style={{ fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-faint)' }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.18 }}
+        >
           {sub}
-        </p>
+        </motion.p>
       )}
+
+      {/* Ink rule divider below header */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
+        style={{ transformOrigin: 'left', marginTop: '0.5rem' }}
+        aria-hidden="true"
+      >
+        <InkStroke kind="scratch" width="100%" height={6} strokeWidth={1.5} />
+      </motion.div>
     </header>
   );
 };
